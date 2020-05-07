@@ -1,0 +1,34 @@
+{
+  "name": "@movies/common",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "module": "index.js",
+  "source": "index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs"
+  },
+  "dependencies": {
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-apollo": "^3.1.4",
+    "apollo-boost": "^0.1.20",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.4.7",
+    "apollo-link": "^1.2.4",
+    "apollo-link-batch-http": "^1.2.4",
+    "apollo-link-context": "^1.0.10",
+    "apollo-utilities": "^1.3.2",
+    "apollo-cache": "^1.3.2"
+  },
+  "devDependencies": {
+    "microbundle-crl": "^0.13.10"
+  }
+}
