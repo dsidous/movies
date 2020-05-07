@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates/Home should render as expected 1`] = `ShallowWrapper {}`;
+
+exports[`Templates/Home should render spinner when loading 1`] = `ShallowWrapper {}`;

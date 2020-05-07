@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates/ShowCastCrew should render a spinner when loading expected 1`] = `ShallowWrapper {}`;
+
+exports[`Templates/ShowCastCrew should render as expected 1`] = `ShallowWrapper {}`;

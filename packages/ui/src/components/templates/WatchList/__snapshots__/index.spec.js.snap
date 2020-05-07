@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates/WatchList should render a spinner when loading 1`] = `ShallowWrapper {}`;
+
+exports[`Templates/WatchList should render as expected 1`] = `ShallowWrapper {}`;

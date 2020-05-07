@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atoms/MediaImage should render as expected 1`] = `ShallowWrapper {}`;
+
+exports[`Atoms/MediaImage should render with no filePath 1`] = `ShallowWrapper {}`;
