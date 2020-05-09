@@ -28,3 +28,4 @@ yarn-error.log*
 .webpack
 .serverless
 .cache
+lerna-debug.log

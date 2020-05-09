@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { auth } from '@movies/firebase';
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -9,7 +10,6 @@ import { blue, grey } from '@material-ui/core/colors';
 
 import { propTypes } from './propTypes';
 import { SignUpLink } from '../SignUpForm';
-import { auth } from '@movies/firebase';
 
 const ColorButton = withStyles(theme => ({
   root: {
