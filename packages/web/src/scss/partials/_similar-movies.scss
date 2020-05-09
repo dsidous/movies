@@ -1,0 +1,17 @@
+.similar {
+  border-top: $separator;
+  margin: 40px auto 0;
+  max-width: 960px;
+  padding: 0 10px;
+}
+
+.similar h4 {
+  padding: 10px 0 20px;
+}
+
+@media screen and (min-width: 776px) {
+  .similar .slick-slider {
+    margin: 0 auto;
+    max-width: 960px;
+  }
+}

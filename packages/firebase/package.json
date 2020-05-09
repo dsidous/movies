@@ -1,0 +1,10 @@
+{
+  "name": "@movies/firebase",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "build/index.js",
+  "dependencies": {
+    "firebase": "^7.14.0"
+  }
+}

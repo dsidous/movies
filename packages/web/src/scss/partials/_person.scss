@@ -1,0 +1,279 @@
+.person-wrapper {
+  margin: 20px 10px;
+}
+
+.person-info-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "poster poster" "info info" "bio bio";
+  grid-gap: 10px;
+}
+
+.person-poster {
+  grid-area: poster;
+
+  img {
+    border-radius: 4px;
+    box-shadow: 0 0 20px -5px #000;
+    height: auto;
+    max-width: 100%;
+  }
+
+  a {
+    display: block;
+    color: #000;
+    position: relative;
+
+    &::after {
+      background: rgba(0,0,0,.8);
+      content: '';
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transition: all linear .3s;
+      visibility: hidden;
+      width: 100%;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &::before {
+      content: 'Show images';
+      color: #fff;
+      font-size: 2em;
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      visibility: hidden;
+      z-index: 2;
+    }
+
+    &:hover::before {
+      visibility: visible;
+    }
+  }
+}
+
+.person-info {
+  grid-area: info;
+}
+
+.person-name {
+  font-weight: $fw-n;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.person-bio-wrapper {
+  grid-area: bio;
+}
+
+.person-bio {
+  white-space: pre-line;
+}
+
+.person-bio.long::after {
+  content: " ...";
+}
+
+.person-bio__hidden {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: 0.25s ease;
+  white-space: normal;
+}
+
+.person-bio__more {
+  display: none;
+}
+
+.person-bio__more-label {
+  background: #000;
+  color: #bbb;
+  cursor: pointer;
+  float: right;
+  font-size: 10px;
+  margin: 40px 10px 0 0;
+  padding: 5px 10px;
+}
+
+.person-bio__more-label::before {
+  content: "More";
+}
+
+.person-bio__more:checked ~ .person-bio.long::after {
+  display: none;
+}
+
+.person-bio__more:checked ~ .person-bio .person-bio__hidden {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+  white-space: pre-line;
+}
+
+.person-bio__more:checked ~ .person-bio .person-bio__more-label::before {
+  content: "Less";
+}
+
+.person-movies-wrapper {
+  border-top: $separator;
+  margin: 40px 0 0;
+}
+
+.person-movies-wrapper h4 {
+  padding: 20px 0;
+}
+
+.person-movies-known-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.person-movies-known {
+  text-align: center;
+  vertical-align: top;
+}
+
+.person-movies-known .movie-no-image-holder,
+.person-movies-known img {
+  border-radius: 4px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,.1);
+  cursor: pointer;
+  margin: 0 0 10px;
+  width: 100%;
+}
+
+.person-movies-known .person-movie__title {
+  font-size: 1.9vw;
+  font-weight: bold;
+  margin: 0;
+}
+
+.person-movies-grid {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+}
+
+.person-movie {
+  border: 1px solid #bbb;
+  border-bottom: none;
+  color: #333;
+  cursor: pointer;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 8fr;
+  grid-auto-rows: 60px;
+  padding: 0 10px;
+  text-align: left;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: 1px solid #bbb;
+  }
+
+  &:hover {
+    background: #bec1c2;
+    color: #333;
+  }
+
+  &__poster {
+    margin: 0;
+    text-align: center;
+
+    img {
+      display: block;
+      height: 40px;
+      margin: 0 auto;
+    }    
+  }
+
+  &__release {
+    font-size: 3vw;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 3vw;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__character {
+    font-size: 2.8vw;
+    font-weight: normal;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .person-wrapper {
+    margin: 40px auto;
+    max-width: 980px;
+    padding: 0 20px;
+  }
+  .person-info-wrapper {
+    grid-column-gap: 40px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 100px auto;
+    grid-template-areas: "poster info" "poster bio";
+    margin: 0 0 40px;
+  }
+
+  .person-name {
+    font-size: 4em;
+    position: relative;
+    
+      &::after {
+        color: rgba(170,170,170,.2);
+        content: attr(data-name);
+        font-size: 1.3em;
+        font-weight: bold;
+        left: -20px;
+        position: absolute;
+        top: -20px;
+      }
+  }
+  
+  .person-movies-wrapper h4:last-of-type {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .person-movies-known-grid {
+    grid-gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .person-movies-known .person-movie__title {
+    font-size: 16px;
+  }
+  .person-movies-grid {
+    grid-gap: 0;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 80%;
+  }
+  .person-movie {
+    display: grid;
+    grid-template-columns: 30px 70px 4fr;
+
+    &__title {
+      font-size: 16px;
+    }
+    &__release {
+      font-size: 14px;
+    }
+    &__character {
+      font-size: 14px;
+    }
+  }
+}
