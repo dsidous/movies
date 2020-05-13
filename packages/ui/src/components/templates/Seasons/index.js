@@ -6,8 +6,10 @@ import Spinner from '../../atoms/Spinner';
 import Season from '../../molecules/Season';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
+import useStyles from './styles';
 
 const Seasons = props => {
+  const classes = useStyles();
   const { loading } = props;
 
   if (loading) {
@@ -28,11 +30,11 @@ const Seasons = props => {
         linkCopy="Back to main"
       />
 
-      <ul className="seasons">
+      <ul className={classes.list}>
         {seasons
           .sort((a, b) => a.season_number - b.season_number)
           .map(season => (
-            <li className="seasons__element" key={season.season_number}>
+            <li className={classes.item} key={season.season_number}>
               <Season season={season} tvId={id} />
             </li>
           ))}

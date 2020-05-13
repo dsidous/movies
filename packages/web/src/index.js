@@ -5,14 +5,14 @@ import { ApolloProvider } from 'react-apollo';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
 
-import theme from './theme';
+import { theme, cssVariables } from './theme';
 import Root from './app/Root';
 import { client } from './app/apollo';
 import './css/main.css';
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={{ ...theme, ...cssVariables }}>
       <CssBaseline />
       <Root />
     </ThemeProvider>

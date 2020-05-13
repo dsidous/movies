@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { propTypes, defaultProps } from './propTypes';
 import MediaImage from '../MediaImage';
+import useStyles from './styles';
 
 const Cast = ({ cast, type }) => {
+  const classes = useStyles();
   const mediaType = type === 'full' ? 'miniProfile' : 'profile';
 
   return (
-    <div className={`cast__element ${type}`}>
+    <div className={`${classes.cast__element} ${type}`}>
       <Link to={`/person/${cast.id}`}>
         <MediaImage
           mediaType={mediaType}
@@ -17,7 +19,7 @@ const Cast = ({ cast, type }) => {
           name={cast.name}
           className="cast__img"
         />
-        <div className="cast__copy">
+        <div className={classes.cast__copy}>
           <strong>{cast.name}</strong>
           <br />
           <small>{cast.character}</small>

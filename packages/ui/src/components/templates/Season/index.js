@@ -6,8 +6,10 @@ import Spinner from '../../atoms/Spinner';
 import Episode from '../../molecules/Episode';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
+import useStyles from './styles';
 
 const Season = props => {
+  const classes = useStyles();
   const { loading } = props;
 
   if (loading) {
@@ -29,9 +31,9 @@ const Season = props => {
         linkCopy="Back to seasons"
       />
 
-      <ul className="episodes__wrapper">
+      <ul className={classes.season__wrapper}>
         {episodes.map(episode => (
-          <li className="episodes__element" key={episode.episode_number}>
+          <li className={classes.season__element} key={episode.episode_number}>
             <Episode episode={episode} />
           </li>
         ))}

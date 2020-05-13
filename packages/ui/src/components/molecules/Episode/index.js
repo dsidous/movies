@@ -4,8 +4,10 @@ import { FormattedDate, IntlProvider } from 'react-intl';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
+import useStyles from './styles';
 
 const Episode = props => {
+  const classes = useStyles();
   const {
     episode: { name, air_date, episode_number, overview, still_path },
   } = props;
@@ -14,8 +16,8 @@ const Episode = props => {
 
   return (
     <IntlProvider locale={navigator.language}>
-      <div className="episode">
-        <picture className="episode-poster">
+      <div className={classes.episode}>
+        <picture className={classes['episode-poster']}>
           <MediaImage
             mediaType="still"
             size={3}
@@ -23,7 +25,7 @@ const Episode = props => {
             name={name}
           />
         </picture>
-        <div className="episode-details">
+        <div className={classes['episode-details']}>
           <h3>{name}</h3>
           <h5>
             <FormattedDate
