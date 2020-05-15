@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
+import useStyles from './styles';
 
 const topGenres = [
   { id: -1, name: 'All' },
@@ -15,6 +16,7 @@ const topGenres = [
 ];
 
 const TopRatedMovies = ({ popular }) => {
+  const classes = useStyles();
   const [active, setActive] = useState(-1);
   const [topMovies, setTopMovies] = useState(popular.slice(0, 5));
 
@@ -73,17 +75,14 @@ const TopRatedMovies = ({ popular }) => {
     <div>
       {topMovies && (
         <div>
-          <h3 className="top-list-main-title">Movies of the day</h3>
-          <ul className="top-genres-list">{genresList()}</ul>
-          <div className="top-list">
+          <h3 className={classes.header}>Movies of the day</h3>
+          <ul className={classes.menu}>{genresList()}</ul>
+          <div className={classes.root}>
             {topMovies.map((movie, i) => (
               <Link
                 to={`/movie/${movie.id}`}
                 key={movie.id}
-                className={[
-                  'top-list__element',
-                  i === 0 ? 'featured' : '',
-                ].join(' ')}
+                className={[classes.item, i === 0 ? 'featured' : ''].join(' ')}
               >
                 {movie.poster_path !== null && i === 0 && (
                   <MediaImage
@@ -101,7 +100,7 @@ const TopRatedMovies = ({ popular }) => {
                     name={movie.title}
                   />
                 )}
-                <div className="top-list__element-title">{movie.title}</div>
+                <div className={classes.title}>{movie.title}</div>
               </Link>
             ))}
           </div>

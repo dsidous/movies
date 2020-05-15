@@ -68,7 +68,10 @@ const SignInForm = () => {
         type="email"
         label="Email address"
         value={email}
-        onChange={event => setState(s => ({ ...s, email: event.target.value }))}
+        onChange={event => {
+          event.persist();
+          return setState(s => ({ ...s, email: event.target.value }));
+        }}
         margin="normal"
         variant="outlined"
         fullWidth
@@ -81,9 +84,10 @@ const SignInForm = () => {
         label="Password"
         type="password"
         value={password}
-        onChange={event =>
-          setState(s => ({ ...s, password: event.target.value }))
-        }
+        onChange={event => {
+          event.persist();
+          return setState(s => ({ ...s, password: event.target.value }));
+        }}
         margin="normal"
         variant="outlined"
         fullWidth

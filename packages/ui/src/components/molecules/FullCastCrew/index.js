@@ -3,6 +3,7 @@ import React from 'react';
 import { propTypes } from './propTypes';
 import Cast from '../../atoms/Cast';
 import MediaImage from '../../atoms/MediaImage';
+import useStyles from './styles';
 
 const FullCastCrew = props => {
   const {
@@ -10,11 +11,12 @@ const FullCastCrew = props => {
       credits: { crew, cast },
     },
   } = props;
+  const classes = useStyles();
 
   return (
     <div>
-      <div className="full-ca-cr">
-        <div className="full-ca-cr__col">
+      <div className={classes.root}>
+        <div className={classes.col}>
           <h3>
             Cast
             <span>{` ${cast.length}`}</span>
@@ -23,20 +25,19 @@ const FullCastCrew = props => {
             <Cast cast={person} type="full" key={person.credit_id} />
           ))}
         </div>
-        <div className="full-ca-cr__col">
+        <div className={classes.col}>
           <h3>
             Crew
             <span>{` ${crew.length}`}</span>
           </h3>
           {crew.map(person => (
-            <div key={person.credit_id} className="full-ca-cr__element">
+            <div key={person.credit_id} className={classes.item}>
               <MediaImage
                 mediaType="miniProfile"
                 filePath={person.profile_path}
                 name={person.name}
-                className="full-ca-cr__image"
               />
-              <div className="full-ca-cr__copy">
+              <div className={classes.copy}>
                 <strong>{person.name}</strong>
                 <br />
                 <small>{person.job}</small>
