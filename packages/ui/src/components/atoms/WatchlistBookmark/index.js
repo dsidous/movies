@@ -6,8 +6,10 @@ import {
   addMovieToWatchlist,
   FirebaseAuthContext,
 } from '../../hooks/FirebaseAuthProvider';
+import useStyles from './styles';
 
 const WatchlistBookmark = ({ movie }) => {
+  const classes = useStyles();
   const { user } = useContext(FirebaseAuthContext);
   const toggleMovie = () => {
     user.watchlist && user.watchlist[movie.id]
@@ -19,7 +21,7 @@ const WatchlistBookmark = ({ movie }) => {
 
   return (
     <div
-      className="movie-add-watchlist__wrapper"
+      className={classes.root}
       onClick={() => toggleMovie()}
       onKeyDown={() => toggleMovie()}
       role="button"
@@ -28,7 +30,8 @@ const WatchlistBookmark = ({ movie }) => {
       {user.email && (
         <span
           className={[
-            'movie-add-watchlist__icon fa',
+            classes.icon,
+            'fa',
             watchlist !== undefined ? 'fa-bookmark' : 'fa-bookmark-o',
           ].join(' ')}
         />

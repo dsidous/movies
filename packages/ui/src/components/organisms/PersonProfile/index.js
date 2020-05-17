@@ -9,6 +9,7 @@ import SEO from '../../atoms/SEO';
 import MediaImage from '../../atoms/MediaImage';
 import PersonShows from '../../molecules/PersonShows';
 import PersonKnownFor from '../../molecules/PersonKnownFor';
+import useStyles from './styles';
 
 const PersonProfile = ({
   person: {
@@ -22,6 +23,7 @@ const PersonProfile = ({
     id,
   },
 }) => {
+  const classes = useStyles();
   let firstName;
   let lastName;
 
@@ -33,9 +35,9 @@ const PersonProfile = ({
   return (
     <div>
       <SEO title={name} />
-      <div className="person-wrapper">
-        <div className="person-info-wrapper">
-          <div className="person-poster">
+      <div className={classes.root}>
+        <div className={classes.infoRoot}>
+          <div className={classes.poster}>
             <Link to={`/person/${id}/images`}>
               <MediaImage
                 className="img-responsive center-block"
@@ -46,8 +48,8 @@ const PersonProfile = ({
               />
             </Link>
           </div>
-          <div className="person-info">
-            <h3 className="person-name" data-name={lastName}>
+          <div className={classes.info}>
+            <h3 className={classes.name} data-name={lastName}>
               {firstName}
             </h3>
             <div>
@@ -77,45 +79,42 @@ const PersonProfile = ({
             </div>
           </div>
           {biography && (
-            <div className="person-bio-wrapper">
+            <div className={classes.bioRoot}>
               <h4>Biography</h4>
               <input
                 type="checkbox"
-                className="person-bio__more"
+                className={classes.more}
                 id="person-bio__more"
               />
               <div
                 className={[
-                  'person-bio',
+                  classes.bio,
                   biography.length > 500 ? 'long' : '',
                 ].join(' ')}
               >
                 <Markdown options={{ forceInline: true }}>
                   {biography.slice(0, biography.indexOf(' ', 500))}
                 </Markdown>
-                <span className="person-bio__hidden">
+                <span className={classes.hidden}>
                   <Markdown options={{ forceInline: true }}>
                     {biography.slice(biography.indexOf(' ', 500))}
                   </Markdown>
                 </span>
                 {biography.length > 500 && (
                   // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                  <label
-                    htmlFor="person-bio__more"
-                    className="person-bio__more-label"
-                  />
+                  <label htmlFor="person-bio__more" />
                 )}
               </div>
             </div>
           )}
         </div>
-        <div className="person-movies-wrapper">
+        <div className={classes.showsRoot}>
           <h4>Knonw For</h4>
-          <div className="person-movies-known-grid">
+          <div className={classes.knowns}>
             <PersonKnownFor combinedCredits={combined_credits} />
           </div>
           <h4>Acting</h4>
-          <div className="person-movies-grid">
+          <div className={classes.shows}>
             <PersonShows shows={combined_credits} />
           </div>
         </div>

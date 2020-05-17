@@ -6,23 +6,28 @@ import MediaImage from '../../atoms/MediaImage';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
+import useStyles from './styles';
 
 const PersonImages = ({
   loading,
   person: { images, name, id, birthday, profile_path },
-  config: {
-    images: { secure_base_url, profile_sizes },
-  },
+  config,
 }) => {
   if (loading) {
     return <Spinner />;
   }
 
+  const classes = useStyles();
+
+  const {
+    images: { secure_base_url, profile_sizes },
+  } = config;
+
   const list = []
     .concat(images)
     .sort((a, b) => b.vote_average - a.vote_average)
     .map(image => (
-      <figure key={image.file_path} className="cast-images__element">
+      <figure key={image.file_path} className={classes.item}>
         <a
           href={secure_base_url + profile_sizes[3] + image.file_path}
           target="_blank"
@@ -54,7 +59,7 @@ const PersonImages = ({
         linkCopy="Back to main"
       />
 
-      <div className="cast-images__container">{list}</div>
+      <div className={classes.root}>{list}</div>
     </PageTransition>
   );
 };

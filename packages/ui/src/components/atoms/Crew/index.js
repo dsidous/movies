@@ -1,12 +1,16 @@
 import React from 'react';
 import { propTypes, defaultProps } from './propTypes';
 
-const Crew = ({ crew }) => (
-  <div className="crew">
-    <div className="crew-wrapper">
+import useStyles from './styles';
+
+const Crew = ({ crew }) => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
       {crew.map((cr, i) => (
         // eslint-disable-next-line react/no-array-index-key
-        <div className="crew-element" key={`${cr.name}-${i}`}>
+        <div className={classes.item} key={`${cr.name}-${i}`}>
           <small>
             <strong>{`${cr.job}: `}</strong>
           </small>
@@ -14,8 +18,8 @@ const Crew = ({ crew }) => (
         </div>
       ))}
     </div>
-  </div>
-);
+  );
+};
 
 Crew.propTypes = propTypes;
 Crew.defaultProps = defaultProps;

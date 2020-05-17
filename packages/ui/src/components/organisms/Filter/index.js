@@ -76,9 +76,9 @@ const Filter = ({ query, media, genres, children, queryUpdate }) => {
 
   const { sort_by, with_genres, page } = state;
   return (
-    <div className={classes['filter-wrapper']}>
+    <div className={classes.root}>
       <form>
-        <FormControl variant="outlined" className="filter-element-wrapper">
+        <FormControl variant="outlined" className={classes.item}>
           <InputLabel htmlFor="shortby">Sort By</InputLabel>
           <Select
             id="shortby"
@@ -100,7 +100,7 @@ const Filter = ({ query, media, genres, children, queryUpdate }) => {
             </MenuItem>
           </Select>
         </FormControl>
-        <FormControl className="filter-element-wrapper" variant="outlined">
+        <FormControl className={classes.item} variant="outlined">
           <InputLabel>Year</InputLabel>
           <Select
             placeholder="select"
@@ -114,12 +114,14 @@ const Filter = ({ query, media, genres, children, queryUpdate }) => {
             {yearOptions}
           </Select>
         </FormControl>
-        <FilterGenres
-          genres={genres}
-          onChange={handleGenresChange}
-          value={with_genres}
-        />
-        <FormControl className="filter-element-wrapper" variant="outlined">
+        <FormControl className={classes.item} variant="outlined">
+          <FilterGenres
+            genres={genres}
+            onChange={handleGenresChange}
+            value={with_genres}
+          />
+        </FormControl>
+        <FormControl className={classes.item} variant="outlined">
           <InputLabel>Average vote</InputLabel>
           <Select
             name="vote_average.gte"

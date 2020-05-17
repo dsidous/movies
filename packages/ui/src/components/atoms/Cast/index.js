@@ -10,16 +10,15 @@ const Cast = ({ cast, type }) => {
   const mediaType = type === 'full' ? 'miniProfile' : 'profile';
 
   return (
-    <div className={`${classes.cast__element} ${type}`}>
+    <div className={`${classes.root} ${type}`}>
       <Link to={`/person/${cast.id}`}>
         <MediaImage
           mediaType={mediaType}
           size={1}
           filePath={cast.profile_path}
           name={cast.name}
-          className="cast__img"
         />
-        <div className={classes.cast__copy}>
+        <div className={classes.copy}>
           <strong>{cast.name}</strong>
           <br />
           <small>{cast.character}</small>

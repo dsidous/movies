@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 
@@ -34,7 +33,7 @@ const FilterGenres = ({ genres, onChange }) => {
   };
 
   return (
-    <FormControl className="filter-element-wrapper" variant="outlined">
+    <>
       <InputLabel htmlFor="genres">Genres</InputLabel>
       <Select
         multiple
@@ -67,7 +66,7 @@ const FilterGenres = ({ genres, onChange }) => {
           </MenuItem>
         ))}
       </Select>
-    </FormControl>
+    </>
   );
 };
 

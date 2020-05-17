@@ -1,11 +1,14 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@material-ui/core/styles';
 
 import { propTypes } from './propTypes';
 import NoImage from '../../../images/noimage.jpg';
 import NoBdImage from '../../../images/nobdimage.jpg';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
+
+import useStyles from './styles';
 
 const MovieCard = ({ img_base_path, movie, media }) => {
   const {
@@ -26,28 +29,35 @@ const MovieCard = ({ img_base_path, movie, media }) => {
     poster_path !== null
       ? [img_base_path + poster_path, img_base_path + backdrop_path]
       : [NoImage, NoBdImage];
+  const classes = useStyles();
+  const theme = useTheme();
 
   return (
-    <li className="movies-list__element">
+    <li className={classes.root}>
       <Link to={`/${media}/${id}`}>
-        <picture className="movies-poster">
-          <source media="(min-width: 941px)" srcSet={imagePath[0]} />
-          <source media="(max-width: 940px)" srcSet={imagePath[1]} />
-          <img src={imagePath[0]} className="movies-poster" alt={mtitle} />
+        <picture className={classes.poster}>
+          <source
+            media={`(min-width: ${theme.breakpoints.values.md}px)`}
+            srcSet={imagePath[0]}
+          />
+          <source
+            media={`(max-width: ${theme.breakpoints.values.md}px)`}
+            srcSet={imagePath[1]}
+          />
+          <img className={classes.poster} src={imagePath[0]} alt={mtitle} />
         </picture>
       </Link>
-      <div className="clearfix">
-        <div className="movies-title">{mtitle}</div>
-        <div className="movies-rating">{vote_average}</div>
+      <div>
+        <div className={classes.title}>{mtitle}</div>
+        <div className={classes.rating}>{vote_average}</div>
       </div>
-      <div className="clearfix">
-        <div className="movies-year">{date.slice(0, 4)}</div>
+      <div>
+        <div className={classes.year}>{date.slice(0, 4)}</div>
       </div>
       <div
-        className={[
-          'movies-overview ',
-          overview.length > 200 ? 'long' : '',
-        ].join(' ')}
+        className={[classes.overview, overview.length > 200 ? 'long' : ''].join(
+          ' ',
+        )}
       >
         {overview.slice(0, overview.indexOf(' ', 200))}
       </div>

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
 import { propTypes } from './propTypes';
 
+import useStyles from './styles';
 import 'react-modal-video/css/modal-video.min.css';
 
 const PlayTrailer = ({ video: { key } }) => {
+  const classes = useStyles();
   const [isOpen, setIsopen] = useState(false);
 
   const openModal = () => {
@@ -12,14 +14,14 @@ const PlayTrailer = ({ video: { key } }) => {
   };
 
   return (
-    <div className="play-trailer-wrapper">
+    <div className={classes.root}>
       <ModalVideo
         channel="youtube"
         isOpen={isOpen}
         videoId={key}
         onClose={() => setIsopen(false)}
       />
-      <button type="button" className="play-trailer" onClick={openModal}>
+      <button type="button" className={classes.playButton} onClick={openModal}>
         <span>
           <i className="fa fa-angle-right" />
           {' Watch Trailer'}

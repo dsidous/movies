@@ -10,15 +10,15 @@ const MiniHeader = ({ title, release_date, poster_path, link, linkCopy }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes['mini-header']}>
-      <div className={classes['mini-header__inner']}>
+    <div className={classes.root}>
+      <div className={classes.inner}>
         <MediaImage
           mediaType="poster"
           size={1}
           filePath={poster_path}
           name={title}
         />
-        <div className={classes['mini-header__info']}>
+        <div className={classes.info}>
           <h2>
             {title}
             &nbsp;

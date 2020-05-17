@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import Style from 'style-it';
 
 import { propTypes } from './propTypes';
 import PlayTrailer from '../../atoms/PlayTrailer';
@@ -12,6 +11,7 @@ import Reviews from '../../molecules/Reviews';
 import SEO from '../../atoms/SEO';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 import LastSeason from '../../molecules/LastSeason';
+import useStyles from './styles';
 
 const ShowProfile = ({
   config: {
@@ -56,26 +56,17 @@ const ShowProfile = ({
     ? videos.filter(element => element.type === 'Trailer')[0]
     : [];
 
-  const genres_html = genres.map(genre => (
-    <li key={genre.id} className="movie-genres">
-      {genre.name}
-    </li>
-  ));
+  const genres_html = genres.map(genre => <li key={genre.id}>{genre.name}</li>);
+
+  const classes = useStyles({
+    dcolor,
+    backdropURL,
+  });
 
   return (
     <div>
-      <Style>
-        {`
-        .main-header:after {
-          background-image: radial-gradient(at 10% 30%, rgb(${dcolor[0]},${dcolor[1]},${dcolor[2]}) 0%, #342931 100%);
-        }
-        .main-header:before {
-          background-image: url(${backdropURL});
-        }
-      `}
-      </Style>
       <SEO title={showTitle} />
-      <div className="full-background">
+      <div className={classes.backdrops}>
         {backdrops[0] && (
           <FullScreenBackdrop
             backdrops={backdrops.map(
@@ -86,34 +77,34 @@ const ShowProfile = ({
         )}
       </div>
 
-      <div className="main-header">
-        <div className="main-header-inner">
-          <div className="poster">
+      <div className={classes.header}>
+        <div className={classes.headerInner}>
+          <div className={classes.poster}>
             {poster_path !== null ? (
               <img src={posterURL} alt="poster" />
             ) : (
-              <div className="movie-no-image-holder" />
+              <div className={classes.noImage} />
             )}
             <WatchlistBookmark movie={show} />
           </div>
-          <div className="movie-data">
-            <h1 className="movie-title">
+          <div className={classes.data}>
+            <h1 className={classes.title}>
               {showTitle}
-              <span className="movie-rating">{vote_average}</span>
+              <span className={classes.rating}>{vote_average}</span>
             </h1>
 
-            <ul className="title-tags">
+            <ul className={classes.titleTags}>
               <li>{showDate.slice(0, 4)}</li>
               {runtime && <li>{`${runtime} min`}</li>}
               <li>
-                <ul className="title-tags__genres">{genres_html}</ul>
+                <ul className={classes.genres}>{genres_html}</ul>
               </li>
             </ul>
 
-            <h4 className="movie-tagline">{tagline}</h4>
+            <h4 className={classes.tagline}>{tagline}</h4>
           </div>
 
-          <div className="overview">
+          <div className={classes.overview}>
             <h4>Overview</h4>
             {overview}
           </div>
