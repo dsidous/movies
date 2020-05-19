@@ -20,6 +20,8 @@ import SignUp from '../components/pages/SignUp';
 import Login from '../components/pages/Login';
 import ScrollToTop from '../components/utils/ScrollToTop';
 
+import useStyles from './styles';
+
 const routes = [
   { path: '/movie/:movieId', component: Movie },
   { path: '/person/:personId', component: Person },
@@ -50,15 +52,18 @@ const MatchWithMainLayout = ({ path, component: Component }) => (
   />
 );
 
-const Root = () => (
-  <FirebaseAuthProvider>
-    <Router>
-      <ScrollToTop />
-      {routes.map(({ path, component }) => (
-        <MatchWithMainLayout key={path} path={path} component={component} />
-      ))}
-    </Router>
-  </FirebaseAuthProvider>
-);
+const Root = () => {
+  useStyles();
+  return (
+    <FirebaseAuthProvider>
+      <Router>
+        <ScrollToTop />
+        {routes.map(({ path, component }) => (
+          <MatchWithMainLayout key={path} path={path} component={component} />
+        ))}
+      </Router>
+    </FirebaseAuthProvider>
+  );
+};
 
 export default Root;

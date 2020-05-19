@@ -67,4 +67,10 @@ export default makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  thumbnail: {
+    height: 50,
+    marginLeft: '-10px',
+    marginRight: 10,
+  },
 }));

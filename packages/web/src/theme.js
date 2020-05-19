@@ -1,6 +1,12 @@
 import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
+export const cssVariables = {
+  bgColor: 'linear-gradient(to bottom, #ECF0F3, #d4d0d0)',
+  cardBg: 'linear-gradient(to bottom, #ffffff, #eeeded) fixed',
+  separator: '5px solid #bcbcbc',
+};
+
 // A custom theme for this app
 export const theme = createMuiTheme({
   palette: {
@@ -13,14 +19,5 @@ export const theme = createMuiTheme({
     error: {
       main: red.A400,
     },
-    background: {
-      default: '#000',
-    },
   },
 });
-
-export const cssVariables = {
-  bgColor: 'linear-gradient(to bottom, #ECF0F3, #d4d0d0)',
-  cardBg: 'linear-gradient(to bottom, #ffffff, #eeeded) fixed',
-  separator: '5px solid #bcbcbc',
-};

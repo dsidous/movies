@@ -38,6 +38,12 @@ export default makeStyles(
         opacity: '.8',
         transform: 'scale(.98)',
       },
+
+      '&.featured': {
+        [theme.breakpoints.up('sm')]: {
+          gridRow: '1 / span 2',
+        },
+      },
     },
 
     title: {
@@ -46,12 +52,6 @@ export default makeStyles(
       left: 10,
       position: 'absolute',
       textShadow: '0 0 5px #000',
-    },
-
-    featured: {
-      [theme.breakpoints.up('sm')]: {
-        gridRow: '1 / span 2',
-      },
     },
 
     menu: {

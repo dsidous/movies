@@ -7,6 +7,8 @@ import { propTypes } from './propTypes';
 import MovieCard from '../MovieCard';
 import Spinner from '../../atoms/Spinner';
 
+import useStyles from './styles';
+
 const Result = ({
   shows,
   config: {
@@ -16,6 +18,7 @@ const Result = ({
   loading,
   configLoading,
 }) => {
+  const classes = useStyles();
   const img_base_path = secure_base_url + poster_sizes[3];
 
   if (loading || configLoading) {
@@ -23,7 +26,7 @@ const Result = ({
   }
 
   return (
-    <ul className="movies-list">
+    <ul className={classes.root}>
       {shows.map(movie => (
         <MovieCard
           key={movie.id}

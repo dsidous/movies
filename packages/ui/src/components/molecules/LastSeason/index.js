@@ -3,16 +3,20 @@ import { Link } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
 import Season from '../Season';
+import useStyles from './styles';
 
-const LastSeason = ({ tvId, season }) => (
-  <div className="last-season">
-    <h4>Last season</h4>
-    <Season season={season} tvId={tvId} />
-    <Link to={`/tv/${tvId}/seasons`} className="all-seasons-btn">
-      View All Seasons
-    </Link>
-  </div>
-);
+const LastSeason = ({ tvId, season }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <h4>Last season</h4>
+      <Season season={season} tvId={tvId} />
+      <Link to={`/tv/${tvId}/seasons`} className={classes.allBtn}>
+        View All Seasons
+      </Link>
+    </div>
+  );
+};
 
 LastSeason.propTypes = propTypes;
 

@@ -72,41 +72,39 @@ const TopRatedMovies = ({ popular }) => {
     ));
 
   return (
-    <div>
-      {topMovies && (
-        <div>
-          <h3 className={classes.header}>Movies of the day</h3>
-          <ul className={classes.menu}>{genresList()}</ul>
-          <div className={classes.root}>
-            {topMovies.map((movie, i) => (
-              <Link
-                to={`/movie/${movie.id}`}
-                key={movie.id}
-                className={[classes.item, i === 0 ? 'featured' : ''].join(' ')}
-              >
-                {movie.poster_path !== null && i === 0 && (
-                  <MediaImage
-                    mediaType="poster"
-                    size={5}
-                    filePath={movie.poster_path}
-                    name={movie.title}
-                  />
-                )}
-                {movie.backdrop_path !== null && i !== 0 && (
-                  <MediaImage
-                    mediaType="poster"
-                    size={5}
-                    filePath={movie.backdrop_path}
-                    name={movie.title}
-                  />
-                )}
-                <div className={classes.title}>{movie.title}</div>
-              </Link>
-            ))}
-          </div>
+    topMovies && (
+      <div>
+        <h3 className={classes.header}>Movies of the day</h3>
+        <ul className={classes.menu}>{genresList()}</ul>
+        <div className={classes.root}>
+          {topMovies.map((movie, i) => (
+            <Link
+              to={`/movie/${movie.id}`}
+              key={movie.id}
+              className={[classes.item, i === 0 ? 'featured' : ''].join(' ')}
+            >
+              {movie.poster_path !== null && i === 0 && (
+                <MediaImage
+                  mediaType="poster"
+                  size={5}
+                  filePath={movie.poster_path}
+                  name={movie.title}
+                />
+              )}
+              {movie.backdrop_path !== null && i !== 0 && (
+                <MediaImage
+                  mediaType="poster"
+                  size={5}
+                  filePath={movie.backdrop_path}
+                  name={movie.title}
+                />
+              )}
+              <div className={classes.title}>{movie.title}</div>
+            </Link>
+          ))}
         </div>
-      )}
-    </div>
+      </div>
+    )
   );
 };
 

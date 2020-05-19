@@ -9,8 +9,12 @@ import MovieCard from '../../molecules/MovieCard';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 
+import useStyles from './styles';
+
 const WatchList = props => {
   const { configLoading } = props;
+  const classes = useStyles();
+
   if (configLoading) {
     return <Spinner />;
   }
@@ -23,9 +27,9 @@ const WatchList = props => {
     <PageTransition>
       <FirebaseAuthContext.Consumer>
         {({ user, authUser }) => (
-          <div>
+          <div className={classes.root}>
             {_.size(user.watchlist) > 0 ? (
-              <ul className="movies-list movies-list--watchlist">
+              <ul className={classes.list}>
                 {_.map(user.watchlist, movie => {
                   const media =
                     movie.__typename === 'Tv_detailed' ||

@@ -32,6 +32,7 @@ const renderMenuItemChildren = ({
     images: { secure_base_url, poster_sizes, profile_sizes },
   } = config;
   const isHighlighted = highlightedIndex === index;
+  const classes = useStyles();
 
   const listTitle = [
     title || name,
@@ -59,7 +60,7 @@ const renderMenuItemChildren = ({
       {...getItemProps({ item: option })}
     >
       <span>
-        <img src={listImage} className="movie-search-img-thumb" alt="#" />
+        <img src={listImage} className={classes.thumbnail} alt="#" />
       </span>
       <span>{listTitle}</span>
     </MenuItem>

@@ -6,6 +6,8 @@ import PageTransition from '../../atoms/PageTransition';
 import TopRatedMovies from '../../organisms/TopRatedMovies';
 import HomeList from '../../atoms/HomeList';
 
+import useStyles from './styles';
+
 const Home = ({
   nowPlayingLoading,
   popularLoading,
@@ -18,11 +20,13 @@ const Home = ({
     return <Spinner />;
   }
 
+  const classes = useStyles();
+
   return (
     <PageTransition>
       <TopRatedMovies popular={popular} />
 
-      <div className="top-lists-wrapper">
+      <div className={classes.root}>
         <HomeList list={nowplaying.slice(0, 10)} title="In Theatres" />
         <HomeList list={upcoming.slice(0, 10)} title="Upcoming Movies" />
       </div>

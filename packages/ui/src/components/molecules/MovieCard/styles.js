@@ -36,11 +36,9 @@ export default makeStyles(
 
     poster: {
       cursor: 'pointer',
+      display: 'block',
+      height: '100%',
       width: '100%',
-
-      '& img': {
-        width: '100%',
-      },
     },
 
     noImage: {
