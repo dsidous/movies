@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  () => ({
+  {
     root: {
       background: '#eee',
       borderTop: '10px solid #ddd',
@@ -25,6 +25,9 @@ export default makeStyles(
 
     info: {
       alignSelf: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyItems: 'center',
 
       '& h2': {
         margin: 0,
@@ -34,10 +37,14 @@ export default makeStyles(
         },
       },
 
-      '& h4 a': {
-        color: '#999',
+      '& h4': {
+        margin: '5px 0',
+
+        '& a': {
+          color: '#999',
+        },
       },
     },
-  }),
+  },
   { name: 'miniHeader' },
 );
