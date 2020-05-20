@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
@@ -8,15 +7,7 @@ import Container from '@material-ui/core/Container';
 import SignInFacebook from '../../molecules/SignInFacebook';
 import SignUpForm from '../../molecules/SignUpForm';
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(3),
-    padding: theme.spacing(5, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-}));
+import useStyles from './styles';
 
 const SignUpPage = () => {
   const classes = useStyles();

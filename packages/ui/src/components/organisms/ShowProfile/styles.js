@@ -131,9 +131,8 @@ export default makeStyles(
 
     title: {
       color: '#fff',
-      fontFamily: '$ff-m',
       fontSize: 20,
-      fontWeight: '$fw-n',
+      fontWeight: theme.fontWeightLight,
       letterSpacing: 1,
       margin: 0,
 

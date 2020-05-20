@@ -84,7 +84,7 @@ export default makeStyles(
     },
 
     name: {
-      fontWeight: '$fw-n',
+      fontWeight: theme.fontWeightLight,
       marginBottom: 0,
       marginTop: 0,
 

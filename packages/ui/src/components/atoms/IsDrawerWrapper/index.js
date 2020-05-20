@@ -5,24 +5,28 @@ import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
 import { propTypes } from './propTypes';
 
+import useStyles from './styles';
+
 const IsDrawerWrapper = ({
   children,
   width,
   mobileOpen,
   handleDrawerToggle,
-  classes: { drawerPaper },
-}) =>
-  isWidthUp('md', width) ? (
-    children
-  ) : (
+}) => {
+  if (isWidthUp('md', width)) {
+    return children;
+  }
+
+  const classes = useStyles();
+
+  return (
     <Drawer
-      // container={container}
       variant="temporary"
       anchor="left"
       open={mobileOpen}
       onClose={handleDrawerToggle}
       classes={{
-        paper: drawerPaper,
+        paper: classes.root,
       }}
       ModalProps={{
         keepMounted: true,
@@ -32,6 +36,7 @@ const IsDrawerWrapper = ({
       {children}
     </Drawer>
   );
+};
 
 export default withWidth()(IsDrawerWrapper);
 

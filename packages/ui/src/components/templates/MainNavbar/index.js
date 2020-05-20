@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -17,51 +16,7 @@ import UserMenuNotLoggedIn from '../../atoms/UserMenuNotLoggedIn';
 import UserMenuLoggedIn from '../../atoms/UserMenuLoggedIn';
 import IsDrawerWrapper from '../../atoms/IsDrawerWrapper';
 
-const useStyles = makeStyles(theme => ({
-  appBar: {
-    background: '#1f1d1d',
-    maxHeight: '63px',
-  },
-  logo: {
-    marginRight: theme.spacing(2),
-    whiteSpace: 'nowrap',
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-  menuList: {
-    display: 'flex',
-    flexGrow: 1,
-    padding: 0,
-  },
-  menuListUser: {
-    display: 'flex',
-    padding: 0,
-  },
-  menuItem: {
-    color: '#fff',
-    textDecoration: 'none',
-  },
-  searchMenu: {
-    overflow: 'visible',
-  },
-  drawerPaper: {
-    background: '#000',
-
-    '& $menuList': {
-      flexDirection: 'column',
-      marginTop: theme.spacing(3),
-
-      '& $menuItem': {
-        padding: '0 16px',
-        width: '100%',
-      },
-    },
-  },
-}));
+import useStyles from './styles';
 
 const MainNavbar = props => {
   const classes = useStyles();
@@ -85,7 +40,7 @@ const MainNavbar = props => {
   };
 
   return (
-    <AppBar color="primary" className={classes.appBar}>
+    <AppBar color="primary" className={classes.root}>
       <Toolbar variant="dense">
         <IconButton
           color="inherit"
@@ -96,17 +51,14 @@ const MainNavbar = props => {
         >
           <MenuIcon />
         </IconButton>
-        <Link to="/" className={classes.menuItem}>
-          <Typography variant="h6" className={classes.logo}>
-            Movie Search
-          </Typography>
+        <Link to="/" className={classes.logo}>
+          <Typography variant="h6">Movie Search</Typography>
         </Link>
         <IsDrawerWrapper
-          classes={classes}
           mobileOpen={mobileOpen}
           handleDrawerToggle={handleDrawerToggle}
         >
-          <MainMenu classes={classes} />
+          <MainMenu />
         </IsDrawerWrapper>
         <div style={{ flexGrow: 1 }} />
         <NavSearch config={config} />

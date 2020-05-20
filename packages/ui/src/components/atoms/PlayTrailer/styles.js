@@ -14,7 +14,6 @@ export default makeStyles(
       color: '#bbb',
       cursor: 'pointer',
       display: 'inline-block',
-      fontFamily: 'Roboto',
       fontSize: 12,
       margin: '20px 0 0',
       padding: '5px 10px',

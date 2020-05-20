@@ -8,7 +8,6 @@ import { ThemeProvider } from '@material-ui/styles';
 import { theme, cssVariables } from './theme';
 import Root from './app/Root';
 import { client } from './app/apollo';
-// import './css/main.css';
 
 ReactDOM.render(
   <ApolloProvider client={client}>

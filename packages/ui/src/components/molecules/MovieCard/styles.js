@@ -58,7 +58,6 @@ export default makeStyles(
     title: {
       display: 'block',
       float: 'left',
-      fontFamily: '$ff-m',
       fontSize: 20,
       margin: '10px 0 0 10px',
       overflow: 'hidden',
@@ -70,7 +69,6 @@ export default makeStyles(
     rating: {
       display: 'block',
       float: 'right',
-      fontFamily: '$ff-m',
       fontSize: 20,
       margin: '10px 10px 0 0',
       paddingLeft: 22,
