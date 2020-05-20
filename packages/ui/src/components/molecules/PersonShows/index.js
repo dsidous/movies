@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Rating from '@material-ui/lab/Rating';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
@@ -19,7 +20,7 @@ const PersonShows = ({ shows: { cast } }) => {
 
   return sortedShow.map((show, i) => {
     const classes = useStyles();
-    const { id, poster_path, character } = show;
+    const { id, poster_path, character, vote_average } = show;
     const showAttr = show.release_date
       ? { title: 'title', releaseDate: 'release_date', showType: 'movie' }
       : { title: 'name', releaseDate: 'first_air_date', showType: 'tv' };
@@ -39,17 +40,27 @@ const PersonShows = ({ shows: { cast } }) => {
             name={title}
           />
         </p>
+        <p className={classes.title}>
+          {title}
+          {character && (
+            <div className={classes.character}>{` as ${character}`}</div>
+          )}
+        </p>
         <p className={classes.release}>
           {releaseDate !== '' && releaseDate !== undefined
             ? releaseDate.substr(0, 4)
             : ''}
         </p>
-        <p className={classes.title}>
-          {title}
-          {character && (
-            <span className={classes.character}>{` as ${character}`}</span>
-          )}
-        </p>
+        {!!vote_average && (
+          <Rating
+            className={classes.rating}
+            name="size-small"
+            value={vote_average / 2}
+            size="small"
+            precision={0.5}
+            readOnly
+          />
+        )}
       </Link>
     );
   });

@@ -113,7 +113,7 @@ const PersonProfile = ({
           <div className={classes.knowns}>
             <PersonKnownFor combinedCredits={combined_credits} />
           </div>
-          <h4>Acting</h4>
+          <h4>Filmography</h4>
           <div className={classes.shows}>
             <PersonShows shows={combined_credits} />
           </div>

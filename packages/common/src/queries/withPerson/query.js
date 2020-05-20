@@ -18,7 +18,7 @@ export const query = gql`
             character
             release_date
             poster_path
-            vote_count
+            vote_average
             media_type
           }
           ... on Person_Tv_Cast_Credit {
@@ -28,7 +28,7 @@ export const query = gql`
             episode_count
             first_air_date
             poster_path
-            vote_count
+            vote_average
             media_type
           }
         }
