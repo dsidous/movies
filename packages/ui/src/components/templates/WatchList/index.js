@@ -4,7 +4,7 @@ import _ from 'lodash';
 import React from 'react';
 
 import { propTypes } from './propTypes';
-import { FirebaseAuthContext } from '../../hooks/FirebaseAuthProvider';
+import FirebaseAuthContext from '../../context/FirebaseAuthContext';
 import MovieCard from '../../molecules/MovieCard';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
@@ -28,7 +28,7 @@ const WatchList = props => {
       <FirebaseAuthContext.Consumer>
         {({ user, authUser }) => (
           <div className={classes.root}>
-            {_.size(user.watchlist) > 0 ? (
+            {_.size(authUser && user?.watchlist) > 0 ? (
               <ul className={classes.list}>
                 {_.map(user.watchlist, movie => {
                   const media =

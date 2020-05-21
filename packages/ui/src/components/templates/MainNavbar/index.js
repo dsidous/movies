@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 
 import { propTypes } from './propTypes';
-import { FirebaseAuthContext } from '../../hooks/FirebaseAuthProvider';
+import FirebaseAuthContext from '../../context/FirebaseAuthContext';
 import NavSearch from '../../atoms/NavSearch';
 import MainMenu from '../../atoms/MainMenu';
 import UserMenuNotLoggedIn from '../../atoms/UserMenuNotLoggedIn';
@@ -29,7 +29,7 @@ const MainNavbar = props => {
         !authUser ? (
           <UserMenuNotLoggedIn classes={classes} />
         ) : (
-          <UserMenuLoggedIn username={user.username} classes={classes} />
+          <UserMenuLoggedIn username={user?.username} classes={classes} />
         )
       }
     </FirebaseAuthContext.Consumer>

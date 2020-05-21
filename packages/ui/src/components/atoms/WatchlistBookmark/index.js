@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
+import { firebase } from '@movies/firebase';
 
+import FirebaseAuthContext from '../../context/FirebaseAuthContext';
 import { propTypes } from './propTypes';
-import {
-  removeMovieFromWatchlist,
-  addMovieToWatchlist,
-  FirebaseAuthContext,
-} from '../../hooks/FirebaseAuthProvider';
+
 import useStyles from './styles';
 
 const WatchlistBookmark = ({ movie }) => {
   const classes = useStyles();
-  const { user } = useContext(FirebaseAuthContext);
+  const { authUser, user } = useContext(FirebaseAuthContext);
+  const userRef = firebase.db.ref(`users/${user?.uid}`);
+
   const toggleMovie = () => {
     user.watchlist && user.watchlist[movie.id]
-      ? removeMovieFromWatchlist(movie.id)
-      : addMovieToWatchlist(movie);
+      ? userRef.child(`watchlist/${movie.id}`).remove()
+      : userRef.child(`watchlist/${movie.id}`).update(movie);
   };
 
   const watchlist = user && user.watchlist && user.watchlist[movie.id];
@@ -27,7 +27,7 @@ const WatchlistBookmark = ({ movie }) => {
       role="button"
       tabIndex="-1"
     >
-      {user.email && (
+      {authUser && (
         <span
           className={[
             classes.icon,
