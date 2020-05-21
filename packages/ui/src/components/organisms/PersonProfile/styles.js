@@ -163,13 +163,6 @@ export default makeStyles(
 
       '& h4': {
         padding: '20px 0',
-
-        [theme.breakpoints.up('sm')]: {
-          '&:last-of-type': {
-            margin: '0 auto',
-            width: '80%',
-          },
-        },
       },
     },
 
@@ -191,7 +184,6 @@ export default makeStyles(
 
       [theme.breakpoints.up('sm')]: {
         margin: '0 auto',
-        width: '80%',
       },
     },
   }),
