@@ -1,5 +1,6 @@
 {
   "name": "@movies/web",
+  "homepage": "http://movie-search.tamasjonas.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
