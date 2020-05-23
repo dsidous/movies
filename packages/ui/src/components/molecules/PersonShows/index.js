@@ -30,6 +30,10 @@ const PersonShows = ({ shows: { cast } }) => {
     const { showType } = showAttr;
     const key = `${title}${id}-${i}`;
 
+    if (!title || releaseDate === '') {
+      return null;
+    }
+
     return (
       <Link to={`/${showType}/${id}`} key={key} className={classes.root}>
         <p className={classes.poster}>
@@ -40,12 +44,12 @@ const PersonShows = ({ shows: { cast } }) => {
             name={title}
           />
         </p>
-        <p className={classes.title}>
+        <div className={classes.title}>
           {title}
           {character && (
             <div className={classes.character}>{` as ${character}`}</div>
           )}
-        </p>
+        </div>
         <p className={classes.release}>
           {releaseDate !== '' && releaseDate !== undefined
             ? releaseDate.substr(0, 4)

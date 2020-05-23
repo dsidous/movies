@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import { FirebaseAuthProvider } from '@movies/ui';
+import { FirebaseAuthProvider, SnackBarProvider } from '@movies/ui';
 
 import MainLayout from '../components/layouts/MainLayout';
 import Movie from '../components/pages/Movie';
@@ -56,12 +56,14 @@ const Root = () => {
   useStyles();
   return (
     <FirebaseAuthProvider>
-      <Router>
-        <ScrollToTop />
-        {routes.map(({ path, component }) => (
-          <MatchWithMainLayout key={path} path={path} component={component} />
-        ))}
-      </Router>
+      <SnackBarProvider>
+        <Router>
+          <ScrollToTop />
+          {routes.map(({ path, component }) => (
+            <MatchWithMainLayout key={path} path={path} component={component} />
+          ))}
+        </Router>
+      </SnackBarProvider>
     </FirebaseAuthProvider>
   );
 };

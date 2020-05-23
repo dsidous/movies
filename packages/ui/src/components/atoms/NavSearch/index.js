@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import { withRouter } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import Downshift from 'downshift';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
@@ -84,7 +84,9 @@ const FetchItems = withSearch()(Items);
 
 const NavSearch = props => {
   const classes = useStyles();
-  const { history, config } = props;
+  const history = useHistory();
+
+  const { config } = props;
 
   return (
     <Downshift
@@ -130,6 +132,6 @@ const NavSearch = props => {
   );
 };
 
-export default withRouter(NavSearch);
+export default NavSearch;
 
 NavSearch.propTypes = propTypes;

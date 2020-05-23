@@ -2,7 +2,6 @@ import { object, string } from 'prop-types';
 
 export const propTypes = {
   config: object.isRequired,
-  history: object.isRequired,
 };
 
 export const itemsProps = {
