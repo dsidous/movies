@@ -4,7 +4,7 @@ import _ from 'lodash';
 import React from 'react';
 
 import { propTypes } from './propTypes';
-import FirebaseAuthContext from '../../context/FirebaseAuthContext';
+import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
 import MovieCard from '../../molecules/MovieCard';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';

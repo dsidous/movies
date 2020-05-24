@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { firebase } from '@movies/firebase';
 
-import FirebaseAuthContext from '../../context/FirebaseAuthContext';
+import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
 import useSnackBars from '../../hooks/useSnackBars';
 import { propTypes } from './propTypes';
 

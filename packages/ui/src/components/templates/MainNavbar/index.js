@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 
 import { propTypes } from './propTypes';
-import FirebaseAuthContext from '../../context/FirebaseAuthContext';
+import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
 import NavSearch from '../../atoms/NavSearch';
 import MainMenu from '../../atoms/MainMenu';
 import UserMenuNotLoggedIn from '../../atoms/UserMenuNotLoggedIn';

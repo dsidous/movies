@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { firebase, db as dba } from '@movies/firebase';
 
-import FirebaseAuthContext from '../context/FirebaseAuthContext';
+import FirebaseAuthContext from '../contexts/FirebaseAuthContext';
 
 const FirebaseAuthProvider = ({ children }) => {
   const [state, setState] = useState({ authUser: false });

@@ -50,5 +50,5 @@ export { default as Shows } from './templates/Shows';
 export { default as SignUp } from './templates/SignUp';
 export { default as TopPeople } from './templates/TopPeople';
 export { default as WatchList } from './templates/WatchList';
-export { default as FirebaseAuthProvider } from './hooks/FirebaseAuthProvider';
-export { default as SnackBarProvider } from './hooks/SnackBarProvider';
+export { default as FirebaseAuthProvider } from './providers/FirebaseAuthProvider';
+export { default as SnackBarProvider } from './providers/SnackBarProvider';

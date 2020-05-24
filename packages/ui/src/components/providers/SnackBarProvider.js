@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
-import SnackBarContext from '../context/SnackBarContext';
+import SnackBarContext from '../contexts/SnackBarContext';
 import Message from '../atoms/Message';
 
 const AUTO_DISMISS = 5000;
