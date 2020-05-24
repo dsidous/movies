@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import SnackBarContext from '../contexts/SnackBarContext';
 import Message from '../atoms/Message';
@@ -15,9 +15,7 @@ const SnackBarProvider = ({ children }) => {
     }
   }, [alerts]);
 
-  const addAlert = alert => {
-    setAlerts(alert);
-  };
+  const addAlert = useCallback(content => setAlerts(content), []);
 
   const value = {
     addAlert,
