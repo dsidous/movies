@@ -1,5 +1,5 @@
 import { red } from '@material-ui/core/colors';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 export const cssVariables = {
   bgColor: 'linear-gradient(to bottom, #ECF0F3, #d4d0d0)',
@@ -12,7 +12,7 @@ export const cssVariables = {
 };
 
 // A custom theme for this app
-export const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       main: '#000',
@@ -34,3 +34,5 @@ export const theme = createMuiTheme({
     ].join(','),
   },
 });
+
+export default theme = responsiveFontSizes(theme);
