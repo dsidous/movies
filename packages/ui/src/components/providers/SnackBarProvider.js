@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import SnackBarContext from '../contexts/SnackBarContext';
 import Message from '../atoms/Message';
 
-const AUTO_DISMISS = 5000;
+const AUTO_DISMISS = 3000;
 
 const SnackBarProvider = ({ children }) => {
   const [alerts, setAlerts] = useState(null);
