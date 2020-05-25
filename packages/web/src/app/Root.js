@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { FirebaseAuthProvider, SnackBarProvider } from '@movies/ui';
 
 import MainLayout from '../components/layouts/MainLayout';
+import FullLayout from '../components/layouts/FullLayout';
 import Movie from '../components/pages/Movie';
 import Movies from '../components/pages/Movies';
 import Tvs from '../components/pages/Tvs';
@@ -23,32 +24,46 @@ import ScrollToTop from '../components/utils/ScrollToTop';
 import useStyles from './styles';
 
 const routes = [
-  { path: '/movie/:movieId', component: Movie },
-  { path: '/person/:personId', component: Person },
-  { path: '/person/:personId/images', component: PersonImages },
-  { path: '/movie/:movieId/crew', component: MovieCastCrew },
-  { path: '/person', component: TopPeople },
-  { path: '/', component: Home },
-  { path: '/movies', component: Movies },
-  { path: '/login', component: Login },
-  { path: '/signup', component: SignUp },
-  { path: '/watchlist', component: WatchList },
-  { path: '/tvs', component: Tvs },
-  { path: '/tv/:tvId', component: Tv },
-  { path: '/tv/:tvId/crew', component: TvCastCrew },
-  { path: '/tv/:tvId/seasons', component: Seasons },
-  { path: '/tv/:tvId/season/:season', component: Season },
+  { path: '/movie/:movieId', component: Movie, layout: 'full' },
+  { path: '/person/:personId', component: Person, layout: 'normal' },
+  {
+    path: '/person/:personId/images',
+    component: PersonImages,
+    layout: 'normal',
+  },
+  { path: '/movie/:movieId/crew', component: MovieCastCrew, layout: 'normal' },
+  { path: '/person', component: TopPeople, layout: 'normal' },
+  { path: '/', component: Home, layout: 'normal' },
+  { path: '/movies', component: Movies, layout: 'normal' },
+  { path: '/login', component: Login, layout: 'normal' },
+  { path: '/signup', component: SignUp, layout: 'normal' },
+  { path: '/watchlist', component: WatchList, layout: 'normal' },
+  { path: '/tvs', component: Tvs, layout: 'normal' },
+  { path: '/tv/:tvId', component: Tv, layout: 'full' },
+  { path: '/tv/:tvId/crew', component: TvCastCrew, layout: 'normal' },
+  { path: '/tv/:tvId/seasons', component: Seasons, layout: 'normal' },
+  { path: '/tv/:tvId/season/:season', component: Season, layout: 'normal' },
 ];
 
-const MatchWithMainLayout = ({ path, component: Component }) => (
+const MatchWithMainLayout = ({ path, component: Component, layout }) => (
   <Route
     exact
     path={path}
-    render={props => (
-      <MainLayout>
-        <Component {...props} />
-      </MainLayout>
-    )}
+    render={props => {
+      if (layout === 'full') {
+        return (
+          <FullLayout>
+            <Component {...props} />
+          </FullLayout>
+        );
+      }
+
+      return (
+        <MainLayout>
+          <Component {...props} />
+        </MainLayout>
+      );
+    }}
   />
 );
 
@@ -59,8 +74,13 @@ const Root = () => {
       <SnackBarProvider>
         <Router>
           <ScrollToTop />
-          {routes.map(({ path, component }) => (
-            <MatchWithMainLayout key={path} path={path} component={component} />
+          {routes.map(({ path, component, layout }) => (
+            <MatchWithMainLayout
+              key={path}
+              path={path}
+              component={component}
+              layout={layout}
+            />
           ))}
         </Router>
       </SnackBarProvider>

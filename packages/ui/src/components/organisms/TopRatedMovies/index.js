@@ -73,7 +73,7 @@ const TopRatedMovies = ({ popular }) => {
 
   return (
     topMovies && (
-      <div>
+      <section>
         <h3 className={classes.header}>Movies of the day</h3>
         <ul className={classes.menu}>{genresList()}</ul>
         <div className={classes.root}>
@@ -103,7 +103,7 @@ const TopRatedMovies = ({ popular }) => {
             </Link>
           ))}
         </div>
-      </div>
+      </section>
     )
   );
 };

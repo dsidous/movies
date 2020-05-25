@@ -4,11 +4,9 @@ export default makeStyles(
   theme => ({
     root: {
       gridArea: 'mcast',
-      padding: '0 10px',
 
       [theme.breakpoints.up('sm')]: {
         margin: '0 auto',
-        maxWidth: 960,
       },
 
       '& h4': {

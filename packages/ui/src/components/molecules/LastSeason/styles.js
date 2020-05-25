@@ -5,9 +5,6 @@ export default makeStyles(
     root: {
       borderTop: theme.separator,
       margin: '40px auto 0',
-      [theme.breakpoints.up('sm')]: {
-        maxWidth: 960,
-      },
 
       '& h4': {
         margin: '20px 10px',

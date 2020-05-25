@@ -4,15 +4,15 @@ import Container from '@material-ui/core/Container';
 import { propTypes } from './propTypes';
 import MainNavbar from '../../pages/MainNavbar';
 
-const MainLayout = ({ children }) => (
+const FullLayout = ({ children }) => (
   <div>
     <MainNavbar />
-    <Container component="section" maxWidth="lg">
+    <Container component="section" disableGutters maxWidth={false}>
       {children}
     </Container>
   </div>
 );
 
-MainLayout.propTypes = propTypes;
+FullLayout.propTypes = propTypes;
 
-export default MainLayout;
+export default FullLayout;

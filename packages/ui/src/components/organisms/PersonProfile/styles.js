@@ -7,8 +7,6 @@ export default makeStyles(
 
       [theme.breakpoints.up('sm')]: {
         margin: '40px auto',
-        maxWidth: 980,
-        padding: '0 20px',
       },
     },
 

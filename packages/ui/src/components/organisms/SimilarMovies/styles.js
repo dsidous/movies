@@ -5,8 +5,6 @@ export default makeStyles(
     root: {
       borderTop: theme.separator,
       margin: '40px auto 0',
-      maxWidth: 960,
-      padding: '0 10px',
 
       '& h4': {
         padding: '10px 0 20px',

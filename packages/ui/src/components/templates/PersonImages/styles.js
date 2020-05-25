@@ -12,7 +12,6 @@ export default makeStyles(
       [theme.breakpoints.up('sm')]: {
         gridGap: '40px',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        maxWidth: '960px',
       },
     },
 

@@ -4,8 +4,6 @@ export default makeStyles(
   theme => ({
     root: {
       margin: '20px auto',
-      maxWidth: '960px',
-      padding: '0 10px',
 
       '& h2': {
         margin: '40px 0',

@@ -4,7 +4,6 @@ export default makeStyles(
   theme => ({
     root: {
       margin: '40px 0 80px',
-      padding: '0 10px',
     },
     title: {
       fontSize: '1.8em',

@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { Box, Container } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import PlayTrailer from '../../atoms/PlayTrailer';
@@ -66,7 +67,7 @@ const ShowProfile = ({
   return (
     <div>
       <SEO title={showTitle} />
-      <div className={classes.backdrops}>
+      <Box className={classes.backdrops}>
         {backdrops[0] && (
           <FullScreenBackdrop
             backdrops={backdrops.map(
@@ -75,7 +76,7 @@ const ShowProfile = ({
             )}
           />
         )}
-      </div>
+      </Box>
 
       <div className={classes.header}>
         <div className={classes.headerInner}>
@@ -114,21 +115,35 @@ const ShowProfile = ({
           {crew[0] && <Crew crew={crew.slice(0, 4)} />}
         </div>
       </div>
-      {cast[0] && (
-        <TopCast
-          cast={cast.slice(0, 6)}
-          handleFullCrewClick={handleFullCrewClick}
-        />
-      )}
-      {lastSeason && <LastSeason tvId={id} season={lastSeason} />}
 
-      {reviews && reviews[0] && <Reviews reviews={reviews} />}
+      {cast[0] && (
+        <Container component="section">
+          <TopCast
+            cast={cast.slice(0, 6)}
+            handleFullCrewClick={handleFullCrewClick}
+          />
+        </Container>
+      )}
+
+      {lastSeason && (
+        <Container component="section">
+          <LastSeason tvId={id} season={lastSeason} />
+        </Container>
+      )}
+
+      {reviews && reviews[0] && (
+        <Container component="section">
+          <Reviews reviews={reviews} />
+        </Container>
+      )}
 
       {similar.results[0] && (
-        <SimilarMovies
-          similar={similar.results}
-          handleMovieClick={handleShowClick}
-        />
+        <Container component="section">
+          <SimilarMovies
+            similar={similar.results}
+            handleMovieClick={handleShowClick}
+          />
+        </Container>
       )}
     </div>
   );

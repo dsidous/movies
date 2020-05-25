@@ -15,7 +15,6 @@ export default makeStyles(
       gridTemplateColumns: '70px 4fr',
       gridColumnGap: 10,
       height: 100,
-      maxWidth: 900,
       margin: '0 auto',
 
       '& img': {

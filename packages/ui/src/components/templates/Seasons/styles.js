@@ -4,7 +4,6 @@ export default makeStyles(
   theme => ({
     list: {
       margin: '0 auto',
-      maxWidth: 960,
       padding: '0 20px',
     },
     item: {

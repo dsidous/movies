@@ -7,7 +7,6 @@ export default makeStyles(
       gridGap: '20px',
       gridTemplateColumns: '1fr',
       margin: '0 auto',
-      maxWidth: 940,
       padding: '0 20px',
 
       [theme.breakpoints.up('sm')]: {

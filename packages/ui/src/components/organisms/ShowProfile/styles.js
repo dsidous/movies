@@ -72,9 +72,9 @@ export default makeStyles(
         gridTemplateRows: 'auto',
         gridTemplateAreas:
           '"mposter mdata" "mposter moverview" "mposter mcrew" "mposter mtrailer" "mcast mcast"',
-        maxWidth: 960,
         margin: '0 auto',
-        padding: '40px 0',
+        maxWidth: theme.breakpoints.values.lg,
+        padding: `${theme.spacing(5)}px ${theme.spacing(2)}px`,
       },
     },
 

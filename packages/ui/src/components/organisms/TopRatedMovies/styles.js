@@ -7,21 +7,14 @@ export default makeStyles(
       gridGap: '10px',
       gridTemplateColumns: '1fr',
       margin: '0 auto',
-      padding: '0 10px',
 
       [theme.breakpoints.up('sm')]: {
         gridTemplateColumns: '1.555fr 2fr 2fr',
-        width: '70%',
       },
     },
 
     header: {
       margin: '40px auto',
-      padding: '0 10px',
-
-      [theme.breakpoints.up('sm')]: {
-        width: '70%',
-      },
     },
 
     item: {
@@ -57,8 +50,7 @@ export default makeStyles(
     menu: {
       listStyle: 'none',
       margin: '0 auto 20px',
-      padding: '0 10px',
-      width: '70%',
+      padding: 0,
 
       '& li': {
         cursor: 'pointer',

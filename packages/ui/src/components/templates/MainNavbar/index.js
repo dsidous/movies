@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 
+import { Container } from '@material-ui/core';
 import { propTypes } from './propTypes';
 import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
 import NavSearch from '../../atoms/NavSearch';
@@ -41,29 +42,31 @@ const MainNavbar = props => {
 
   return (
     <AppBar color="primary" className={classes.root}>
-      <Toolbar variant="dense">
-        <IconButton
-          color="inherit"
-          aria-label="Open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Link to="/" className={classes.logo}>
-          <Typography variant="h6">Movie Search</Typography>
-        </Link>
-        <IsDrawerWrapper
-          mobileOpen={mobileOpen}
-          handleDrawerToggle={handleDrawerToggle}
-        >
-          <MainMenu />
-        </IsDrawerWrapper>
-        <div style={{ flexGrow: 1 }} />
-        <NavSearch config={config} />
-        <UserMenu />
-      </Toolbar>
+      <Container maxWidth="lg">
+        <Toolbar variant="dense" disableGutters>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Link to="/" className={classes.logo}>
+            <Typography variant="h6">Movie Search</Typography>
+          </Link>
+          <IsDrawerWrapper
+            mobileOpen={mobileOpen}
+            handleDrawerToggle={handleDrawerToggle}
+          >
+            <MainMenu />
+          </IsDrawerWrapper>
+          <div style={{ flexGrow: 1 }} />
+          <NavSearch config={config} />
+          <UserMenu />
+        </Toolbar>
+      </Container>
     </AppBar>
   );
 };

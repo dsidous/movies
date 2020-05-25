@@ -23,18 +23,6 @@ export default makeStyles(theme => ({
       display: 'none',
     },
   },
-  // menuList: {
-  //   display: 'flex',
-  //   flexGrow: 1,
-  //   padding: 0,
-  // },
-  // menuListUser: {
-  //   display: 'flex',
-  //   padding: 0,
-  // },
-  // menuItem: {
-  //
-  // },
   searchMenu: {
     overflow: 'visible',
   },

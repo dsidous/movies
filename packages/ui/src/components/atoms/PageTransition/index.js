@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import { propTypes } from './propTypes';
@@ -24,7 +24,7 @@ const PageTransition = props => {
         enterActive: classes.enterActive,
       }}
     >
-      <div>{children}</div>
+      <>{children}</>
     </CSSTransition>
   );
 };

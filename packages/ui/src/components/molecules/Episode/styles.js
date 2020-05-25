@@ -5,7 +5,6 @@ export default makeStyles(() => ({
     display: 'grid',
     gridTemplateColumns: '1fr 4fr',
     gridColumnGap: 10,
-    padding: '0 10px',
   },
   'episode-poster': {
     '& img': {

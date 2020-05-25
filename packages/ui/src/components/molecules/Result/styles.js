@@ -4,8 +4,7 @@ export default makeStyles(
   theme => ({
     root: {
       margin: '0 auto',
-      maxWidth: 1150,
-      padding: '0 10px',
+      padding: 0,
 
       [theme.breakpoints.up('sm')]: {
         display: 'grid',

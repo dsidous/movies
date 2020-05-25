@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(() => ({
   season__wrapper: {
     margin: '0 auto',
-    maxWidth: 960,
     padding: '0 20px',
   },
 
