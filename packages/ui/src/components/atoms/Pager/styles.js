@@ -5,7 +5,7 @@ export default makeStyles(
     root: {
       display: 'flex',
       justifyContent: 'space-between',
-      margin: `${theme.spacing(2)}px 0`,
+      margin: theme.spacing(2, 0),
     },
   }),
   { name: 'pager' },

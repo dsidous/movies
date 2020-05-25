@@ -74,7 +74,7 @@ export default makeStyles(
           '"mposter mdata" "mposter moverview" "mposter mcrew" "mposter mtrailer" "mcast mcast"',
         margin: '0 auto',
         maxWidth: theme.breakpoints.values.lg,
-        padding: `${theme.spacing(5)}px ${theme.spacing(2)}px`,
+        padding: theme.spacing(5, 2),
       },
     },
 

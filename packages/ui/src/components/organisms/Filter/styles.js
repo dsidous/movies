@@ -9,7 +9,7 @@ export default makeStyles(
         display: 'grid',
         gridGap: theme.spacing(1),
         gridAutoFlow: 'column',
-        margin: `${theme.spacing(5)}px 0 ${theme.spacing(2)}px`,
+        margin: theme.spacing(5, 0, 2),
       },
     },
   }),

@@ -31,11 +31,11 @@ export default makeStyles(theme => ({
     color: theme.palette.common.black,
     display: 'flex',
     backgroundColor: theme.palette.common.white,
-    left: 0,
+    left: theme.spacing(-2),
     marginLeft: 0,
     position: 'absolute',
     top: '48px',
-    width: '100%',
+    width: '100vw',
     [theme.breakpoints.up('sm')]: {
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.55),
