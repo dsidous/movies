@@ -3,7 +3,7 @@ import { IntlProvider } from 'react-intl';
 import Slider from 'react-slick';
 import { useTheme } from '@material-ui/core/styles';
 
-// import { propTypes } from './propTypes';
+import { propTypes } from './propTypes';
 import SlideCard from '../SlideCard';
 
 import 'slick-carousel/slick/slick.css';
@@ -11,17 +11,47 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import useStyles from './styles';
 
+const NextArrow = props => {
+  const { className, onClick } = props;
+  const classes = useStyles();
+
+  return (
+    <div
+      className={[...className, classes.nextArrow].join(' ')}
+      onClick={onClick}
+      onKeyDown={onClick}
+      role="none"
+    />
+  );
+};
+
+const PrevArrow = props => {
+  const { className, onClick } = props;
+  const classes = useStyles();
+
+  return (
+    <div
+      className={[...className, classes.prevArrow].join(' ')}
+      onClick={onClick}
+      onKeyDown={onClick}
+      role="none"
+    />
+  );
+};
+
 const SlideList = ({ items }) => {
   const theme = useTheme();
 
   const settings = {
-    arrows: false,
+    arrows: true,
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 7,
     swipeToSlide: false,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: theme.breakpoints.values.md,
@@ -59,6 +89,6 @@ const SlideList = ({ items }) => {
   );
 };
 
-// SlideList.propTypes = propTypes;
+SlideList.propTypes = propTypes;
 
 export default SlideList;
