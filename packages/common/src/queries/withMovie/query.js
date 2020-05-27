@@ -41,6 +41,8 @@ export const query = gql`
           id
           title
           poster_path
+          release_date
+          vote_average
         }
       }
       images {
