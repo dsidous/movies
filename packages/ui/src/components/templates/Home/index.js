@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Typography, Box } from '@material-ui/core';
-import { propTypes, defaultProps } from './propTypes';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
+import Section from '../../atoms/Section';
 import TopRatedMovies from '../../organisms/TopRatedMovies';
 import SlideList from '../../molecules/SlideList';
+import { propTypes, defaultProps } from './propTypes';
 
 import useStyles from './styles';
 
@@ -27,18 +27,14 @@ const Home = ({
     <PageTransition>
       <TopRatedMovies popular={popular} />
 
-      <Box component="section" mt={7}>
-        <Typography variant="h5" gutterBottom>
-          In Theatres
-        </Typography>
+      <Section noborder disableGutters>
+        <Section.Header>In Theatres</Section.Header>
         <SlideList items={nowplaying} />
-      </Box>
-      <Box component="section" mt={7}>
-        <Typography variant="h5" gutterBottom>
-          Upcoming Movies
-        </Typography>
+      </Section>
+      <Section noborder disableGutters>
+        <Section.Header>Upcoming Movies</Section.Header>
         <SlideList items={upcoming} />
-      </Box>
+      </Section>
     </PageTransition>
   );
 };
