@@ -56,6 +56,7 @@ const SlideList = ({ items }) => {
       {
         breakpoint: theme.breakpoints.values.md,
         settings: {
+          arrows: false,
           dots: false,
           swipeToSlide: true,
           slidesToShow: 4,
@@ -65,6 +66,7 @@ const SlideList = ({ items }) => {
       {
         breakpoint: theme.breakpoints.values.sm,
         settings: {
+          arrows: false,
           dots: false,
           swipeToSlide: true,
           slidesToShow: 3,

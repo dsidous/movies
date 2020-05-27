@@ -5,22 +5,25 @@ import { FormattedDate } from 'react-intl';
 import Typography from '@material-ui/core/Typography';
 
 import MediaImage from '../../atoms/MediaImage';
+import RatingBadge from '../../atoms/RatingBadge';
 import useStyles from './styles';
 
 const SlideCard = ({
-  item: { id, title, name, poster_path, release_date },
+  item: { __typename, id, title, poster_path, release_date, vote_average },
 }) => {
   const classes = useStyles();
 
   return (
-    <Link to={`/movie/${id}`} className={classes.root}>
+    <Link to={`/${__typename}/${id}`} className={classes.root}>
       <figure className={classes.inner}>
-        <MediaImage
-          mediaType="slider"
-          size={2}
-          filePath={poster_path}
-          name={title || name}
-        />
+        <RatingBadge value={vote_average}>
+          <MediaImage
+            mediaType="slider"
+            size={2}
+            filePath={poster_path}
+            name={title || name}
+          />
+        </RatingBadge>
         <Typography component="figcaption" variant="caption">
           {title || name}
           <FormattedDate

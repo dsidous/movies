@@ -13,9 +13,9 @@ export default makeStyles(
       },
 
       '& $nextArrow, & $prevArrow': {
-        background: 'rgba(0,0,0,.7)',
-        opacity: 0,
+        background: 'rgba(0,0,0,.2)',
         height: '100%',
+        opacity: 0,
         transition: theme.transitions.create(['all'], {
           duration: theme.transitions.duration.complex,
         }),
@@ -27,6 +27,8 @@ export default makeStyles(
         },
 
         '&::before': {
+          fontFamily: 'FontAwesome',
+          fontSize: 30,
           left: '50%',
           position: 'absolute',
           top: '50%',
@@ -37,10 +39,18 @@ export default makeStyles(
 
     nextArrow: {
       right: 0,
+
+      '&::before': {
+        content: '"\\f105"',
+      },
     },
 
     prevArrow: {
       left: 0,
+
+      '&::before': {
+        content: '"\\f104"',
+      },
     },
   }),
   { name: 'slideList' },
