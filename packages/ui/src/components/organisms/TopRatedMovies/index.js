@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
+import RatingBadge from '../../atoms/RatingBadge';
 import useStyles from './styles';
 
 const topGenres = [
@@ -83,22 +84,14 @@ const TopRatedMovies = ({ popular }) => {
               key={movie.id}
               className={[classes.item, i === 0 ? 'featured' : ''].join(' ')}
             >
-              {movie.poster_path !== null && i === 0 && (
+              <RatingBadge value={movie.vote_average}>
                 <MediaImage
                   mediaType="poster"
                   size={5}
-                  filePath={movie.poster_path}
+                  filePath={i === 0 ? movie?.poster_path : movie?.backdrop_path}
                   name={movie.title}
                 />
-              )}
-              {movie.backdrop_path !== null && i !== 0 && (
-                <MediaImage
-                  mediaType="poster"
-                  size={5}
-                  filePath={movie.backdrop_path}
-                  name={movie.title}
-                />
-              )}
+              </RatingBadge>
               <div className={classes.title}>{movie.title}</div>
             </Link>
           ))}
