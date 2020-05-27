@@ -10,7 +10,6 @@ const TopCast = ({ cast, handleFullCrewClick }) => {
 
   return (
     <div className={classes.root}>
-      <h4>Top Billed Cast</h4>
       <div className={classes.castWrapper}>
         {cast.map(person => (
           <Cast cast={person} type="top" key={person.id} />

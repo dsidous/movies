@@ -2,15 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
   theme => ({
-    root: {
-      borderTop: theme.separator,
-      margin: '40px auto 0',
-
-      '& h4': {
-        margin: '20px 10px',
-      },
-    },
-
     allBtn: {
       background: 'none',
       border: 'none',

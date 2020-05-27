@@ -9,13 +9,10 @@ const Reviews = ({ reviews }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <h4>Reviews</h4>
-      <div className={classes.list}>
-        {reviews.map(review => (
-          <Review key={review.id} review={review} />
-        ))}
-      </div>
+    <div className={classes.list}>
+      {reviews.map(review => (
+        <Review key={review.id} review={review} />
+      ))}
     </div>
   );
 };

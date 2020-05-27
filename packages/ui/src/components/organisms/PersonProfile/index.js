@@ -5,6 +5,7 @@ import Markdown from 'markdown-to-jsx';
 import { Link } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
+import Section from '../../atoms/Section';
 import SEO from '../../atoms/SEO';
 import MediaImage from '../../atoms/MediaImage';
 import PersonShows from '../../molecules/PersonShows';
@@ -108,16 +109,18 @@ const PersonProfile = ({
             </div>
           )}
         </div>
-        <div className={classes.showsRoot}>
-          <h4>Knonw For</h4>
+        <Section disableGutters>
+          <Section.Header>Knonw For</Section.Header>
           <div className={classes.knowns}>
             <PersonKnownFor combinedCredits={combined_credits} />
           </div>
-          <h4>Filmography</h4>
+        </Section>
+        <Section disableGutters>
+          <Section.Header>Filmography</Section.Header>
           <div className={classes.shows}>
             <PersonShows shows={combined_credits} />
           </div>
-        </div>
+        </Section>
       </div>
     </div>
   );

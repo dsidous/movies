@@ -4,14 +4,6 @@ export default makeStyles(
   theme => ({
     root: {
       gridArea: 'mcast',
-
-      [theme.breakpoints.up('sm')]: {
-        margin: '0 auto',
-      },
-
-      '& h4': {
-        padding: '20px 0',
-      },
     },
 
     castWrapper: {

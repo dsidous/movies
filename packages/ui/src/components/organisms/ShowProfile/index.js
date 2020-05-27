@@ -3,15 +3,16 @@ import React from 'react';
 import { Box, Container } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
+import Section from '../../atoms/Section';
 import PlayTrailer from '../../atoms/PlayTrailer';
 import TopCast from '../../molecules/TopCast';
 import Crew from '../../atoms/Crew';
-import SimilarMovies from '../SimilarMovies';
 import FullScreenBackdrop from '../../atoms/FullScreenBackdrop';
 import Reviews from '../../molecules/Reviews';
 import SEO from '../../atoms/SEO';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 import LastSeason from '../../molecules/LastSeason';
+import SlideList from '../../molecules/SlideList';
 import useStyles from './styles';
 
 const ShowProfile = ({
@@ -117,33 +118,36 @@ const ShowProfile = ({
       </div>
 
       {cast[0] && (
-        <Container component="section">
+        <Section noborder>
+          <Section.Header>Top Billed Cast</Section.Header>
           <TopCast
             cast={cast.slice(0, 6)}
             handleFullCrewClick={handleFullCrewClick}
           />
-        </Container>
+        </Section>
       )}
 
       {lastSeason && (
-        <Container component="section">
+        <Section>
+          <Section.Header>Last Season</Section.Header>
           <LastSeason tvId={id} season={lastSeason} />
-        </Container>
+        </Section>
       )}
 
       {reviews && reviews[0] && (
-        <Container component="section">
+        <Section>
+          <Section.Header>Reviews</Section.Header>
           <Reviews reviews={reviews} />
-        </Container>
+        </Section>
       )}
 
       {similar.results[0] && (
-        <Container component="section">
-          <SimilarMovies
-            similar={similar.results}
-            handleMovieClick={handleShowClick}
-          />
-        </Container>
+        <Section>
+          <Section.Header>
+            {`People who liked ${showTitle} also liked`}
+          </Section.Header>
+          <SlideList items={similar.results} />
+        </Section>
       )}
     </div>
   );

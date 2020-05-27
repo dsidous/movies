@@ -9,7 +9,6 @@ const LastSeason = ({ tvId, season }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <h4>Last season</h4>
       <Season season={season} tvId={tvId} />
       <Link to={`/tv/${tvId}/seasons`} className={classes.allBtn}>
         View All Seasons
