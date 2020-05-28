@@ -20,10 +20,14 @@ export default makeStyles(
       },
 
       '#root': {
-        padding: '86px 0 100px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        minHeight: '100vh',
+        padding: '86px 0 0',
 
         [theme.breakpoints.up('sm')]: {
-          padding: '48px 0 100px',
+          padding: '48px 0 0',
         },
       },
     },

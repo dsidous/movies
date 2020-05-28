@@ -1,6 +1,7 @@
 export { default as Cast } from './atoms/Cast';
 export { default as Crew } from './atoms/Crew';
 export { default as FilterGenres } from './atoms/FilterGenres';
+export { default as Footer } from './atoms/Footer';
 export { default as FullScreenBackdrop } from './atoms/FullScreenBackdrop';
 export { default as HomeList } from './atoms/HomeList';
 export { default as MainMenu } from './atoms/MainMenu';
@@ -10,6 +11,7 @@ export { default as NavSearch } from './atoms/NavSearch';
 export { default as PageTransition } from './atoms/PageTransition';
 export { default as Pager } from './atoms/Pager';
 export { default as PlayTrailer } from './atoms/PlayTrailer';
+export { default as RatingBadge } from './atoms/RatingBadge';
 export { default as Review } from './atoms/Review';
 export { default as SEO } from './atoms/SEO';
 export { default as SignOut } from './atoms/SignOut';
