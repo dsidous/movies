@@ -8,6 +8,7 @@ import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
 import SEO from '../../atoms/SEO';
 import MediaImage from '../../atoms/MediaImage';
+import LongCopy from '../../atoms/LongCopy';
 import PersonShows from '../../molecules/PersonShows';
 import PersonKnownFor from '../../molecules/PersonKnownFor';
 import useStyles from './styles';
@@ -82,29 +83,8 @@ const PersonProfile = ({
           {biography && (
             <div className={classes.bioRoot}>
               <h4>Biography</h4>
-              <input
-                type="checkbox"
-                className={classes.more}
-                id="person-bio__more"
-              />
-              <div
-                className={[
-                  classes.bio,
-                  biography.length > 500 ? 'long' : '',
-                ].join(' ')}
-              >
-                <Markdown options={{ forceInline: true }}>
-                  {biography.slice(0, biography.indexOf(' ', 500))}
-                </Markdown>
-                <span className={classes.hidden}>
-                  <Markdown options={{ forceInline: true }}>
-                    {biography.slice(biography.indexOf(' ', 500))}
-                  </Markdown>
-                </span>
-                {biography.length > 500 && (
-                  // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                  <label htmlFor="person-bio__more" />
-                )}
+              <div className={classes.bio}>
+                <LongCopy content={biography} max={1000} />
               </div>
             </div>
           )}

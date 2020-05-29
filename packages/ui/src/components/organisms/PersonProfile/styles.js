@@ -107,61 +107,9 @@ export default makeStyles(
     },
 
     bio: {
+      display: 'flex',
+      flexDirection: 'column',
       whiteSpace: 'pre-line',
-
-      '&.long::after': {
-        content: '" ..."',
-      },
-
-      '& label': {
-        background: '#000',
-        color: '#bbb',
-        cursor: 'pointer',
-        float: 'right',
-        fontSize: 10,
-        margin: '40px 10px 0 0',
-        padding: '5px 10px',
-
-        '&::before': {
-          content: '"More"',
-        },
-      },
-    },
-
-    hidden: {
-      opacity: 0,
-      maxHeight: 0,
-      fontSize: 0,
-      transition: '0.25s ease',
-      whiteSpace: 'normal',
-    },
-
-    more: {
-      display: 'none',
-
-      '&:checked ~ $bio.long::after': {
-        display: 'none',
-      },
-
-      '&:checked ~ $bio $hidden': {
-        opacity: 1,
-        fontSize: 'inherit',
-        maxHeight: '999em',
-        whiteSpace: 'pre-line',
-      },
-
-      '&:checked ~ $bio label::before': {
-        content: '"Less"',
-      },
-    },
-
-    showsRoot: {
-      borderTop: '$separator',
-      margin: '40px 0 0',
-
-      '& h4': {
-        padding: '20px 0',
-      },
     },
 
     knowns: {

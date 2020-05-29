@@ -16,7 +16,7 @@ const PersonKnownFor = ({ combinedCredits }) => {
       <Link to={`/${movie.media_type}/${movie.id}`}>
         <MediaImage
           mediaType="poster"
-          size={1}
+          size={3}
           filePath={movie.poster_path}
           name={movie.title || movie.name}
         />
