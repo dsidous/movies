@@ -9,7 +9,7 @@ const PersonKnownFor = ({ combinedCredits }) => {
   const sorted = []
     .concat(combinedCredits.cast)
     .sort((a, b) => b.vote_count - a.vote_count)
-    .slice(0, 8);
+    .slice(0, 10);
 
   return sorted.map(movie => (
     <div key={movie.id} className={classes.root}>

@@ -119,7 +119,7 @@ export default makeStyles(
 
       [theme.breakpoints.up('sm')]: {
         gridGap: 40,
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(5, 1fr)',
       },
     },
 
