@@ -90,7 +90,7 @@ const PersonProfile = ({
           )}
         </div>
         <Section disableGutters>
-          <Section.Header>Knonw For</Section.Header>
+          <Section.Header>Known For</Section.Header>
           <div className={classes.knowns}>
             <PersonKnownFor combinedCredits={combined_credits} />
           </div>
