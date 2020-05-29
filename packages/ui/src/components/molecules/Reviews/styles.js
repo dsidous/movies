@@ -12,9 +12,6 @@ export default makeStyles(
     },
 
     list: {
-      background: '#eee',
-      borderRadius: 4,
-      boxShadow: '0 0 40px rgba(0,0,0,0.1)',
       display: 'grid',
       gridTemplateColumns: '1fr',
       padding: '0 20px 20px',
