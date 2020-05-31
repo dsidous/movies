@@ -33,6 +33,13 @@ let theme = createMuiTheme({
       'sans-serif',
     ].join(','),
   },
+  overrides: {
+    MuiSkeleton: {
+      root: {
+        backgroundColor: 'rgba(0,0,0, .1)',
+      },
+    },
+  },
 });
 
 export default theme = responsiveFontSizes(theme);
