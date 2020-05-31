@@ -1,5 +1,4 @@
 import React from 'react';
-import { compiler } from 'markdown-to-jsx';
 
 import LongCopy from '../LongCopy';
 import { propTypes } from './propTypes';

@@ -13,10 +13,6 @@ const Home = ({
   upcoming,
   popular,
 }) => {
-  // if (nowPlayingLoading || popularLoading || upcomingLoading) {
-  //   return <Spinner />;
-  // }
-
   return (
     <PageTransition>
       <TopRatedMovies popular={popular} />
