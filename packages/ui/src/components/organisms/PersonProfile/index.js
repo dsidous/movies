@@ -1,8 +1,9 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import { FormattedDate } from 'react-intl';
-import Markdown from 'markdown-to-jsx';
 import { Link } from 'react-router-dom';
+
+import Skeleton from './skeleton';
 
 import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
@@ -13,8 +14,14 @@ import PersonShows from '../../molecules/PersonShows';
 import PersonKnownFor from '../../molecules/PersonKnownFor';
 import useStyles from './styles';
 
-const PersonProfile = ({
-  person: {
+const PersonProfile = ({ person }) => {
+  const classes = useStyles();
+
+  if (!person.id) {
+    return <Skeleton />;
+  }
+
+  const {
     biography,
     birthday,
     deathday,
@@ -23,9 +30,8 @@ const PersonProfile = ({
     profile_path,
     combined_credits,
     id,
-  },
-}) => {
-  const classes = useStyles();
+  } = person;
+
   let firstName;
   let lastName;
 
