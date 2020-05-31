@@ -20,9 +20,9 @@ const TopPeople = ({ loading, toppeople }) => {
     }
   };
 
-  if (loading) {
-    return <Spinner />;
-  }
+  // if (loading) {
+  //   return <Spinner />;
+  // }
 
   return (
     <TopPeopleProfile
