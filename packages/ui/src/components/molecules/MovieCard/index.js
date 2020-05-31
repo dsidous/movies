@@ -7,10 +7,18 @@ import { propTypes } from './propTypes';
 import NoImage from '../../../images/noimage.jpg';
 import NoBdImage from '../../../images/nobdimage.jpg';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
+import Skeleton from './skeleton';
 
 import useStyles from './styles';
 
 const MovieCard = ({ img_base_path, movie, media }) => {
+  if (!movie) {
+    return <Skeleton />;
+  }
+
+  const classes = useStyles();
+  const theme = useTheme();
+
   const {
     id,
     title,
@@ -29,8 +37,6 @@ const MovieCard = ({ img_base_path, movie, media }) => {
     poster_path !== null
       ? [img_base_path + poster_path, img_base_path + backdrop_path]
       : [NoImage, NoBdImage];
-  const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <li className={classes.root}>
