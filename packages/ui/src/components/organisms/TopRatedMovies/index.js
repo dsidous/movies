@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import Skeleton from './skeleton';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
@@ -19,7 +21,11 @@ const topGenres = [
 const TopRatedMovies = ({ popular }) => {
   const classes = useStyles();
   const [active, setActive] = useState(-1);
-  const [topMovies, setTopMovies] = useState(popular.slice(0, 5));
+  const [topMovies, setTopMovies] = useState([]);
+
+  useEffect(() => {
+    setTopMovies(popular.slice(0, 5));
+  }, [popular]);
 
   const randomList = arrayMax => {
     const nbrArray = Array.from(Array(arrayMax), (_, x) => x);
@@ -72,32 +78,34 @@ const TopRatedMovies = ({ popular }) => {
       </li>
     ));
 
+  if (!popular || popular.length === 0) {
+    return <Skeleton />;
+  }
+
   return (
-    topMovies && (
-      <section>
-        <h3 className={classes.header}>Movies of the day</h3>
-        <ul className={classes.menu}>{genresList()}</ul>
-        <div className={classes.root}>
-          {topMovies.map((movie, i) => (
-            <Link
-              to={`/movie/${movie.id}`}
-              key={movie.id}
-              className={[classes.item, i === 0 ? 'featured' : ''].join(' ')}
-            >
-              <RatingBadge value={movie.vote_average}>
-                <MediaImage
-                  mediaType="poster"
-                  size={5}
-                  filePath={i === 0 ? movie?.poster_path : movie?.backdrop_path}
-                  name={movie.title}
-                />
-              </RatingBadge>
-              <div className={classes.title}>{movie.title}</div>
-            </Link>
-          ))}
-        </div>
-      </section>
-    )
+    <section>
+      <h3 className={classes.header}>Movies of the day</h3>
+      <ul className={classes.menu}>{genresList()}</ul>
+      <div className={classes.root}>
+        {topMovies.map((movie, i) => (
+          <Link
+            to={`/movie/${movie.id}`}
+            key={movie.id}
+            className={[classes.item, i === 0 ? 'featured' : ''].join(' ')}
+          >
+            <RatingBadge value={movie.vote_average}>
+              <MediaImage
+                mediaType="poster"
+                size={5}
+                filePath={i === 0 ? movie?.poster_path : movie?.backdrop_path}
+                name={movie.title}
+              />
+            </RatingBadge>
+            <div className={classes.title}>{movie.title}</div>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 };
 
