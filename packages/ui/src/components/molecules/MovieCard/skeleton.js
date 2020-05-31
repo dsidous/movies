@@ -8,7 +8,10 @@ export default () => {
   const classes = useStyles();
   return (
     <li className={classes.root} style={{ minHeight: '230px' }}>
-      <Link to=".">
+      <Link
+        to="."
+        style={{ display: 'block', height: '140px', minHeight: '100%' }}
+      >
         <Skeleton
           className={classes.poster}
           variant="rect"
