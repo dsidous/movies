@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { propTypes } from './propTypes';
-import Spinner from '../../atoms/Spinner';
+import Skeleton from './skeleton';
 import Season from '../../molecules/Season';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
@@ -13,7 +13,7 @@ const Seasons = props => {
   const { loading } = props;
 
   if (loading) {
-    return <Spinner />;
+    return <Skeleton />;
   }
 
   const {
