@@ -2,18 +2,18 @@
 import React from 'react';
 
 import { propTypes } from './propTypes';
-import Spinner from '../../atoms/Spinner';
 import Episode from '../../molecules/Episode';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 import useStyles from './styles';
+import Skeleton from './skeleton';
 
 const Season = props => {
   const classes = useStyles();
   const { loading } = props;
 
   if (loading) {
-    return <Spinner />;
+    return <Skeleton />;
   }
 
   const {
