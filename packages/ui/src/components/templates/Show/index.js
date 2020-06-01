@@ -4,9 +4,9 @@ import * as Vibrant from 'node-vibrant';
 import { useHistory } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
-import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition/index';
 import ShowProfile from '../../organisms/ShowProfile';
+import Skeleton from './skeleton';
 
 const Show = ({ loading, show, config }) => {
   const history = useHistory();
@@ -38,21 +38,21 @@ const Show = ({ loading, show, config }) => {
     }
   }, [loading, config, show]);
 
-  if (loading) {
-    return <Spinner />;
-  }
-
   return (
     <div>
       <PageTransition>
-        <ShowProfile
-          key={show.id}
-          config={config}
-          show={show}
-          dcolor={dcolor}
-          handleShowClick={handleShowClick}
-          handleFullCrewClick={handleFullCrewClick}
-        />
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <ShowProfile
+            key={show.id}
+            config={config}
+            show={show}
+            dcolor={dcolor}
+            handleShowClick={handleShowClick}
+            handleFullCrewClick={handleFullCrewClick}
+          />
+        )}
       </PageTransition>
     </div>
   );
