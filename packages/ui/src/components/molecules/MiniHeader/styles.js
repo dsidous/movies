@@ -1,11 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  {
+  theme => ({
     root: {
       background: '#eee',
-      borderTop: '10px solid #ddd',
-      borderBottom: '10px solid #ddd',
+      borderBottom: theme.separatorBold,
       fontSize: '1em',
       padding: '30px 20px',
     },
@@ -44,6 +43,6 @@ export default makeStyles(
         },
       },
     },
-  },
+  }),
   { name: 'miniHeader' },
 );

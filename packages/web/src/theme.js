@@ -5,6 +5,7 @@ export const cssVariables = {
   bgColor: 'linear-gradient(to bottom, #ECF0F3, #d4d0d0)',
   cardBg: 'linear-gradient(to bottom, #ffffff, #eeeded) fixed',
   separator: '5px solid #bcbcbc',
+  separatorBold: '10px solid #ddd',
   fontSecondary: '"Open Sans", serif',
   fontWeightLight: '300',
   fontWeightNormal: '500',
