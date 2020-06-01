@@ -22,7 +22,7 @@ const MiniHeader = ({ title, release_date, poster_path, link, linkCopy }) => {
           <h2>
             {title}
             &nbsp;
-            <span>({release_date.slice(0, 4)})</span>
+            {release_date && <span>({release_date.slice(0, 4)})</span>}
           </h2>
           <h4>
             <Link to={link}>
