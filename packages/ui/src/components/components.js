@@ -54,3 +54,4 @@ export { default as TopPeople } from './templates/TopPeople';
 export { default as WatchList } from './templates/WatchList';
 export { default as FirebaseAuthProvider } from './providers/FirebaseAuthProvider';
 export { default as SnackBarProvider } from './providers/SnackBarProvider';
+export { default as ConfigProvider } from './providers/ConfigProvider';
