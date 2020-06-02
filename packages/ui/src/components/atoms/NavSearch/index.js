@@ -10,12 +10,11 @@ import { withSearch } from '@movies/common';
 
 import useStyles from './styles';
 import { propTypes, itemsProps } from './propTypes';
-import noimage from '../../../images/noimage.jpg';
+import useConfig from '../../hooks/useConfig';
 
 const renderMenuItemChildren = ({
   index,
   option,
-  config,
   highlightedIndex,
   getItemProps,
 }) => {
@@ -28,9 +27,8 @@ const renderMenuItemChildren = ({
     poster_path,
     profile_path,
   } = option;
-  const {
-    images: { secure_base_url, poster_sizes, profile_sizes },
-  } = config;
+
+  const { getImageURL } = useConfig();
   const isHighlighted = highlightedIndex === index;
   const classes = useStyles();
 
@@ -44,15 +42,12 @@ const renderMenuItemChildren = ({
       : ' in persons',
   ].join(' ');
 
-  const listImage =
-    poster_path || profile_path
-      ? [
-          secure_base_url,
-          poster_path
-            ? [poster_sizes[0], poster_path].join('')
-            : [profile_sizes[0], profile_path].join(''),
-        ].join('')
-      : noimage;
+  const listImage = getImageURL({
+    filePath: poster_path || profile_path,
+    mediaType: title ? 'poster' : 'profile',
+    size: 0,
+  });
+
   return (
     <MenuItem
       key={id}
@@ -82,11 +77,9 @@ const Items = ({ search, loading, ...props }) =>
 
 const FetchItems = withSearch()(Items);
 
-const NavSearch = props => {
+const NavSearch = () => {
   const classes = useStyles();
   const history = useHistory();
-
-  const { config } = props;
 
   return (
     <Downshift
@@ -122,7 +115,6 @@ const NavSearch = props => {
                 selectedItem={selectedItem}
                 highlightedIndex={highlightedIndex}
                 getItemProps={getItemProps}
-                config={config}
               />
             </Paper>
           ) : null}

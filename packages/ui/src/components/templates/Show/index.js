@@ -7,9 +7,11 @@ import { propTypes } from './propTypes';
 import PageTransition from '../../atoms/PageTransition/index';
 import ShowProfile from '../../organisms/ShowProfile';
 import Skeleton from './skeleton';
+import useConfig from '../../hooks/useConfig';
 
-const Show = ({ loading, show, config }) => {
+const Show = ({ loading, show }) => {
   const history = useHistory();
+  const { getImageURL } = useConfig();
   const media = show.name ? 'tv' : 'movie';
 
   const [dcolor, setDcolor] = useState([0, 0, 0]);
@@ -26,17 +28,20 @@ const Show = ({ loading, show, config }) => {
   useEffect(() => {
     const getPalette = async () => {
       const { poster_path } = show;
-      const { images } = config;
-      const path = images.base_url + images.poster_sizes[3] + poster_path;
+      const path = getImageURL({
+        filePath: poster_path,
+        mediaType: 'poster',
+        size: 0,
+      });
       const palette = await Vibrant.from(path).getPalette();
       // eslint-disable-next-line no-underscore-dangle
       await setDcolor(palette.DarkVibrant._rgb);
     };
 
-    if (!loading) {
+    if (!loading && show.poster_path !== null) {
       getPalette();
     }
-  }, [loading, config, show]);
+  }, [loading, show]);
 
   return (
     <div>
@@ -46,7 +51,6 @@ const Show = ({ loading, show, config }) => {
         ) : (
           <ShowProfile
             key={show.id}
-            config={config}
             show={show}
             dcolor={dcolor}
             handleShowClick={handleShowClick}

@@ -7,21 +7,18 @@ import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 import useStyles from './styles';
+import useConfig from '../../hooks/useConfig';
 
 const PersonImages = ({
   loading,
   person: { images, name, id, birthday, profile_path },
-  config,
 }) => {
   if (loading) {
     return <Spinner />;
   }
 
   const classes = useStyles();
-
-  const {
-    images: { secure_base_url, profile_sizes },
-  } = config;
+  const { getImageURL } = useConfig();
 
   const list = []
     .concat(images)
@@ -29,7 +26,11 @@ const PersonImages = ({
     .map(image => (
       <figure key={image.file_path} className={classes.item}>
         <a
-          href={secure_base_url + profile_sizes[3] + image.file_path}
+          href={getImageURL({
+            filePath: image.file_path,
+            mediaType: 'profile',
+            size: 3,
+          })}
           target="_blank"
           rel="noopener noreferrer"
         >

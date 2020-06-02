@@ -6,22 +6,12 @@ import React from 'react';
 import { propTypes } from './propTypes';
 import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
 import MovieCard from '../../molecules/MovieCard';
-import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 
 import useStyles from './styles';
 
-const WatchList = props => {
-  const { configLoading } = props;
+const WatchList = () => {
   const classes = useStyles();
-
-  if (configLoading) {
-    return <Spinner />;
-  }
-
-  const { config } = props;
-  const img_base_path =
-    config.images.secure_base_url + config.images.poster_sizes[2];
 
   return (
     <PageTransition>
@@ -37,12 +27,7 @@ const WatchList = props => {
                       ? 'tv'
                       : 'movie';
                   return (
-                    <MovieCard
-                      key={movie.id}
-                      movie={movie}
-                      img_base_path={img_base_path}
-                      media={media}
-                    />
+                    <MovieCard key={movie.id} movie={movie} media={media} />
                   );
                 })}
               </ul>

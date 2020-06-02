@@ -1,8 +1,6 @@
 import { object, node } from 'prop-types';
 
-export const propTypes = {
-  config: object.isRequired,
-};
+export const propTypes = {};
 
 export const isDrawerWrapperPropTypes = {
   children: node.isRequired,

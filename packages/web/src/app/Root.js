@@ -1,6 +1,10 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import { FirebaseAuthProvider, SnackBarProvider } from '@movies/ui';
+import {
+  ConfigProvider,
+  FirebaseAuthProvider,
+  SnackBarProvider,
+} from '@movies/ui';
 
 import MainLayout from '../components/layouts/MainLayout';
 import FullLayout from '../components/layouts/FullLayout';
@@ -70,21 +74,23 @@ const MatchWithMainLayout = ({ path, component: Component, layout }) => (
 const Root = () => {
   useStyles();
   return (
-    <FirebaseAuthProvider>
-      <SnackBarProvider>
-        <Router>
-          <ScrollToTop />
-          {routes.map(({ path, component, layout }) => (
-            <MatchWithMainLayout
-              key={path}
-              path={path}
-              component={component}
-              layout={layout}
-            />
-          ))}
-        </Router>
-      </SnackBarProvider>
-    </FirebaseAuthProvider>
+    <ConfigProvider>
+      <FirebaseAuthProvider>
+        <SnackBarProvider>
+          <Router>
+            <ScrollToTop />
+            {routes.map(({ path, component, layout }) => (
+              <MatchWithMainLayout
+                key={path}
+                path={path}
+                component={component}
+                layout={layout}
+              />
+            ))}
+          </Router>
+        </SnackBarProvider>
+      </FirebaseAuthProvider>
+    </ConfigProvider>
   );
 };
 

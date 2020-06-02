@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@material-ui/core/styles';
 
 import { propTypes } from './propTypes';
-import NoImage from '../../../images/noimage.jpg';
-import NoBdImage from '../../../images/nobdimage.jpg';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 import Skeleton from './skeleton';
 
 import useStyles from './styles';
+import useConfig from '../../hooks/useConfig';
 
-const MovieCard = ({ img_base_path, movie, media }) => {
+const MovieCard = ({ movie, media }) => {
   if (!movie) {
     return <Skeleton />;
   }
 
+  const { getImageURL } = useConfig();
   const classes = useStyles();
   const theme = useTheme();
 
@@ -33,10 +33,17 @@ const MovieCard = ({ img_base_path, movie, media }) => {
 
   const mtitle = title || name;
   const date = release_date || first_air_date;
-  const imagePath =
-    poster_path !== null
-      ? [img_base_path + poster_path, img_base_path + backdrop_path]
-      : [NoImage, NoBdImage];
+  const posterURL = getImageURL({
+    filePath: poster_path,
+    mediaType: 'poster',
+    size: 1,
+  });
+
+  const backdropURL = getImageURL({
+    filePath: backdrop_path,
+    mediaType: 'backdrop',
+    size: 1,
+  });
 
   return (
     <li className={classes.root}>
@@ -44,13 +51,13 @@ const MovieCard = ({ img_base_path, movie, media }) => {
         <picture className={classes.poster}>
           <source
             media={`(min-width: ${theme.breakpoints.values.md}px)`}
-            srcSet={imagePath[0]}
+            srcSet={posterURL}
           />
           <source
             media={`(max-width: ${theme.breakpoints.values.md}px)`}
-            srcSet={imagePath[1]}
+            srcSet={backdropURL}
           />
-          <img className={classes.poster} src={imagePath[0]} alt={mtitle} />
+          <img className={classes.poster} src={posterURL} alt={mtitle} />
         </picture>
       </Link>
       <div>

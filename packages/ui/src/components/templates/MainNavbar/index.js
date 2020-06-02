@@ -19,9 +19,8 @@ import IsDrawerWrapper from '../../atoms/IsDrawerWrapper';
 
 import useStyles from './styles';
 
-const MainNavbar = props => {
+const MainNavbar = () => {
   const classes = useStyles();
-  const { config } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const UserMenu = () => (
@@ -63,7 +62,7 @@ const MainNavbar = props => {
             <MainMenu />
           </IsDrawerWrapper>
           <div style={{ flexGrow: 1 }} />
-          <NavSearch config={config} />
+          <NavSearch />
           <UserMenu />
         </Toolbar>
       </Container>

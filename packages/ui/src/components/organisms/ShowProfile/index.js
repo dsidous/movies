@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import { Box, Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
@@ -14,11 +14,9 @@ import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 import LastSeason from '../../molecules/LastSeason';
 import SlideList from '../../molecules/SlideList';
 import useStyles from './styles';
+import useConfig from '../../hooks/useConfig';
 
 const ShowProfile = ({
-  config: {
-    images: { secure_base_url, poster_sizes, backdrop_sizes },
-  },
   show: {
     id,
     backdrop_path,
@@ -42,8 +40,8 @@ const ShowProfile = ({
   dcolor,
   show,
   handleFullCrewClick,
-  handleShowClick,
 }) => {
+  const { getImageURL } = useConfig();
   const showDate = first_air_date || release_date;
   const showTitle = title || name;
   let lastSeason = null;
@@ -52,8 +50,26 @@ const ShowProfile = ({
     [lastSeason] = seasons.sort((a, b) => b.season_number - a.season_number);
   }
 
-  const posterURL = secure_base_url + poster_sizes[3] + poster_path;
-  const backdropURL = secure_base_url + backdrop_sizes[1] + backdrop_path;
+  const posterURL = getImageURL({
+    filePath: poster_path,
+    mediaType: 'poster',
+    size: 3,
+  });
+
+  const backdropURL = getImageURL({
+    filePath: backdrop_path,
+    mediaType: 'backdrop',
+    size: 1,
+  });
+
+  const backdropsURL = backdrops.map(image =>
+    getImageURL({
+      filePath: image.file_path,
+      mediaType: 'backdrop',
+      size: 1,
+    }),
+  );
+
   const video = videos
     ? videos.filter(element => element.type === 'Trailer')[0]
     : [];
@@ -69,24 +85,13 @@ const ShowProfile = ({
     <div>
       <SEO title={showTitle} />
       <Box className={classes.backdrops}>
-        {backdrops[0] && (
-          <FullScreenBackdrop
-            backdrops={backdrops.map(
-              image =>
-                `${secure_base_url}${backdrop_sizes[2]}${image.file_path}`,
-            )}
-          />
-        )}
+        {backdrops[0] && <FullScreenBackdrop backdrops={backdropsURL} />}
       </Box>
 
       <div className={classes.header}>
         <div className={classes.headerInner}>
           <div className={classes.poster}>
-            {poster_path !== null ? (
-              <img src={posterURL} alt="poster" />
-            ) : (
-              <div className={classes.noImage} />
-            )}
+            <img src={posterURL} alt="poster" />
             <WatchlistBookmark movie={show} />
           </div>
           <div className={classes.data}>
