@@ -15,6 +15,10 @@ export default makeStyles(
     },
 
     col: {
+      display: 'grid',
+      gridAutoRows: 'min-content',
+      gridGap: theme.spacing(1),
+
       '& h3 span': {
         color: '#999',
         fontSize: '.75em',

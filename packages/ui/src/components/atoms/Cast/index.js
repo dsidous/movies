@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { propTypes, defaultProps } from './propTypes';
+import { Box, Typography } from '@material-ui/core';
+
 import MediaImage from '../MediaImage';
+import { propTypes, defaultProps } from './propTypes';
 import useStyles from './styles';
 
 const Cast = ({ cast, type }) => {
@@ -10,7 +12,7 @@ const Cast = ({ cast, type }) => {
   const mediaType = type === 'full' ? 'miniProfile' : 'profile';
 
   return (
-    <div className={`${classes.root} ${type}`}>
+    <Box className={`${classes.root} ${type}`}>
       <Link to={`/person/${cast.id}`}>
         <MediaImage
           mediaType={mediaType}
@@ -18,13 +20,14 @@ const Cast = ({ cast, type }) => {
           filePath={cast.profile_path}
           name={cast.name}
         />
-        <div className={classes.copy}>
-          <strong>{cast.name}</strong>
-          <br />
-          <small>{cast.character}</small>
-        </div>
+        <Box className={classes.copy} py={1}>
+          <Typography variant="subtitle2">{cast.name}</Typography>
+          <Typography variant="caption">
+            {cast.character || cast.job}
+          </Typography>
+        </Box>
       </Link>
-    </div>
+    </Box>
   );
 };
 

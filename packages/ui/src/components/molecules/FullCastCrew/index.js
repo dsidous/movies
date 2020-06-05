@@ -2,7 +2,6 @@ import React from 'react';
 
 import { propTypes } from './propTypes';
 import Cast from '../../atoms/Cast';
-import MediaImage from '../../atoms/MediaImage';
 import useStyles from './styles';
 
 const FullCastCrew = props => {
@@ -31,18 +30,7 @@ const FullCastCrew = props => {
             <span>{` ${crew.length}`}</span>
           </h3>
           {crew.map(person => (
-            <div key={person.credit_id} className={classes.item}>
-              <MediaImage
-                mediaType="miniProfile"
-                filePath={person.profile_path}
-                name={person.name}
-              />
-              <div className={classes.copy}>
-                <strong>{person.name}</strong>
-                <br />
-                <small>{person.job}</small>
-              </div>
-            </div>
+            <Cast cast={person} type="full" key={person.credit_id} />
           ))}
         </div>
       </div>

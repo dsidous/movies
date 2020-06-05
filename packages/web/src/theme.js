@@ -33,6 +33,9 @@ let theme = createMuiTheme({
       'Arial',
       'sans-serif',
     ].join(','),
+    subtitle2: {
+      fontWeight: cssVariables.fontWeightBold,
+    },
   },
   overrides: {
     MuiSkeleton: {
