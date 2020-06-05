@@ -5,6 +5,7 @@ import { withConfig } from '@movies/common';
 import ConfigContext from '../contexts/ConfigContext';
 import NoImage from '../../images/noimage.jpg';
 import NoBdImage from '../../images/nobdimage.jpg';
+import NoImageSq from '../../images/noimagesq.jpg';
 
 const ConfigProvider = ({ children, configLoading, ...props }) => {
   const [config, setConfig] = useState({});
@@ -13,7 +14,17 @@ const ConfigProvider = ({ children, configLoading, ...props }) => {
   }, [configLoading]);
 
   const getImageURL = ({ filePath, mediaType, size }) => {
-    let imageUrl = mediaType === 'backdrop' ? NoBdImage : NoImage;
+    let imageUrl;
+    switch (mediaType) {
+      case 'backdrop':
+        imageUrl = NoBdImage;
+        break;
+      case 'miniProfile':
+        imageUrl = NoImageSq;
+        break;
+      default:
+        imageUrl = NoImage;
+    }
 
     if (!configLoading && filePath !== null) {
       let sizePath;
