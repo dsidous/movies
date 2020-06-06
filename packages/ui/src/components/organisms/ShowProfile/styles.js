@@ -69,7 +69,7 @@ export default makeStyles(
       gridTemplateColumns: '1fr 2fr',
       gridTemplateAreas:
         '"mdata mdata" "mposter moverview" ". mtrailer" "mcrew mcrew"',
-      padding: '20px 0 40px',
+      padding: '20px 16px 40px',
       position: 'relative',
 
       [theme.breakpoints.up('sm')]: {
@@ -80,7 +80,7 @@ export default makeStyles(
           '"mposter mdata" "mposter moverview" "mposter mcrew" "mposter mtrailer" "mcast mcast"',
         margin: '0 auto',
         maxWidth: theme.breakpoints.values.lg,
-        padding: theme.spacing(5, 2),
+        padding: theme.spacing(5, 3),
       },
     },
 
@@ -91,7 +91,6 @@ export default makeStyles(
     poster: {
       gridArea: 'mposter',
       gridRow: '2 / 4',
-      marginLeft: 10,
       position: 'relative',
 
       [theme.breakpoints.up('sm')]: {
@@ -101,33 +100,15 @@ export default makeStyles(
       '& img': {
         borderRadius: 2,
         boxShadow: '0 0 20px -5px #000',
+        display: 'block',
         width: '100%',
-      },
-    },
-
-    noImage: {
-      background: '#666',
-      color: '#444',
-      font: '80px/513px FontAwesome',
-      height: 513,
-      textAlign: 'center',
-      width: 342,
-
-      '&:before': {
-        content: '"\f03e"',
-      },
-
-      '&.smaller': {
-        font: '60px/231px FontAwesome',
-        height: 231,
-        width: 154,
       },
     },
 
     data: {
       gridArea: 'mdata',
       fontSize: 12,
-      padding: 10,
+      padding: theme.spacing(2, 0),
 
       [theme.breakpoints.up('sm')]: {
         fontSize: '1.2em',

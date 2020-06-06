@@ -10,6 +10,10 @@ export default makeStyles(theme => ({
     color: '#fff',
     textDecoration: 'none',
 
+    '&:hover': {
+      color: '#bbb',
+    },
+
     '& h6': {
       fontWeight: theme.fontWeightBold,
       marginRight: theme.spacing(2),

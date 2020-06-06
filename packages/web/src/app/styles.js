@@ -13,7 +13,7 @@ export default makeStyles(
         textDecoration: 'none',
 
         '&:hover': {
-          color: '#999',
+          color: '#000',
           cursor: 'pointer',
           textDecoration: 'none',
         },
