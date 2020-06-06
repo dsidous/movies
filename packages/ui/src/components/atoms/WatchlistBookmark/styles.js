@@ -4,12 +4,12 @@ export default makeStyles(
   theme => ({
     root: {
       cursor: 'pointer',
-      left: 15,
+      padding: 0,
       position: 'absolute',
-      top: '-8px',
+      top: theme.spacing(-2),
     },
 
-    icon: {
+    label: {
       color: '#FBC500',
       fontSize: '3rem',
       textShadow: '2px 2px 8px #000',

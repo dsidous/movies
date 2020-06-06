@@ -1,31 +1,22 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  {
+  theme => ({
     root: {
       gridArea: 'mtrailer',
       alignSelf: 'flex-end',
-      marginRight: 10,
+      marginRight: theme.spacing(1),
     },
 
     playButton: {
       background: '#000',
-      border: 'none',
       color: '#bbb',
-      cursor: 'pointer',
-      display: 'inline-block',
-      fontSize: 12,
-      margin: '20px 0 0',
-      padding: '5px 10px',
 
       '&:hover': {
-        color: '#999',
-      },
-
-      '& span': {
-        margin: '0 5px 0 0',
+        background: '#000',
+        color: '#fff',
       },
     },
-  },
+  }),
   { name: 'trailer' },
 );

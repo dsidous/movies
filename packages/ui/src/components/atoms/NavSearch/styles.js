@@ -15,9 +15,9 @@ export default makeStyles(theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: 120,
+      width: theme.spacing(15),
       '&:focus': {
-        width: 200,
+        width: theme.spacing(25),
       },
     },
   },
@@ -34,7 +34,7 @@ export default makeStyles(theme => ({
     left: theme.spacing(-2),
     marginLeft: 0,
     position: 'absolute',
-    top: '48px',
+    top: theme.spacing(6),
     width: '100vw',
     [theme.breakpoints.up('sm')]: {
       borderRadius: theme.shape.borderRadius,
@@ -51,12 +51,12 @@ export default makeStyles(theme => ({
   },
   paper: {
     left: 0,
-    marginTop: '8px',
-    maxHeight: '200px',
+    marginTop: theme.spacing(1),
+    maxHeight: theme.spacing(25),
     overflowY: 'scroll',
     paddingLeft: 0,
     position: 'absolute',
-    top: '32px',
+    top: theme.spacing(4),
   },
   searchIcon: {
     width: theme.spacing(7),
@@ -69,8 +69,7 @@ export default makeStyles(theme => ({
   },
 
   thumbnail: {
-    height: 50,
-    marginLeft: '-10px',
-    marginRight: 10,
+    height: theme.spacing(6),
+    marginRight: theme.spacing(2),
   },
 }));

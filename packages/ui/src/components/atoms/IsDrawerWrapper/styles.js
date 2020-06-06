@@ -10,7 +10,7 @@ export default makeStyles(
         marginTop: theme.spacing(3),
 
         '& .MuiMenuItem-root': {
-          padding: '0 16px',
+          padding: theme.spacing(0, 2),
           width: '100%',
         },
       },

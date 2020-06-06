@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
-import { propTypes } from './propTypes';
 
+import { Button, Icon } from '@material-ui/core';
+import Movie from '@material-ui/icons/Movie';
+
+import { propTypes } from './propTypes';
 import useStyles from './styles';
 import 'react-modal-video/css/modal-video.min.css';
 
@@ -21,12 +24,15 @@ const PlayTrailer = ({ video: { key } }) => {
         videoId={key}
         onClose={() => setIsopen(false)}
       />
-      <button type="button" className={classes.playButton} onClick={openModal}>
-        <span>
-          <i className="fa fa-angle-right" />
-          {' Watch Trailer'}
-        </span>
-      </button>
+      <Button
+        className={classes.playButton}
+        onClick={openModal}
+        size="small"
+        startIcon={<Movie />}
+        variant="contained"
+      >
+        Watch Trailer
+      </Button>
     </div>
   );
 };

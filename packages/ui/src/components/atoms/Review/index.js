@@ -1,19 +1,22 @@
 import React from 'react';
+import { Box, Typography, Paper } from '@material-ui/core';
 
 import LongCopy from '../LongCopy';
 import { propTypes } from './propTypes';
 import useStyles from './styles';
 
-const Review = ({ review: { id, author, content } }) => {
+const Review = ({ review: { author, content } }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} key={id}>
-      <div className={classes.author}>{`A review by ${author}`}</div>
-      <div className={classes.content}>
+    <Paper className={classes.root}>
+      <Typography
+        className={classes.author}
+      >{`A review by ${author}`}</Typography>
+      <Box className={classes.content}>
         <LongCopy content={content} />
-      </div>
-    </div>
+      </Box>
+    </Paper>
   );
 };
 

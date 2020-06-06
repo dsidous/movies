@@ -11,6 +11,10 @@ export default makeStyles(
       color: '#fff',
       textDecoration: 'none',
 
+      '&:hover': {
+        color: '#bbb',
+      },
+
       '& span': {
         fontWeight: theme.fontWeightBold,
       },

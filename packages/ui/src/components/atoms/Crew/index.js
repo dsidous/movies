@@ -1,23 +1,27 @@
 import React from 'react';
-import { propTypes, defaultProps } from './propTypes';
 
+import { Box, Typography } from '@material-ui/core';
+
+import { propTypes, defaultProps } from './propTypes';
 import useStyles from './styles';
 
 const Crew = ({ crew }) => {
   const classes = useStyles();
-
   return (
-    <div className={classes.root}>
-      {crew.map((cr, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div className={classes.item} key={`${cr.name}-${i}`}>
-          <small>
-            <strong>{`${cr.job}: `}</strong>
-          </small>
-          <small>{cr.name}</small>
-        </div>
-      ))}
-    </div>
+    <Box className={classes.root}>
+      {crew
+        .filter(credit =>
+          ['Director', 'Screenplay', 'Characters'].includes(credit.job),
+        )
+        .map(person => (
+          <Box className={classes.item} key={person.credit_id}>
+            <Typography variant="caption">
+              <strong>{`${person.job}: `}</strong>
+              {person.name}
+            </Typography>
+          </Box>
+        ))}
+    </Box>
   );
 };
 

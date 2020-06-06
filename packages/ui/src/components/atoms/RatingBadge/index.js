@@ -4,21 +4,21 @@ import { withStyles } from '@material-ui/core/styles';
 
 const StyledBadge = withStyles(theme => ({
   badge: {
-    bottom: -25,
+    bottom: theme.spacing(-3),
     border: `2px solid ${theme.palette.background.paper}`,
     background: '#000',
     borderRadius: theme.shape.borderRadius,
     color: 'yellow',
-    height: 30,
-    padding: '0 4px',
-    right: 25,
+    height: theme.spacing(4),
+    padding: theme.spacing(0, 0.5),
+    right: theme.spacing(3),
     top: 'auto',
-    width: 30,
+    width: theme.spacing(4),
 
     '&::after': {
       content: '""',
-      width: 22,
-      height: 22,
+      width: theme.spacing(3),
+      height: theme.spacing(3),
       border: '1px solid rgba(255,255,255,.7)',
       position: 'absolute',
     },

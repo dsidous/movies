@@ -3,7 +3,6 @@ export { default as Crew } from './atoms/Crew';
 export { default as FilterGenres } from './atoms/FilterGenres';
 export { default as Footer } from './atoms/Footer';
 export { default as FullScreenBackdrop } from './atoms/FullScreenBackdrop';
-export { default as HomeList } from './atoms/HomeList';
 export { default as MainMenu } from './atoms/MainMenu';
 export { default as IsDrawerWrapper } from './atoms/IsDrawerWrapper';
 export { default as MediaImage } from './atoms/MediaImage';

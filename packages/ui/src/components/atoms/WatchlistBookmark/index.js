@@ -1,48 +1,44 @@
-import React, { useContext } from 'react';
-import { firebase } from '@movies/firebase';
+import React, { Fragment } from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import BookmarkSharpIcon from '@material-ui/icons/BookmarkSharp';
+import BookmarkBorderSharpIcon from '@material-ui/icons/BookmarkBorderSharp';
 
-import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
 import useSnackBars from '../../hooks/useSnackBars';
+import useWatchList from '../../hooks/useWatchList';
 import { propTypes } from './propTypes';
 
 import useStyles from './styles';
 
 const WatchlistBookmark = ({ movie }) => {
   const classes = useStyles();
-  const { authUser, user } = useContext(FirebaseAuthContext);
-  const userRef = firebase.db.ref(`users/${user?.uid}`);
+  const { authUser, watchlist, toggleMovie } = useWatchList(movie);
   const { addAlert } = useSnackBars();
 
-  const toggleMovie = () => {
-    if (user.watchlist && user.watchlist[movie.id]) {
-      userRef.child(`watchlist/${movie.id}`).remove();
-      addAlert(`${movie.title || movie.name} removed from your watchlist`);
-    } else {
-      userRef.child(`watchlist/${movie.id}`).update(movie);
-      addAlert(`${movie.title || movie.name} added to your watchlist`);
-    }
+  const toggleWatchlist = () => {
+    addAlert(
+      `${movie.title || movie.name} ${
+        watchlist ? 'removed from' : 'added to'
+      } your watchlist`,
+    );
+    toggleMovie();
   };
 
-  const watchlist = user && user.watchlist && user.watchlist[movie.id];
-
   return (
-    <div
-      className={classes.root}
-      onClick={() => toggleMovie()}
-      onKeyDown={() => toggleMovie()}
-      role="button"
-      tabIndex="-1"
-    >
+    <>
       {authUser && (
-        <span
-          className={[
-            classes.icon,
-            'fa',
-            watchlist !== undefined ? 'fa-bookmark' : 'fa-bookmark-o',
-          ].join(' ')}
-        />
+        <IconButton
+          className={classes.root}
+          aria-label="bookmark"
+          onClick={() => toggleWatchlist()}
+        >
+          {watchlist ? (
+            <BookmarkSharpIcon className={classes.label} />
+          ) : (
+            <BookmarkBorderSharpIcon className={classes.label} />
+          )}
+        </IconButton>
       )}
-    </div>
+    </>
   );
 };
 
