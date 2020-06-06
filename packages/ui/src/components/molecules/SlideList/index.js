@@ -77,16 +77,17 @@ const SlideList = ({ items }) => {
   };
 
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
-      <Slider {...settings}>
-        {items.map(item => (
-          <IntlProvider key={item.id} locale={navigator.language}>
-            <SlideCard item={item} />
-          </IntlProvider>
-        ))}
-      </Slider>
+      {Array.isArray(items) && (
+        <Slider {...settings}>
+          {items.map(item => (
+            <IntlProvider key={item.id} locale={navigator.language}>
+              <SlideCard item={item} />
+            </IntlProvider>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };
