@@ -12,15 +12,11 @@ const PersonShows = ({ shows: { cast } }) => {
     return null;
   }
 
-  const sortedShow = Array.from(
-    new Set(
-      [].concat(cast).sort((a, b) => {
-        const dataB = b.release_date || b.first_air_date;
-        const dataA = a.release_date || a.first_air_date;
-        return dataB ? dataB.localeCompare(dataA) : -1;
-      }),
-    ),
-  );
+  const sortedShow = Array.from(new Set(cast)).sort((a, b) => {
+    const dataB = b.release_date || b.first_air_date;
+    const dataA = a.release_date || a.first_air_date;
+    return dataB ? dataB.localeCompare(dataA) : -1;
+  });
 
   return sortedShow.map((show, i) => {
     const classes = useStyles();
