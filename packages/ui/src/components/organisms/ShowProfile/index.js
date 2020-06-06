@@ -118,7 +118,7 @@ const ShowProfile = ({
 
           {video && <PlayTrailer video={video} />}
 
-          {crew[0] && <Crew crew={crew.slice(0, 4)} />}
+          {crew[0] && <Crew crew={crew} />}
         </div>
       </div>
 
