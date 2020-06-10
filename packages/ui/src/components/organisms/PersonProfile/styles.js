@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(
   theme => ({
     root: {
-      margin: '20px 10px',
+      margin: '20px 0',
 
       [theme.breakpoints.up('sm')]: {
         margin: '40px auto',

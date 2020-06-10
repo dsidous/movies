@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { Box } from '@material-ui/core';
 
@@ -39,7 +38,6 @@ const ShowProfile = ({
   },
   dcolor,
   show,
-  handleFullCrewClick,
 }) => {
   const { getImageURL } = useConfig();
   const showDate = first_air_date || release_date;
@@ -125,10 +123,7 @@ const ShowProfile = ({
       {cast[0] && (
         <Section noborder>
           <Section.Header>Top Billed Cast</Section.Header>
-          <TopCast
-            cast={cast.slice(0, 6)}
-            handleFullCrewClick={handleFullCrewClick}
-          />
+          <TopCast cast={cast.slice(0, 6)} fullLink={`${id}/crew`} />
         </Section>
       )}
 
