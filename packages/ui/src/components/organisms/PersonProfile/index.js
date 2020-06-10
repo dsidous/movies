@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { FormattedDate } from 'react-intl';
 import { Link } from 'react-router-dom';

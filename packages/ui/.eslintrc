@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "plugins": ["jest", "prettier"],
   "rules": {
+    "camelcase": 0,
     "no-unused-expressions": [0],
     "react/jsx-filename-extension": [
       1,

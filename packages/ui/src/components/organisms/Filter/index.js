@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 
 import InputLabel from '@material-ui/core/InputLabel';

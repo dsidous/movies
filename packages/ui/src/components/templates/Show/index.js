@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import * as Vibrant from 'node-vibrant';
 import { useHistory } from 'react-router-dom';
@@ -18,11 +17,6 @@ const Show = ({ loading, show }) => {
 
   const handleShowClick = showId => {
     history.push(`/${media}/${showId}`);
-  };
-
-  const handleFullCrewClick = () => {
-    const { id } = show;
-    history.push(`/${media}/${id}/crew`);
   };
 
   useEffect(() => {
@@ -54,7 +48,6 @@ const Show = ({ loading, show }) => {
             show={show}
             dcolor={dcolor}
             handleShowClick={handleShowClick}
-            handleFullCrewClick={handleFullCrewClick}
           />
         )}
       </PageTransition>

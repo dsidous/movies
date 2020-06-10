@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable camelcase */
 import _ from 'lodash';
 import React from 'react';
 
