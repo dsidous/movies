@@ -18,16 +18,10 @@ export default makeStyles(
     },
 
     fullCaCrBtn: {
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
+      display: 'block',
       fontSize: '1.2em',
-      fontWeight: 'bold',
-      margin: '30px 0 0',
-
-      '&:hover': {
-        opacity: '.6',
-      },
+      fontWeight: theme.fontWeightBold,
+      marginTop: theme.spacing(4),
     },
   }),
   { name: 'topCast' },

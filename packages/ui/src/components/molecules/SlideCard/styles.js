@@ -17,12 +17,12 @@ export default makeStyles(
       padding: 0,
 
       '& figcaption': {
-        fontWeight: 600,
+        fontWeight: theme.fontWeightBold,
         padding: theme.spacing(1),
 
         '& span': {
           display: 'block',
-          fontWeight: 300,
+          fontWeight: theme.fontWeightNormal,
         },
       },
     },

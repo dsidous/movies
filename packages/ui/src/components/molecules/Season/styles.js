@@ -1,11 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  {
+  theme => ({
     root: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 4fr',
-      gridColumnGap: 10,
+      [theme.breakpoints.up('sm')]: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 4fr',
+        gridColumnGap: theme.spacing(2),
+      },
     },
 
     poster: {
@@ -16,8 +18,8 @@ export default makeStyles(
     },
 
     details: {
-      padding: 20,
+      padding: theme.spacing(3),
     },
-  },
+  }),
   { name: 'season' },
 );

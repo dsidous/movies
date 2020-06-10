@@ -1,6 +1,6 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
@@ -35,9 +35,11 @@ const Season = props => {
         />
       </Link>
       <div className={classes.details}>
-        <h3>{name}</h3>
-        <h5>{`${date} | ${episode_count} episodes`}</h5>
-        <div>{overview}</div>
+        <Typography variant="h6">{name}</Typography>
+        <Typography
+          paragraph
+        >{`${date} | ${episode_count} episodes`}</Typography>
+        <Typography variant="body2">{overview}</Typography>
       </div>
     </div>
   );

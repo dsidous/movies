@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 
 import MediaImage from '../../atoms/MediaImage';
 import useStyles from './styles';
@@ -20,8 +21,8 @@ const PersonKnownFor = ({ combinedCredits }) => {
           filePath={movie.poster_path}
           name={movie.title || movie.name}
         />
+        <Typography variant="caption">{movie.title || movie.name}</Typography>
       </Link>
-      <p className={classes.title}>{movie.title || movie.name}</p>
     </div>
   ));
 };

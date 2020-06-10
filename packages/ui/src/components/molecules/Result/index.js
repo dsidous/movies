@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { Fragment } from 'react';
 import { compose, branch } from 'recompose';
 import { withMovies, withTvs } from '@movies/common';

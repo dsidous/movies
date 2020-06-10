@@ -3,17 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(
   theme => ({
     root: {
-      background: '#eee',
       borderBottom: theme.separatorBold,
-      fontSize: '1em',
-      padding: '30px 20px',
+      padding: theme.spacing(4, 3),
     },
 
     inner: {
       display: 'grid',
       gridTemplateColumns: '70px 4fr',
-      gridColumnGap: 10,
-      height: 100,
+      gridColumnGap: theme.spacing(2),
+      height: theme.spacing(13),
       margin: '0 auto',
 
       '& img': {
@@ -26,22 +24,6 @@ export default makeStyles(
       display: 'flex',
       flexDirection: 'column',
       justifyItems: 'center',
-
-      '& h2': {
-        margin: 0,
-
-        '& span': {
-          fontSize: '.65em',
-        },
-      },
-
-      '& h4': {
-        margin: '5px 0',
-
-        '& a': {
-          color: '#999',
-        },
-      },
     },
   }),
   { name: 'miniHeader' },

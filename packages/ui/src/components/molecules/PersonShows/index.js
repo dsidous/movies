@@ -1,7 +1,7 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
+import { Box, Typography } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
@@ -18,43 +18,50 @@ const PersonShows = ({ shows: { cast } }) => {
     return dataB ? dataB.localeCompare(dataA) : -1;
   });
 
-  return sortedShow.map((show, i) => {
-    const classes = useStyles();
-    const { id, poster_path, character, vote_average } = show;
-    const showAttr = show.release_date
-      ? { title: 'title', releaseDate: 'release_date', showType: 'movie' }
-      : { title: 'name', releaseDate: 'first_air_date', showType: 'tv' };
+  const classes = useStyles();
 
-    const title = show[showAttr.title];
-    const releaseDate = show[showAttr.releaseDate] || '';
-    const { showType } = showAttr;
-    const key = `${title}${id}-${i}`;
+  return sortedShow.map(show => {
+    const {
+      id,
+      poster_path,
+      character,
+      vote_average,
+      media_type,
+      title,
+      name,
+      release_date,
+      first_air_date,
+    } = show;
 
-    if (!title || releaseDate === '') {
+    const releaseDate = release_date || first_air_date;
+
+    if (!(title || name) || releaseDate === undefined) {
       return null;
     }
 
     return (
-      <Link to={`/${showType}/${id}`} key={key} className={classes.root}>
+      <Link to={`/${media_type}/${id}`} key={id} className={classes.root}>
         <p className={classes.poster}>
           <MediaImage
             mediaType="poster"
             size={1}
             filePath={poster_path}
-            name={title}
+            name={title || name}
           />
         </p>
-        <div className={classes.title}>
-          {title}
+        <Typography variant="body2" className={classes.title}>
+          <Box fontWeight={700}>{title || name}</Box>
           {character && (
-            <div className={classes.character}>{` as ${character}`}</div>
+            <Typography variant="body2" className={classes.character}>
+              {` as ${character}`}
+            </Typography>
           )}
-        </div>
-        <p className={classes.release}>
-          {releaseDate !== '' && releaseDate !== undefined
-            ? releaseDate.substr(0, 4)
-            : ''}
-        </p>
+        </Typography>
+        {releaseDate !== '' && releaseDate !== undefined && (
+          <Typography variant="body2" className={classes.release}>
+            {releaseDate.substr(0, 4)}
+          </Typography>
+        )}
         {!!vote_average && (
           <Rating
             className={classes.rating}

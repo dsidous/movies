@@ -1,22 +1,24 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
-  episode: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 4fr',
-    gridColumnGap: 10,
-  },
-  'episode-poster': {
-    '& img': {
+export default makeStyles(
+  theme => ({
+    root: {
+      [theme.breakpoints.up('sm')]: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 4fr',
+        gridColumnGap: theme.spacing(5),
+      },
+    },
+
+    poster: {
       width: '100%',
     },
-  },
 
-  'episode-details': {
-    padding: '0 20px',
-
-    '& h3': {
-      marginTop: 0,
+    details: {
+      '& h3': {
+        marginTop: 0,
+      },
     },
-  },
-}));
+  }),
+  { name: 'episode' },
+);

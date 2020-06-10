@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { propTypes, defaultProps } from './propTypes';
 import Cast from '../../atoms/Cast';
 
 import useStyles from './styles';
 
-const TopCast = ({ cast, handleFullCrewClick }) => {
+const TopCast = ({ cast, fullLink }) => {
   const classes = useStyles();
 
   return (
@@ -16,13 +17,9 @@ const TopCast = ({ cast, handleFullCrewClick }) => {
         ))}
       </div>
 
-      <button
-        type="button"
-        className={classes.fullCaCrBtn}
-        onClick={handleFullCrewClick}
-      >
+      <Link className={classes.fullCaCrBtn} to={fullLink}>
         Full Cast & Crew
-      </button>
+      </Link>
     </div>
   );
 };

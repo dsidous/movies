@@ -5,16 +5,15 @@ export default makeStyles(
     root: {
       listStyle: 'none',
       background: theme.cardBg,
-      borderRadius: 8,
-      margin: '10px 0 20px',
-      overflow: 'hidden',
+      borderRadius: theme.shape.borderRadius * 2,
+      margin: theme.spacing(3, 0),
       position: 'relative',
       boxShadow: '0 0 30px 10px rgba(107, 106, 106, 0.1)',
+      display: 'flex',
+      flexDirection: 'column',
+      paddingBottom: theme.spacing(1),
 
       [theme.breakpoints.up('sm')]: {
-        display: 'grid',
-        gridColumnGap: 10,
-        gridTemplateRows: '40px 40px',
         margin: 0,
         padding: 0,
       },
@@ -22,9 +21,8 @@ export default makeStyles(
       [theme.breakpoints.up('md')]: {
         display: 'grid',
         gridTemplateColumns: 'minmax(115px, 1fr) minmax(200px, 2fr)',
-        gridColumnGap: 10,
-        gridTemplateRows: '40px 40px',
-        padding: 0,
+        gridColumnGap: theme.spacing(2),
+        gridTemplateRows: theme.spacing(6, 5),
       },
 
       '& a': {
@@ -35,48 +33,42 @@ export default makeStyles(
     },
 
     poster: {
-      cursor: 'pointer',
+      borderRadius: [
+        [theme.shape.borderRadius * 2, theme.shape.borderRadius * 2, 0, 0],
+      ],
       display: 'block',
       height: '100%',
       width: '100%',
-    },
 
-    noImage: {
-      background: '#666',
-      color: '#444',
-      cursor: 'pointer',
-      font: '65px/240px FontAwesome',
-      height: 240,
-      textAlign: 'center',
-      width: 165,
-
-      '&:before': {
-        content: '"\f03e"',
+      [theme.breakpoints.up('md')]: {
+        borderRadius: [
+          [theme.shape.borderRadius * 2, 0, 0, theme.shape.borderRadius * 2],
+        ],
       },
     },
 
     title: {
       display: 'block',
-      float: 'left',
-      fontSize: 20,
-      margin: '10px 0 0 10px',
+      marginLeft: theme.spacing(2),
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
       width: '70%',
+
+      [theme.breakpoints.up('md')]: {
+        marginLeft: 0,
+      },
     },
 
     rating: {
       display: 'block',
-      float: 'right',
-      fontSize: 20,
-      margin: '10px 10px 0 0',
-      paddingLeft: 22,
+      margin: theme.spacing(2, 2, 0, 0),
+      paddingLeft: theme.spacing(2),
       position: 'relative',
       textAlign: 'right',
 
       '&:before': {
-        font: '20px/20px FontAwesome',
+        fontFamily: 'FontAwesome',
         color: '#666',
         content: '"\\f005"',
         left: 0,
@@ -86,23 +78,27 @@ export default makeStyles(
 
     year: {
       float: 'left',
-      margin: '5px 0 0 10px',
-      paddingLeft: 14,
+      marginLeft: theme.spacing(2),
+      paddingLeft: theme.spacing(2),
       position: 'relative',
+
+      [theme.breakpoints.up('md')]: {
+        marginLeft: 0,
+      },
 
       '&:before': {
         content: '"\\f073"',
         left: 0,
         font: '12px/12px FontAwesome',
         position: 'absolute',
-        top: 3,
+        top: theme.spacing(1),
       },
     },
 
     genres: {
       display: 'block',
       float: 'right',
-      margin: '5px 10px 10px 0',
+      margin: theme.spacing(1, 2, 2, 0),
       overflow: 'hidden',
       textAlign: 'right',
       fontStyle: 'italic',
@@ -116,7 +112,11 @@ export default makeStyles(
 
       [theme.breakpoints.up('sm')]: {
         display: 'block',
-        margin: '20px 10px',
+        margin: theme.spacing(3, 2),
+      },
+
+      [theme.breakpoints.up('md')]: {
+        marginLeft: 0,
       },
 
       '&.long::after': {

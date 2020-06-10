@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Typography } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import Cast from '../../atoms/Cast';
@@ -13,26 +14,28 @@ const FullCastCrew = props => {
   const classes = useStyles();
 
   return (
-    <div>
-      <div className={classes.root}>
-        <div className={classes.col}>
-          <h3>
+    <div className={classes.root}>
+      <div className={classes.col}>
+        <Typography variant="h6">
+          <Box fontWeight={700} my={2}>
             Cast
             <span>{` ${cast.length}`}</span>
-          </h3>
-          {cast.map(person => (
-            <Cast cast={person} type="full" key={person.credit_id} />
-          ))}
-        </div>
-        <div className={classes.col}>
-          <h3>
+          </Box>
+        </Typography>
+        {cast.map(person => (
+          <Cast cast={person} type="full" key={person.credit_id} />
+        ))}
+      </div>
+      <div className={classes.col}>
+        <Typography variant="h6">
+          <Box fontWeight={700} my={2}>
             Crew
             <span>{` ${crew.length}`}</span>
-          </h3>
-          {crew.map(person => (
-            <Cast cast={person} type="full" key={person.credit_id} />
-          ))}
-        </div>
+          </Box>
+        </Typography>
+        {crew.map(person => (
+          <Cast cast={person} type="full" key={person.credit_id} />
+        ))}
       </div>
     </div>
   );

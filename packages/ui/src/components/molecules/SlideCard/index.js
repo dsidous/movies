@@ -9,7 +9,15 @@ import RatingBadge from '../../atoms/RatingBadge';
 import useStyles from './styles';
 
 const SlideCard = ({
-  item: { __typename, id, title, poster_path, release_date, vote_average },
+  item: {
+    __typename,
+    id,
+    title,
+    name,
+    poster_path,
+    release_date,
+    vote_average,
+  },
 }) => {
   const classes = useStyles();
 

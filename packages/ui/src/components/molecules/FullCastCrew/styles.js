@@ -4,10 +4,10 @@ export default makeStyles(
   theme => ({
     root: {
       display: 'grid',
-      gridGap: '20px',
+      gridGap: theme.spacing(3),
       gridTemplateColumns: '1fr',
       margin: '0 auto',
-      padding: '0 20px',
+      padding: theme.spacing(0, 3),
 
       [theme.breakpoints.up('sm')]: {
         gridTemplateColumns: '1fr 1fr',
@@ -19,7 +19,7 @@ export default makeStyles(
       gridAutoRows: 'min-content',
       gridGap: theme.spacing(1),
 
-      '& h3 span': {
+      '& h6 span': {
         color: '#999',
         fontSize: '.75em',
       },
@@ -29,15 +29,15 @@ export default makeStyles(
       cursor: 'pointer',
       display: 'grid',
       gridTemplateColumns: '1fr 2fr',
-      gridGap: '20px',
-      padding: '10px 0',
+      gridGap: theme.spacing(3),
+      padding: theme.spacing(1, 0),
 
       [theme.breakpoints.up('sm')]: {
         gridTemplateColumns: '1fr 4fr',
       },
 
       '& img': {
-        borderRadius: 4,
+        borderRadius: theme.shape.borderRadius,
         width: '100%',
       },
     },

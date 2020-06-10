@@ -1,6 +1,6 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Box, Typography } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 
 import { propTypes } from './propTypes';
@@ -60,20 +60,23 @@ const MovieCard = ({ movie, media }) => {
           <img className={classes.poster} src={posterURL} alt={mtitle} />
         </picture>
       </Link>
-      <div>
-        <div className={classes.title}>{mtitle}</div>
-        <div className={classes.rating}>{vote_average}</div>
-      </div>
-      <div>
-        <div className={classes.year}>{date.slice(0, 4)}</div>
-      </div>
-      <div
+      <Box display="flex" justifyContent="space-between" alignItems="flex-end">
+        <Typography variant="h5" className={classes.title}>
+          {mtitle}
+        </Typography>
+        <Typography className={classes.rating}>{vote_average}</Typography>
+      </Box>
+      <Typography variant="subtitle1" className={classes.year}>
+        {date.slice(0, 4)}
+      </Typography>
+      <Typography
+        variant="body2"
         className={[classes.overview, overview.length > 200 ? 'long' : ''].join(
           ' ',
         )}
       >
         {overview.slice(0, overview.indexOf(' ', 200))}
-      </div>
+      </Typography>
       <WatchlistBookmark movie={movie} />
     </li>
   );

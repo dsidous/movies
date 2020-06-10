@@ -8,7 +8,7 @@ export default makeStyles(
 
       [theme.breakpoints.up('sm')]: {
         display: 'grid',
-        gridGap: 40,
+        gridGap: theme.spacing(5),
         gridArea: 'result',
         gridTemplateColumns: 'repeat(2,minmax(200px, 1fr))',
         margin: '0 auto',

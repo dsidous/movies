@@ -1,44 +1,40 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import { FormattedDate, IntlProvider } from 'react-intl';
+import { Box, Typography } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 import useStyles from './styles';
 
-const Episode = props => {
+const Episode = ({
+  episode: { name, air_date, episode_number, overview, still_path },
+}) => {
   const classes = useStyles();
-  const {
-    episode: { name, air_date, episode_number, overview, still_path },
-  } = props;
-
-  const date = air_date !== null ? air_date : '';
 
   return (
     <IntlProvider locale={navigator.language}>
-      <div className={classes.episode}>
-        <picture className={classes['episode-poster']}>
-          <MediaImage
-            mediaType="still"
-            size={3}
-            filePath={still_path}
-            name={name}
-          />
-        </picture>
-        <div className={classes['episode-details']}>
-          <h3>{name}</h3>
-          <h5>
+      <Box className={classes.root}>
+        <MediaImage
+          className={classes.poster}
+          mediaType="still"
+          size={3}
+          filePath={still_path}
+          name={name}
+        />
+        <Box className={classes.details}>
+          <Typography variant="subtitle2">{name}</Typography>
+          <Typography variant="caption" component="div" paragraph>
             <FormattedDate
-              value={date}
+              value={air_date || ''}
               year="numeric"
               month="long"
               day="2-digit"
             />
             {` | episode ${episode_number}`}
-          </h5>
-          <div>{overview}</div>
-        </div>
-      </div>
+          </Typography>
+          <Typography>{overview}</Typography>
+        </Box>
+      </Box>
     </IntlProvider>
   );
 };

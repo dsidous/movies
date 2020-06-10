@@ -6,14 +6,11 @@ export default makeStyles(
       background: '#fff',
       border: '1px solid #bbb',
       borderBottom: 'none',
-      color: '#333',
-      cursor: 'pointer',
       display: 'grid',
-      gridColumnGap: 10,
+      gridColumnGap: theme.spacing(2),
       gridTemplateColumns: '1fr 6fr',
       gridTemplateAreas: '"poster release" "poster title" "poster rating"',
-      padding: '10px',
-      textAlign: 'left',
+      padding: theme.spacing(2),
       alignItems: 'center',
       justifyItems: 'start',
 
@@ -40,7 +37,6 @@ export default makeStyles(
     poster: {
       gridArea: 'poster',
       margin: 0,
-      textAlign: 'center',
 
       '& img': {
         display: 'block',
@@ -51,34 +47,16 @@ export default makeStyles(
 
     release: {
       gridArea: 'release',
-      fontSize: '3vw',
       margin: 0,
-      textAlign: 'center',
 
       [theme.breakpoints.up('sm')]: {
-        fontSize: 14,
         gridColumn: '3 / 4',
       },
     },
 
     title: {
       gridArea: 'title',
-      fontSize: '3vw',
-      fontWeight: 'bold',
       margin: 0,
-
-      [theme.breakpoints.up('sm')]: {
-        fontSize: 16,
-      },
-    },
-
-    character: {
-      fontSize: '2.8vw',
-      fontWeight: 'normal',
-
-      [theme.breakpoints.up('sm')]: {
-        fontSize: 14,
-      },
     },
 
     rating: {
