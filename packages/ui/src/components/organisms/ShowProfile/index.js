@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
@@ -93,10 +93,10 @@ const ShowProfile = ({
             <WatchlistBookmark movie={show} />
           </div>
           <div className={classes.data}>
-            <h1 className={classes.title}>
+            <Typography variant="h4" component="h1" className={classes.title}>
               {showTitle}
               <span className={classes.rating}>{vote_average}</span>
-            </h1>
+            </Typography>
 
             <ul className={classes.titleTags}>
               <li>{showDate.slice(0, 4)}</li>
@@ -106,11 +106,13 @@ const ShowProfile = ({
               </li>
             </ul>
 
-            <h4 className={classes.tagline}>{tagline}</h4>
+            <Typography className={classes.tagline}>{tagline}</Typography>
           </div>
 
           <div className={classes.overview}>
-            <h4>Overview</h4>
+            <Typography variant="h6" gutterBottom>
+              Overview
+            </Typography>
             {overview}
           </div>
 

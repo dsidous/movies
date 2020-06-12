@@ -2,22 +2,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
   theme => ({
-    root: {
-      margin: '20px auto',
-
-      '& h2': {
-        margin: '40px 0',
-      },
-    },
     list: {
       display: 'grid',
-      gridGap: '20px',
+      gridGap: theme.spacing(3),
       gridTemplateColumns: '1fr 1fr',
-      margin: '20px 0',
       textAlign: 'center',
 
       [theme.breakpoints.up('sm')]: {
-        gridGap: '40px',
+        gridGap: theme.spacing(5),
         gridTemplateColumns: 'repeat(4, 1fr)',
       },
     },
@@ -28,7 +20,7 @@ export default makeStyles(
       overflow: 'hidden',
 
       '& img': {
-        borderRadius: 4,
+        borderRadius: theme.shape.borderRadius,
         boxShadow: '0 0 20px 5px rgba(0, 0, 0, 0.1)',
         transition: 'all 0.3s ease-in',
         width: '100%',
@@ -45,7 +37,7 @@ export default makeStyles(
 
     name: {
       color: '#666',
-      margin: '5px 0 0',
+      margin: theme.spacing(1, 0),
       transition: 'all 0.3s ease-in',
     },
   }),

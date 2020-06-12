@@ -1,6 +1,8 @@
+/** @jsxFrag React.Fragment */
 import React from 'react';
 import { FormattedDate } from 'react-intl';
 import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
 
 import Skeleton from './skeleton';
 
@@ -40,9 +42,9 @@ const PersonProfile = ({ person }) => {
   }
 
   return (
-    <div>
+    <>
       <SEO title={name} />
-      <div className={classes.root}>
+      <Section noborder disableGutters>
         <div className={classes.infoRoot}>
           <div className={classes.poster}>
             <Link to={`/person/${id}/images`}>
@@ -56,10 +58,10 @@ const PersonProfile = ({ person }) => {
             </Link>
           </div>
           <div className={classes.info}>
-            <h3 className={classes.name} data-name={lastName}>
+            <Typography className={classes.name} data-name={lastName}>
               {firstName}
-            </h3>
-            <div>
+            </Typography>
+            <Typography variant="body2">
               {`${lastName}, ${place_of_birth}`}
               {birthday && (
                 <span>
@@ -83,31 +85,33 @@ const PersonProfile = ({ person }) => {
                   />
                 </span>
               )}
-            </div>
+            </Typography>
           </div>
           {biography && (
             <div className={classes.bioRoot}>
-              <h4>Biography</h4>
+              <Typography variant="subtitle2" gutterBottom paragraph>
+                Biography
+              </Typography>
               <div className={classes.bio}>
                 <LongCopy content={biography} max={1000} />
               </div>
             </div>
           )}
         </div>
-        <Section disableGutters>
-          <Section.Header>Known For</Section.Header>
-          <div className={classes.knowns}>
-            <PersonKnownFor combinedCredits={combined_credits} />
-          </div>
-        </Section>
-        <Section disableGutters>
-          <Section.Header>Filmography</Section.Header>
-          <div className={classes.shows}>
-            <PersonShows shows={combined_credits} />
-          </div>
-        </Section>
-      </div>
-    </div>
+      </Section>
+      <Section disableGutters>
+        <Section.Header>Known For</Section.Header>
+        <div className={classes.knowns}>
+          <PersonKnownFor combinedCredits={combined_credits} />
+        </div>
+      </Section>
+      <Section disableGutters>
+        <Section.Header>Filmography</Section.Header>
+        <div className={classes.shows}>
+          <PersonShows shows={combined_credits} />
+        </div>
+      </Section>
+    </>
   );
 };
 

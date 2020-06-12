@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 
 import Skeleton from './skeleton';
 
 import { propTypes } from './propTypes';
+import Section from '../../atoms/Section';
 import MediaImage from '../../atoms/MediaImage';
 import RatingBadge from '../../atoms/RatingBadge';
 import useStyles from './styles';
@@ -83,8 +85,8 @@ const TopRatedMovies = ({ popular }) => {
   }
 
   return (
-    <section>
-      <h3 className={classes.header}>Movies of the day</h3>
+    <Section noborder disableGutters>
+      <Section.Header>Movies of the day</Section.Header>
       <ul className={classes.menu}>{genresList()}</ul>
       <div className={classes.root}>
         {topMovies.map((movie, i) => (
@@ -101,11 +103,13 @@ const TopRatedMovies = ({ popular }) => {
                 name={movie.title}
               />
             </RatingBadge>
-            <div className={classes.title}>{movie.title}</div>
+            <Typography variant="subtitle2" className={classes.title}>
+              {movie.title}
+            </Typography>
           </Link>
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

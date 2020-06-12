@@ -4,6 +4,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 import { propTypes } from './propTypes';
 import MyPager from '../../atoms/Pager';
+import Section from '../../atoms/Section';
 import MediaImage from '../../atoms/MediaImage';
 import PageTransition from '../../atoms/PageTransition/index';
 import SEO from '../../atoms/SEO';
@@ -15,8 +16,8 @@ const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => {
   return (
     <PageTransition>
       <SEO title="Popular people" />
-      <div className={classes.root}>
-        <h2>POPULAR PEOPLE</h2>
+      <Section noborder disableGutters>
+        <Section.Header>POPULAR PEOPLE</Section.Header>
         <div className={classes.list}>
           {(!toppeople.length ? Array.from(new Array(8)) : toppeople).map(
             (person, index) => (
@@ -46,7 +47,7 @@ const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => {
           )}
         </div>
         <MyPager page={page} handlePageSelect={handlePageSelect} />
-      </div>
+      </Section>
     </PageTransition>
   );
 };

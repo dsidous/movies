@@ -2,26 +2,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
   theme => ({
-    root: {
-      margin: '20px 0',
-
-      [theme.breakpoints.up('sm')]: {
-        margin: '40px auto',
-      },
-    },
-
     infoRoot: {
       display: 'grid',
       gridTemplateColumns: '1fr 2fr',
       gridTemplateAreas: '"poster poster" "info info" "bio bio"',
-      gridGap: '10px',
+      gridGap: theme.spacing(2),
 
       [theme.breakpoints.up('sm')]: {
-        gridColumnGap: 40,
+        gridColumnGap: theme.spacing(5),
         gridTemplateColumns: '1fr 2fr',
         gridTemplateRows: '100px auto',
         gridTemplateAreas: '"poster info" "poster bio"',
-        margin: '0 0 40px',
+        margin: theme.spacing(0, 0, 5),
       },
     },
 
@@ -29,7 +21,7 @@ export default makeStyles(
       gridArea: 'poster',
 
       '& img': {
-        borderRadius: '4px',
+        borderRadius: theme.shape.borderRadius,
         boxShadow: '0 0 20px -5px #000',
         height: 'auto',
         maxWidth: '100%',
@@ -94,16 +86,17 @@ export default makeStyles(
           color: 'rgba(170,170,170,.2)',
           content: 'attr(data-name)',
           fontSize: '1.3em',
-          fontWeight: 'bold',
-          left: '-20px',
+          fontWeight: theme.fontWeightBold,
+          left: theme.spacing(-3),
           position: 'absolute',
-          top: '-20px',
+          top: theme.spacing(-3),
         },
       },
     },
 
     bioRoot: {
       gridArea: 'bio',
+      marginTop: theme.spacing(2),
     },
 
     bio: {
@@ -114,11 +107,11 @@ export default makeStyles(
 
     knowns: {
       display: 'grid',
-      gridGap: 10,
+      gridGap: theme.spacing(2),
       gridTemplateColumns: 'repeat(2, 1fr)',
 
       [theme.breakpoints.up('sm')]: {
-        gridGap: 40,
+        gridGap: theme.spacing(5),
         gridTemplateColumns: 'repeat(5, 1fr)',
       },
     },

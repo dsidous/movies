@@ -65,15 +65,15 @@ export default makeStyles(
 
     headerInner: {
       display: 'grid',
-      gridGap: 15,
+      gridGap: theme.spacing(2),
       gridTemplateColumns: '1fr 2fr',
       gridTemplateAreas:
         '"mdata mdata" "mposter moverview" ". mtrailer" "mcrew mcrew"',
-      padding: '20px 16px 40px',
+      padding: theme.spacing(3, 2, 5),
       position: 'relative',
 
       [theme.breakpoints.up('sm')]: {
-        gridColumnGap: 40,
+        gridColumnGap: theme.spacing(5),
         gridTemplateColumns: 'minmax(200px, 1fr) minmax(400px, 2fr)',
         gridTemplateRows: 'auto',
         gridTemplateAreas:
@@ -107,25 +107,21 @@ export default makeStyles(
 
     data: {
       gridArea: 'mdata',
-      fontSize: 12,
       padding: theme.spacing(2, 0),
 
       [theme.breakpoints.up('sm')]: {
-        fontSize: '1.2em',
         padding: 0,
       },
     },
 
     title: {
       color: '#fff',
-      fontSize: 20,
       fontWeight: theme.fontWeightLight,
       letterSpacing: 1,
       margin: 0,
 
       [theme.breakpoints.up('sm')]: {
-        fontSize: '2.3em',
-        margin: '20px 0 0',
+        margin: theme.spacing(3, 0, 0),
       },
     },
 
@@ -133,8 +129,8 @@ export default makeStyles(
       border: 'none',
       color: '#fff',
       fontSize: 22,
-      marginLeft: 20,
-      paddingLeft: 23,
+      marginLeft: theme.spacing(3),
+      paddingLeft: theme.spacing(3.5),
       position: 'relative',
 
       '&::before': {
@@ -185,7 +181,7 @@ export default makeStyles(
 
       '& li': {
         border: 'none',
-        padding: '0 2px',
+        padding: theme.spacing(0, 0.25),
 
         '&:not(:last-child):after': {
           content: '","',
@@ -201,7 +197,7 @@ export default makeStyles(
 
     overview: {
       gridArea: 'moverview',
-      marginRight: 10,
+      marginRight: theme.spacing(2),
 
       '& h4': {
         marginTop: 0,

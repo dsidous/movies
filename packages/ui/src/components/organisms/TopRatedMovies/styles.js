@@ -4,7 +4,7 @@ export default makeStyles(
   theme => ({
     root: {
       display: 'grid',
-      gridGap: '10px',
+      gridGap: theme.spacing(2),
       gridTemplateColumns: '1fr',
       margin: '0 auto',
 
@@ -14,7 +14,7 @@ export default makeStyles(
     },
 
     header: {
-      margin: '40px auto',
+      margin: theme.spacing(5, 'auto'),
     },
 
     item: {
@@ -40,25 +40,25 @@ export default makeStyles(
     },
 
     title: {
-      bottom: 10,
+      bottom: theme.spacing(2),
       color: '#fff',
-      left: 10,
+      left: theme.spacing(2),
       position: 'absolute',
       textShadow: '0 0 5px #000',
     },
 
     menu: {
       listStyle: 'none',
-      margin: '0 auto 20px',
+      margin: theme.spacing(0, 'auto', 3),
       padding: 0,
 
       '& li': {
         cursor: 'pointer',
         display: 'inline',
-        margin: '0 10px 0 0',
+        margin: theme.spacing(0, 2, 0, 0),
 
         '&.active': {
-          fontWeight: 'bold',
+          fontWeight: theme.fontWeightBold,
         },
 
         '&:focus, & span:focus': {
