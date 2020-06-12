@@ -35,7 +35,6 @@ export { default as TopCast } from './molecules/TopCast';
 export { default as Filter } from './organisms/Filter';
 export { default as PersonProfile } from './organisms/PersonProfile';
 export { default as ShowProfile } from './organisms/ShowProfile';
-export { default as SimilarMovies } from './organisms/SimilarMovies';
 export { default as TopPeopleProfile } from './organisms/TopPeople';
 export { default as TopRatedMovies } from './organisms/TopRatedMovies';
 export { default as Home } from './templates/Home';
