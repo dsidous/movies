@@ -1,6 +1,8 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 import { propTypes } from './propTypes';
+import Section from '../../atoms/Section';
 import MediaImage from '../../atoms/MediaImage';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
@@ -40,11 +42,10 @@ const PersonImages = ({
             name={name}
           />
           <figcaption>
-            <p>
+            <Typography variant="caption">
               Size:
-              <br />
-              {`${image.height} x ${image.width}`}
-            </p>
+              <span>{` ${image.height} x ${image.width}`}</span>
+            </Typography>
           </figcaption>
         </a>
       </figure>
@@ -58,8 +59,9 @@ const PersonImages = ({
         link={`/person/${id}`}
         linkCopy="Back to main"
       />
-
-      <div className={classes.root}>{list}</div>
+      <Section noborder disableGutters>
+        <div className={classes.root}>{list}</div>
+      </Section>
     </PageTransition>
   );
 };

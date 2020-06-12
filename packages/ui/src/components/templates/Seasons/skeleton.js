@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     borderBottom: theme.separatorBold,
     display: 'flex',
-    padding: [[theme.spacing(4), 0]],
+    padding: theme.spacing(4, 0),
   },
 
   list: {

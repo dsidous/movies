@@ -4,19 +4,17 @@ export default makeStyles(
   theme => ({
     root: {
       display: 'grid',
-      gridGap: '20px',
+      gridGap: theme.spacing(2),
       gridTemplateColumns: 'repeat(2, 1fr)',
-      margin: '40px auto',
-      padding: '0 20px',
 
       [theme.breakpoints.up('sm')]: {
-        gridGap: '40px',
+        gridGap: theme.spacing(5),
         gridTemplateColumns: 'repeat(4, 1fr)',
       },
     },
 
     item: {
-      borderRadius: '4px',
+      borderRadius: theme.shape.borderRadius,
       boxShadow: '0 0 20px 5px rgba(0, 0, 0, 0.1)',
       margin: 0,
       overflow: 'hidden',
@@ -35,7 +33,7 @@ export default makeStyles(
       },
 
       '& figcaption': {
-        padding: 10,
+        padding: theme.spacing(2),
 
         '& p': {
           margin: 0,

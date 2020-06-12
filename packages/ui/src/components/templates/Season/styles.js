@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(theme => ({
   season__wrapper: {
     margin: '0 auto',
-    padding: '0 20px',
+    padding: theme.spacing(0, 3),
   },
 
   season__element: {
     borderBottom: theme.separator,
     listStyleType: 'none',
-    margin: '40px 0',
-    padding: '0 0 40px',
+    margin: theme.spacing(5, 0),
+    padding: theme.spacing(0, 0, 5),
   },
 }));
