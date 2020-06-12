@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
 
-import { Button, Icon } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import Movie from '@material-ui/icons/Movie';
 
 import { propTypes } from './propTypes';

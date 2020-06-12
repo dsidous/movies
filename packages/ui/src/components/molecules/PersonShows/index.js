@@ -49,7 +49,7 @@ const PersonShows = ({ shows: { cast } }) => {
             name={title || name}
           />
         </p>
-        <Typography variant="body2" className={classes.title}>
+        <Typography variant="body2" className={classes.title} component="div">
           <Box fontWeight={700}>{title || name}</Box>
           {character && (
             <Typography variant="body2" className={classes.character}>
