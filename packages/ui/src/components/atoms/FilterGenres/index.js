@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
+/** @jsxFrag React.Fragment */
+import React, { useState, useEffect } from 'react';
 
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';

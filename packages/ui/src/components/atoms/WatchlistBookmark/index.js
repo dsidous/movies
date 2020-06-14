@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+/** @jsxFrag React.Fragment */
+import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import BookmarkSharpIcon from '@material-ui/icons/BookmarkSharp';
 import BookmarkBorderSharpIcon from '@material-ui/icons/BookmarkBorderSharp';

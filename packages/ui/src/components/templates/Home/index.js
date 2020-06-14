@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+/** @jsxFrag React.Fragment */
+import React from 'react';
 
 import PageTransition from '../../atoms/PageTransition';
 import Section from '../../atoms/Section';

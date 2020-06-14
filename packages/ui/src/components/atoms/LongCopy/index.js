@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
+/** @jsxFrag React.Fragment */
+import React, { useState, useEffect } from 'react';
 import { compiler } from 'markdown-to-jsx';
 
 import { Button } from '@material-ui/core';
