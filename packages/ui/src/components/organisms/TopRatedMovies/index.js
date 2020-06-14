@@ -51,10 +51,10 @@ const TopRatedMovies = ({ popular }) => {
 
     if (moviesLength > 5) {
       const rndList = randomList(moviesLength);
-      movies = movies.filter((movie, index) => rndList.indexOf(index) !== -1);
+      movies = movies.filter((_, index) => rndList.indexOf(index) !== -1);
     }
 
-    setTopMovies(() => movies);
+    setTopMovies(movies);
   };
 
   const selectGenre = topGenreId => {
