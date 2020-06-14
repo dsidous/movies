@@ -1,6 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import useConfig from '../../hooks/useConfig';
 import PersonImages from '.';
+
+jest.mock('../../hooks/useConfig.js');
+
+useConfig.mockReturnValue({
+  getImageURL: () => 'http://example.url/image',
+});
 
 const mockProps = {
   person: {
@@ -22,12 +29,6 @@ const mockProps = {
     id: 1,
     birthday: '10.10.2010',
     profile_path: 'path/to/image',
-  },
-  config: {
-    images: {
-      secure_base_url: 'path/to/image',
-      profile_sizes: ['1', '2', '3', '4'],
-    },
   },
   loading: false,
 };

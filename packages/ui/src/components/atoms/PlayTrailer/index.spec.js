@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ModalVideo from 'react-modal-video';
+import { Button } from '@material-ui/core';
 
 import PlayTrailer from '.';
 
@@ -21,7 +22,7 @@ describe('Atoms/PlayTrailer', () => {
     const wrapper = shallow(<PlayTrailer {...mockProps} />);
     const modal = wrapper.find(ModalVideo);
 
-    wrapper.find('.play-trailer').simulate('click');
+    wrapper.find(Button).simulate('click');
     expect(wrapper.find(ModalVideo).props().isOpen).toBe(true);
 
     modal.simulate('close');

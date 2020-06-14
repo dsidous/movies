@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 import SignInFacebook from '.';
 
-jest.mock('../../../firebase/auth', () => ({
+jest.mock('@movies/firebase/auth', () => ({
   doSignInWithFacebook: () =>
     Promise.resolve(() => ({
       data: { user: { name: 'test' } },

@@ -1,10 +1,16 @@
 import React from 'react';
 import { Router, useHistory as useHistoryMock } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
+import useConfig from '../../hooks/useConfig';
 import TopPeople from '.';
 import TopPeopleProfile from '../../organisms/TopPeople';
-import Spinner from '../../atoms/Spinner';
+
+jest.mock('../../hooks/useConfig.js');
+
+useConfig.mockReturnValue({
+  getImageURL: () => 'http://example.url/image',
+});
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -42,16 +48,6 @@ describe('Templates/TopPeople', () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should render a spinner when loading', () => {
-    const wrapper = mount(
-      <Router history={historyMock}>
-        <TopPeople {...mockProps} loading />
-      </Router>,
-    );
-
-    expect(wrapper.find(Spinner).length).toEqual(1);
   });
 
   it('should handle page select', () => {

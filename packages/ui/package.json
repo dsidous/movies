@@ -53,6 +53,7 @@
     "style-it": "^2.0.0"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.3.0",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",

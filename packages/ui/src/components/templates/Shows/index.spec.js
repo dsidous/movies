@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Spinner from '../../atoms/Spinner';
 import Shows from '.';
 
 const mockProps = {
@@ -32,11 +31,5 @@ describe('Templates/Shows', () => {
     const wrapper = shallow(<Shows {...mockProps} />);
 
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should render a spinner when loading', () => {
-    const wrapper = shallow(<Shows {...mockProps} loading />);
-
-    expect(wrapper.find(Spinner).length).toBe(1);
   });
 });

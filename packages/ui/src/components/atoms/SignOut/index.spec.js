@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import * as firebase from '@movies/firebase/firebase';
 import SignOutButton from '.';
-import * as firebase from '../../../firebase/firebase';
 
 describe('Atoms/SignOutButton', () => {
   beforeAll(() => {

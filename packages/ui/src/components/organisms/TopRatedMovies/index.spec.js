@@ -76,6 +76,12 @@ describe('Organisms/TopRatedMovies', () => {
   it('should handle filter function for more than 5 result', () => {
     wrapper.find('[data-test=28] span').props().onClick();
 
-    expect(wrapper.find('.top-list__element-title').length).toEqual(5);
+    expect(setState).toHaveBeenNthCalledWith(2, [
+      expect.anything(),
+      expect.anything(),
+      expect.anything(),
+      expect.anything(),
+      expect.anything(),
+    ]);
   });
 });

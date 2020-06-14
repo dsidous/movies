@@ -1,7 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import useConfig from '../../hooks/useConfig';
 
 import MediaImage from '.';
+
+jest.mock('../../hooks/useConfig.js');
+
+useConfig.mockReturnValue({
+  getImageURL: () => 'http://example.url/image',
+});
 
 const mockProps = {
   config: {

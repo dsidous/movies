@@ -2,9 +2,15 @@ import React from 'react';
 import { useHistory as useHistoryMock } from 'react-router-dom';
 import { shallow } from 'enzyme';
 
+import useConfig from '../../hooks/useConfig';
 import ShowProfile from '../../organisms/ShowProfile';
 import Show from '.';
-import Spinner from '../../atoms/Spinner';
+
+jest.mock('../../hooks/useConfig.js');
+
+useConfig.mockReturnValue({
+  getImageURL: () => 'http://example.url/image',
+});
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -46,25 +52,11 @@ describe('Templates/Show', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render a spinner when loading', () => {
-    wrapper = shallow(<Show {...mockProps} loading />);
-
-    expect(wrapper.find(Spinner).length).toBe(1);
-  });
-
   it('should handle show click', () => {
     const newMovieId = 2;
 
     wrapper.find(ShowProfile).props().handleShowClick(newMovieId);
 
     expect(setHistory.mock.calls[0][0]).toEqual(`/movie/${newMovieId}`);
-  });
-
-  it('should handle full crew click', () => {
-    wrapper.find(ShowProfile).props().handleFullCrewClick();
-
-    expect(setHistory.mock.calls[0][0]).toEqual(
-      `/movie/${mockProps.show.id}/crew`,
-    );
   });
 });

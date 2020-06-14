@@ -1,6 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import MovieCard from '.';
+import useConfig from '../../hooks/useConfig';
+
+jest.mock('../../hooks/useConfig.js');
+
+useConfig.mockReturnValue({
+  getImageURL: () => 'http://example.url/image',
+});
 
 const mockProps = {
   movie: {

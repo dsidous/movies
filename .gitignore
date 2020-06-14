@@ -6,6 +6,7 @@ packages/*/node_modules/
 
 # testing
 /coverage
+packages/*/coverage
 
 # production
 /build
