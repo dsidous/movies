@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 packages/*/node_modules/
+packages/*/.expo/
+packages/*/.expo-shared/
+packages/*/__generated__/
 
 # testing
 /coverage
@@ -30,3 +33,4 @@ yarn-error.log*
 .serverless
 .cache
 lerna-debug.log
+packages/app/environment.js
