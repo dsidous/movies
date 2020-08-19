@@ -10,3 +10,5 @@ This monorepo contains the following packages:
 - [server](./pakages/server) - a serverless graphQL application
 - [ui](./packages/ui) - React ui components for the web application
 - [web](./packages/web) - React web application
+
+[![Movies](movies.gif)](https://movie-search.tamasjonas.com)
