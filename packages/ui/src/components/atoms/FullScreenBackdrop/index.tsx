@@ -7,7 +7,11 @@ import useStyles from './styles';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const FullScreenBackdrop = ({ backdrops }) => {
+interface Props {
+  backdrops: string[];
+}
+
+const FullScreenBackdrop = ({ backdrops }: Props) => {
   const settings = {
     arrows: false,
     dots: false,

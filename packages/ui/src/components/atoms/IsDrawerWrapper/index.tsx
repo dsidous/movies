@@ -2,19 +2,25 @@ import React from 'react';
 
 import Drawer from '@material-ui/core/Drawer';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
-
-import { propTypes } from './propTypes';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 
 import useStyles from './styles';
+
+interface Props {
+  width: Breakpoint;
+  mobileOpen: boolean;
+  handleDrawerToggle: () => void;
+  children?: React.ReactNode;
+}
 
 const IsDrawerWrapper = ({
   children,
   width,
   mobileOpen,
   handleDrawerToggle,
-}) => {
+}: Props) => {
   if (isWidthUp('md', width)) {
-    return children;
+    return <>{children}</>;
   }
 
   const classes = useStyles();
@@ -39,5 +45,3 @@ const IsDrawerWrapper = ({
 };
 
 export default withWidth()(IsDrawerWrapper);
-
-IsDrawerWrapper.propTypes = propTypes;

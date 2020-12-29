@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 
-function Alert(props) {
+interface Props {
+  message: string;
+}
+
+function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const Message = ({ message }) => {
+const Message = ({ message }: Props) => {
   const [open, setOpen] = useState(true);
 
-  const handleClose = (event, reason) => {
+  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }

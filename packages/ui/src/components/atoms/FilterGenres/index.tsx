@@ -8,10 +8,29 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 import { propTypes } from './propTypes';
 
-const FilterGenres = ({ genres, onChange }) => {
-  const [selectedGenres, setSelectedGenres] = useState({
-    options: [],
-    selectValue: [''],
+import { Genres } from '../../../types/movie';
+
+type SelectValue = string;
+
+type Option = {
+  label: string;
+  value: string;
+};
+
+interface Props {
+  genres: Genres[];
+  onChange: (arg0: SelectValue) => void;
+}
+
+interface Selected {
+  options: Option[] | null;
+  selectValue: SelectValue;
+}
+
+const FilterGenres: React.FC<Props> = ({ genres, onChange }: Props) => {
+  const [selectedGenres, setSelectedGenres] = useState<Selected>({
+    options: null,
+    selectValue: '',
   });
 
   useEffect(() => {
@@ -22,7 +41,7 @@ const FilterGenres = ({ genres, onChange }) => {
     setSelectedGenres(s => ({ ...s, options }));
   }, [genres]);
 
-  const handleChange = event => {
+  const handleChange = (event: React.ChangeEvent<HTMLButtonElement>) => {
     setSelectedGenres({
       ...selectedGenres,
       selectValue: event.target.value,
@@ -42,18 +61,22 @@ const FilterGenres = ({ genres, onChange }) => {
         onChange={handleChange}
         onClose={handleClose}
         input={<OutlinedInput id="genres" labelWidth={50} />}
-        renderValue={selected => {
-          if (selected.length === 1) {
+        renderValue={(selected: []) => {
+          if (!selected.length) {
             return <span>Select genres...</span>;
           }
 
           const list = selected
             .filter(select => select !== '')
-            .map(
-              select =>
-                selectedGenres.options.find(option => option.value === select)
-                  .label,
-            );
+            .map(select => {
+              if (selectedGenres.options && selectedGenres.options.length > 0) {
+                return selectedGenres?.options?.find(
+                  (option: Option) => option.value === select,
+                ).label;
+              }
+
+              return null;
+            });
 
           return list.join(', ');
         }}
@@ -61,7 +84,7 @@ const FilterGenres = ({ genres, onChange }) => {
         <MenuItem value="" disabled>
           Select genres...
         </MenuItem>
-        {selectedGenres.options.map(option => (
+        {selectedGenres.options?.map(option => (
           <MenuItem key={option.label} value={option.value}>
             {option.label}
           </MenuItem>

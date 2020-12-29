@@ -1,15 +1,26 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Box, Typography } from '@material-ui/core';
 
 import MediaImage from '../MediaImage';
-import { propTypes, defaultProps } from './propTypes';
 import useStyles from './styles';
 
-const Cast = ({ cast, type }) => {
+import { Cast_Crew_Credit } from '../../../types/movie';
+
+type Type = 'full' | 'top';
+
+interface CastProps {
+  cast: Cast_Crew_Credit;
+  type: Type;
+}
+
+const Cast: React.FC<CastProps> = ({ cast, type }: CastProps) => {
   const classes = useStyles();
   const mediaType = type === 'full' ? 'miniProfile' : 'profile';
+
+  const getJobOrCharacter = () =>
+    ('character' in cast && cast.character) || ('job' in cast && cast.job);
 
   return (
     <Box className={`${classes.root} ${type}`}>
@@ -22,16 +33,11 @@ const Cast = ({ cast, type }) => {
         />
         <Box className={classes.copy} py={1}>
           <Typography variant="subtitle2">{cast.name}</Typography>
-          <Typography variant="caption">
-            {cast.character || cast.job}
-          </Typography>
+          <Typography variant="caption">{getJobOrCharacter()}</Typography>
         </Box>
       </Link>
     </Box>
   );
 };
-
-Cast.propTypes = propTypes;
-Cast.defaultProps = defaultProps;
 
 export default Cast;

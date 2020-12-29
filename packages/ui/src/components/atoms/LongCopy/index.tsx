@@ -6,7 +6,12 @@ import { Button } from '@material-ui/core';
 
 import useStyles from './styles';
 
-const LongCopy = ({ content, max = 500 }) => {
+interface Props {
+  content: string;
+  max: number;
+}
+
+const LongCopy = ({ content, max = 500 }: Props) => {
   const classes = useStyles();
   const [state, setState] = useState({
     expanded: true,

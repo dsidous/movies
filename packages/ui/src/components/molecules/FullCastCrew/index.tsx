@@ -5,12 +5,17 @@ import { propTypes } from './propTypes';
 import Cast from '../../atoms/Cast';
 import useStyles from './styles';
 
-const FullCastCrew = props => {
-  const {
-    movie: {
-      credits: { crew, cast },
-    },
-  } = props;
+import { Movie_detailed } from '../../../types/movie';
+
+interface Props {
+  movie: Movie_detailed;
+}
+
+const FullCastCrew = ({
+  movie: {
+    credits: { crew, cast },
+  },
+}: Props) => {
   const classes = useStyles();
 
   return (
@@ -23,7 +28,7 @@ const FullCastCrew = props => {
           </Box>
         </Typography>
         {cast.map(person => (
-          <Cast cast={person} type="full" key={person.credit_id} />
+          <Cast cast={person} type="full" key={person.cast_id} />
         ))}
       </div>
       <div className={classes.col}>

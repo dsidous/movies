@@ -1,9 +1,21 @@
 import React from 'react';
 
 import useConfig from '../../hooks/useConfig';
-import { propTypes } from './propTypes';
 
-const MediaImage = ({ filePath, name, size, mediaType, ...otherProps }) => {
+interface Props {
+  filePath: string;
+  name: string;
+  size: number;
+  mediaType: string;
+}
+
+const MediaImage = ({
+  filePath,
+  name,
+  size,
+  mediaType,
+  ...otherProps
+}: Props) => {
   const { getImageURL } = useConfig();
 
   const imageUrl = getImageURL({
@@ -14,7 +26,5 @@ const MediaImage = ({ filePath, name, size, mediaType, ...otherProps }) => {
 
   return <img src={imageUrl} alt={name} {...otherProps} />;
 };
-
-MediaImage.propTypes = propTypes;
 
 export default MediaImage;

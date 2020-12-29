@@ -5,7 +5,13 @@ import { Box, Typography } from '@material-ui/core';
 import { propTypes, defaultProps } from './propTypes';
 import useStyles from './styles';
 
-const Crew = ({ crew }) => {
+import { Crew_Credit } from '../../../types/movie';
+
+interface CrewProps {
+  crew: Crew_Credit[];
+}
+
+const Crew = ({ crew }: CrewProps) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
