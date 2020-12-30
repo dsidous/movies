@@ -62,21 +62,18 @@ const FilterGenres: React.FC<Props> = ({ genres, onChange }: Props) => {
         onClose={handleClose}
         input={<OutlinedInput id="genres" labelWidth={50} />}
         renderValue={(selected: []) => {
-          if (!selected.length) {
+          if (selected.length === 0) {
             return <span>Select genres...</span>;
           }
 
           const list = selected
             .filter(select => select !== '')
-            .map(select => {
-              if (selectedGenres.options && selectedGenres.options.length > 0) {
-                return selectedGenres?.options?.find(
+            .map(
+              select =>
+                selectedGenres.options?.find(
                   (option: Option) => option.value === select,
-                ).label;
-              }
-
-              return null;
-            });
+                )?.label,
+            );
 
           return list.join(', ');
         }}
