@@ -4,8 +4,13 @@ import { Box, Typography, Paper } from '@material-ui/core';
 import LongCopy from '../LongCopy';
 import { propTypes } from './propTypes';
 import useStyles from './styles';
+import { Review as PropReview } from '../../../types/movie';
 
-const Review = ({ review: { author, content } }) => {
+interface Props {
+  review: PropReview;
+}
+
+const Review = ({ review: { author, content } }: Props) => {
   const classes = useStyles();
 
   return (

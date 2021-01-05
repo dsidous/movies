@@ -2,13 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import { propTypes } from './propTypes';
 import useStyles from './styles';
 
-const PageTransition = props => {
-  const { children } = props;
-  const [loaded, setLoaded] = useState(false);
+interface Props {
+  children: React.ReactNode;
+}
+
+const PageTransition = ({ children }: Props) => {
   const classes = useStyles();
+
+  const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     setLoaded(true);
@@ -29,7 +32,5 @@ const PageTransition = props => {
     </CSSTransition>
   );
 };
-
-PageTransition.propTypes = propTypes;
 
 export default PageTransition;

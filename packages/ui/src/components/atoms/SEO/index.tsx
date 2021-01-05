@@ -4,7 +4,11 @@ import { useHistory } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
 
-const SEO = ({ title }) => {
+interface Props {
+  title: string;
+}
+
+const SEO = ({ title }: Props) => {
   const history = useHistory();
 
   const subTitle = history.location.pathname !== '/' ? ` - ${title}` : null;

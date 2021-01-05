@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-const FirebaseAuthContext = createContext();
+const FirebaseAuthContext = createContext({});
 
 export default FirebaseAuthContext;

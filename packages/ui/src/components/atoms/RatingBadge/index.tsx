@@ -2,6 +2,11 @@ import React from 'react';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 
+interface Props {
+  value: string;
+  children: React.ReactNode;
+}
+
 const StyledBadge = withStyles(theme => ({
   badge: {
     bottom: theme.spacing(-3),
@@ -25,7 +30,7 @@ const StyledBadge = withStyles(theme => ({
   },
 }))(Badge);
 
-const RatingBadge = ({ value, children }) => (
+const RatingBadge = ({ value, children }: Props) => (
   <StyledBadge badgeContent={value}>{children}</StyledBadge>
 );
 

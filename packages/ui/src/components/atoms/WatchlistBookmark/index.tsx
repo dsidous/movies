@@ -9,8 +9,13 @@ import useWatchList from '../../hooks/useWatchList';
 import { propTypes } from './propTypes';
 
 import useStyles from './styles';
+import { Movie } from '../../../types/movie';
 
-const WatchlistBookmark = ({ movie }) => {
+interface Props {
+  movie: Movie;
+}
+
+const WatchlistBookmark = ({ movie }: Props) => {
   const classes = useStyles();
   const { authUser, watchlist, toggleMovie } = useWatchList(movie);
   const { addAlert } = useSnackBars();

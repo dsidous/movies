@@ -1,4 +1,5 @@
 export interface Images {
+  [key: string]: string | string[];
   base_url: string;
   secure_base_url: string;
   backdrop_sizes: string[];

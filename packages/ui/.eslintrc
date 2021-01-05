@@ -1,7 +1,7 @@
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
   "parser": "babel-eslint",
-  "plugins": ["jest", "prettier"],
+  "plugins": ["jest", "prettier", "import/typescript"],
   "rules": {
     "camelcase": 0,
     "no-unused-expressions": [0],
@@ -31,5 +31,13 @@
   "globals": {
     "shallow": true,
     "mount": true
+  },
+  "settings": {
+    "import/resolver": {
+        "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"],
+            "moduleDirectory": ["node_modules", "src/"]
+        }
+    }
   }
 }

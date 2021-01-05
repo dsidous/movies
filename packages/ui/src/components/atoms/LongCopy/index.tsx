@@ -8,7 +8,7 @@ import useStyles from './styles';
 
 interface Props {
   content: string;
-  max: number;
+  max?: number;
 }
 
 const LongCopy = ({ content, max = 500 }: Props) => {

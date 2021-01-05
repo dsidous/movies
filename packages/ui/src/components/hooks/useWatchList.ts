@@ -2,8 +2,9 @@ import { useContext, useState, useEffect } from 'react';
 import { firebase } from '@movies/firebase';
 
 import FirebaseAuthContext from '../contexts/FirebaseAuthContext';
+import { Movie } from '../../types/movie';
 
-const useWatchList = movie => {
+const useWatchList = (movie: Movie) => {
   const { authUser, user } = useContext(FirebaseAuthContext);
   const [watchlist, setWatchlist] = useState(false);
   const userRef = firebase.db.ref(`users/${user?.uid}`);

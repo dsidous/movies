@@ -9,8 +9,14 @@ import Divider from '@material-ui/core/Divider';
 
 import SignOutButton from '../SignOut';
 
-const UserMenuLoggedIn = ({ username }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+interface Props {
+  username: string;
+}
+
+const UserMenuLoggedIn = ({ username }: Props) => {
+  const [anchorEl, setAnchorEl] = useState<
+    (EventTarget & HTMLButtonElement) | null
+  >(null);
 
   return (
     <div>

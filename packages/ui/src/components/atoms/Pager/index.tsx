@@ -4,9 +4,13 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 import useStyles from './styles';
-import { propTypes } from './propTypes';
 
-const MyPager = ({ page, handlePageSelect }) => {
+interface Props {
+  page: number;
+  handlePageSelect: (arg0: number) => void;
+}
+
+const MyPager = ({ page, handlePageSelect }: Props) => {
   const classes = useStyles();
 
   return (
@@ -22,7 +26,5 @@ const MyPager = ({ page, handlePageSelect }) => {
     </div>
   );
 };
-
-MyPager.propTypes = propTypes;
 
 export default MyPager;

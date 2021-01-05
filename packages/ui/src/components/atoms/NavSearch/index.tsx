@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { withSearch } from '@movies/common';
 
 import useStyles from './styles';
-import { propTypes, itemsProps } from './propTypes';
+// import { propTypes, itemsProps } from './propTypes';
 import useConfig from '../../hooks/useConfig';
 
 const renderMenuItemChildren = ({
@@ -61,7 +61,9 @@ const renderMenuItemChildren = ({
   );
 };
 
-renderMenuItemChildren.propTypes = itemsProps;
+interface ItemsProps {
+  search: 
+}
 
 const Items = ({ search, loading, ...props }) =>
   loading || Object.keys(search).length === 0
@@ -124,5 +126,3 @@ const NavSearch = () => {
 };
 
 export default NavSearch;
-
-NavSearch.propTypes = propTypes;

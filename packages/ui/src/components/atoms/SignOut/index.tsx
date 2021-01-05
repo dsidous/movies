@@ -8,7 +8,7 @@ const SignOutButton = () => (
     onClick={auth.doSignOut}
     onKeyDown={auth.doSignOut}
     role="button"
-    tabIndex="0"
+    tabIndex={0}
   >
     Sign Out
   </div>

@@ -3,17 +3,32 @@ import PropTypes from 'prop-types';
 import { withConfig } from '@movies/common';
 
 import ConfigContext from '../contexts/ConfigContext';
-import NoImage from '../../images/noimage.jpg';
-import NoBdImage from '../../images/nobdimage.jpg';
-import NoImageSq from '../../images/noimagesq.jpg';
+import * as NoImage from '../../images/noimage.jpg';
+import * as NoBdImage from '../../images/nobdimage.jpg';
+import * as NoImageSq from '../../images/noimagesq.jpg';
 
-const ConfigProvider = ({ children, configLoading, ...props }) => {
-  const [config, setConfig] = useState({});
+import { Config } from '../../types/config';
+
+interface GetImageUrlProps {
+  filePath: string;
+  mediaType: string;
+  size: number;
+}
+
+interface Props {
+  children: React.ReactNode;
+  configLoading: boolean;
+  config: Config;
+}
+
+const ConfigProvider = ({ children, configLoading, ...props }: Props) => {
+  const [config, setConfig] = useState<Config | null>(null);
   useEffect(() => {
     setConfig(props.config);
   }, [configLoading]);
 
-  const getImageURL = ({ filePath, mediaType, size }) => {
+  const getImageURL = ({ filePath, mediaType, size }: GetImageUrlProps) => {
+    const imageType = `${mediaType}_sizes`;
     let imageUrl;
     switch (mediaType) {
       case 'backdrop':
@@ -21,7 +36,7 @@ const ConfigProvider = ({ children, configLoading, ...props }) => {
         break;
       case 'miniProfile':
         imageUrl = NoImageSq;
-        break;
+        break; 
       default:
         imageUrl = NoImage;
     }
@@ -36,9 +51,9 @@ const ConfigProvider = ({ children, configLoading, ...props }) => {
           sizePath = '/w220_and_h330_face';
           break;
         default:
-          sizePath = config.images[`${mediaType}_sizes`][size];
+          sizePath = config?.images[imageType][size];          
       }
-      imageUrl = `${config.images.secure_base_url}${sizePath}${filePath}`;
+      imageUrl = `${config?.images.secure_base_url}${sizePath}${filePath}`;
     }
 
     return imageUrl;
