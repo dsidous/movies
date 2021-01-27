@@ -9,7 +9,7 @@ import * as NoImageSq from '../../images/noimagesq.jpg';
 
 import { Config } from '../../types/config';
 
-interface GetImageUrlProps {
+export interface GetImageUrlProps {
   filePath: string;
   mediaType: string;
   size: number;
@@ -19,15 +19,16 @@ interface Props {
   children: React.ReactNode;
   configLoading: boolean;
   config: Config;
+  getImageURL: ({ filePath, mediaType, size }: GetImageUrlProps) => string;
 }
 
-const ConfigProvider = ({ children, configLoading, ...props }: Props) => {
+const ConfigProvider:React.FC<Props> = ({ children, configLoading, ...props }) => {
   const [config, setConfig] = useState<Config | null>(null);
   useEffect(() => {
     setConfig(props.config);
   }, [configLoading]);
 
-  const getImageURL = ({ filePath, mediaType, size }: GetImageUrlProps) => {
+  const getImageURL = ({ filePath, mediaType, size }: GetImageUrlProps): string => {
     const imageType = `${mediaType}_sizes`;
     let imageUrl;
     switch (mediaType) {

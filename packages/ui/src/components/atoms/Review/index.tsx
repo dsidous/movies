@@ -10,7 +10,7 @@ interface Props {
   review: PropReview;
 }
 
-const Review = ({ review: { author, content } }: Props) => {
+const Review:React.FC<Props> = ({ review: { author, content } }) => {
   const classes = useStyles();
 
   return (
@@ -24,7 +24,5 @@ const Review = ({ review: { author, content } }: Props) => {
     </Paper>
   );
 };
-
-Review.propTypes = propTypes;
 
 export default Review;

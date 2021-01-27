@@ -8,7 +8,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const PageTransition = ({ children }: Props) => {
+const PageTransition:React.FC<Props> = ({ children }) => {
   const classes = useStyles();
 
   const [loaded, setLoaded] = useState<boolean>(false);

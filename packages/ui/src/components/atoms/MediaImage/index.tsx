@@ -9,13 +9,13 @@ interface Props {
   mediaType: string;
 }
 
-const MediaImage = ({
+const MediaImage:React.FC<Props> = ({
   filePath,
   name,
   size,
   mediaType,
   ...otherProps
-}: Props) => {
+}) => {
   const { getImageURL } = useConfig();
 
   const imageUrl = getImageURL({

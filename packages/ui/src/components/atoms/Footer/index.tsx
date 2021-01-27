@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 
 import useStyles from './styles';
 
-const Footer = () => {
+const Footer:React.FC = () => {
   const classes = useStyles();
 
   return (

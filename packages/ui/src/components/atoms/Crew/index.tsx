@@ -11,7 +11,7 @@ interface CrewProps {
   crew: Crew_Credit[];
 }
 
-const Crew = ({ crew }: CrewProps) => {
+const Crew: React.FC<CrewProps> = ({ crew }) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
@@ -30,8 +30,5 @@ const Crew = ({ crew }: CrewProps) => {
     </Box>
   );
 };
-
-Crew.propTypes = propTypes;
-Crew.defaultProps = defaultProps;
 
 export default Crew;

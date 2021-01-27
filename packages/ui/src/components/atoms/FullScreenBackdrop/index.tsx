@@ -11,7 +11,7 @@ interface Props {
   backdrops: string[];
 }
 
-const FullScreenBackdrop = ({ backdrops }: Props) => {
+const FullScreenBackdrop: React.FC<Props> = ({ backdrops }) => {
   const settings = {
     arrows: false,
     dots: false,

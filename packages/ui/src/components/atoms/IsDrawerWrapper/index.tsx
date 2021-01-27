@@ -13,12 +13,12 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const IsDrawerWrapper = ({
+const IsDrawerWrapper: React.FC<Props> = ({
   children,
   width,
   mobileOpen,
   handleDrawerToggle,
-}: Props) => {
+}) => {
   if (isWidthUp('md', width)) {
     return <>{children}</>;
   }

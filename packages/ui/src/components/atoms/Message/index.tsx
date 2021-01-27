@@ -10,7 +10,7 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const Message = ({ message }: Props) => {
+const Message:React.FC<Props> = ({ message }) => {
   const [open, setOpen] = useState(true);
 
   const handleClose = (event?: React.SyntheticEvent, reason?: string) => {

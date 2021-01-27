@@ -11,7 +11,7 @@ interface Props {
   max?: number;
 }
 
-const LongCopy = ({ content, max = 500 }: Props) => {
+const LongCopy:React.FC<Props> = ({ content, max = 500 }) => {
   const classes = useStyles();
   const [state, setState] = useState({
     expanded: true,

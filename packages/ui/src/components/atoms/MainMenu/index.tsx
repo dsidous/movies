@@ -7,7 +7,7 @@ import MenuList from '@material-ui/core/MenuList';
 
 import useStyles from './styles';
 
-const MainMenu = () => {
+const MainMenu:React.FC = () => {
   const classes = useStyles();
   return (
     <MenuList className={classes.root}>

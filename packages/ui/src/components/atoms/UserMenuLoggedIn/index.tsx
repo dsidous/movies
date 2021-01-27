@@ -13,7 +13,7 @@ interface Props {
   username: string;
 }
 
-const UserMenuLoggedIn = ({ username }: Props) => {
+const UserMenuLoggedIn:React.FC<Props> = ({ username }) => {
   const [anchorEl, setAnchorEl] = useState<
     (EventTarget & HTMLButtonElement) | null
   >(null);

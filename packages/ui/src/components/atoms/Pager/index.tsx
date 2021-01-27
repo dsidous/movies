@@ -10,7 +10,7 @@ interface Props {
   handlePageSelect: (arg0: number) => void;
 }
 
-const MyPager = ({ page, handlePageSelect }: Props) => {
+const MyPager:React.FC<Props> = ({ page, handlePageSelect }) => {
   const classes = useStyles();
 
   return (

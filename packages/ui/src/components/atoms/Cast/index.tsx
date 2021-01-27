@@ -15,7 +15,7 @@ interface CastProps {
   type: Type;
 }
 
-const Cast: React.FC<CastProps> = ({ cast, type }: CastProps) => {
+const Cast: React.FC<CastProps> = ({ cast, type }) => {
   const classes = useStyles();
   const mediaType = type === 'full' ? 'miniProfile' : 'profile';
 

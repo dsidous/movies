@@ -8,7 +8,7 @@ interface Props {
   title: string;
 }
 
-const SEO = ({ title }: Props) => {
+const SEO:React.FC<Props> = ({ title }) => {
   const history = useHistory();
 
   const subTitle = history.location.pathname !== '/' ? ` - ${title}` : null;
@@ -17,7 +17,5 @@ const SEO = ({ title }: Props) => {
 
   return <Helmet title={fullTitle} />;
 };
-
-SEO.propTypes = propTypes;
 
 export default SEO;

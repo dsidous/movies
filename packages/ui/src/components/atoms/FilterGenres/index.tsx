@@ -27,7 +27,7 @@ interface Selected {
   selectValue: SelectValue;
 }
 
-const FilterGenres: React.FC<Props> = ({ genres, onChange }: Props) => {
+const FilterGenres: React.FC<Props> = ({ genres, onChange }) => {
   const [selectedGenres, setSelectedGenres] = useState<Selected>({
     options: null,
     selectValue: '',

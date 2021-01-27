@@ -10,12 +10,15 @@ import { propTypes } from './propTypes';
 
 import useStyles from './styles';
 import { Movie } from '../../../types/movie';
+import { Tv_detailed } from '../../../types/tv';
+
+type Show = Movie & Tv_detailed;
 
 interface Props {
-  movie: Movie;
+  movie: Show;
 }
 
-const WatchlistBookmark = ({ movie }: Props) => {
+const WatchlistBookmark:React.FC<Props> = ({ movie }) => {
   const classes = useStyles();
   const { authUser, watchlist, toggleMovie } = useWatchList(movie);
   const { addAlert } = useSnackBars();
@@ -47,7 +50,5 @@ const WatchlistBookmark = ({ movie }: Props) => {
     </>
   );
 };
-
-WatchlistBookmark.propTypes = propTypes;
 
 export default WatchlistBookmark;

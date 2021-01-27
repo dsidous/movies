@@ -30,7 +30,7 @@ const StyledBadge = withStyles(theme => ({
   },
 }))(Badge);
 
-const RatingBadge = ({ value, children }: Props) => (
+const RatingBadge:React.FC<Props> = ({ value, children }) => (
   <StyledBadge badgeContent={value}>{children}</StyledBadge>
 );
 
