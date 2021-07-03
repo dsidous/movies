@@ -8,7 +8,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { withSearch } from '@movies/common';
 
 import useStyles from './styles';
-// import { propTypes, itemsProps } from './propTypes';
 import useConfig from '../../hooks/useConfig';
 
 const renderMenuItemChildren = ({

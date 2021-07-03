@@ -4,11 +4,16 @@ import ModalVideo from 'react-modal-video';
 import { Button } from '@material-ui/core';
 import Movie from '@material-ui/icons/Movie';
 
-import { propTypes } from './propTypes';
 import useStyles from './styles';
 import 'react-modal-video/css/modal-video.min.css';
 
-const PlayTrailer = ({ video: { key } }) => {
+interface Props {
+  video: {
+    key: string;
+  }
+}
+
+const PlayTrailer: React.FC<Props> = ({ video: { key } }) => {
   const classes = useStyles();
   const [isOpen, setIsopen] = useState(false);
 
@@ -36,7 +41,5 @@ const PlayTrailer = ({ video: { key } }) => {
     </div>
   );
 };
-
-PlayTrailer.propTypes = propTypes;
 
 export default PlayTrailer;

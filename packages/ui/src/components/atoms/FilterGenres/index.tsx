@@ -6,8 +6,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 
-import { propTypes } from './propTypes';
-
 import { Genres } from '../../../types/movie';
 
 type SelectValue = string;
@@ -90,7 +88,5 @@ const FilterGenres: React.FC<Props> = ({ genres, onChange }) => {
     </>
   );
 };
-
-FilterGenres.propTypes = propTypes;
 
 export default FilterGenres;

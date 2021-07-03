@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { propTypes, defaultProps } from './propTypes';
-import Cast from '../../atoms/Cast';
+// import Cast from '../../atoms/Cast';
 
 import useStyles from './styles';
 
@@ -13,7 +13,7 @@ const TopCast = ({ cast, fullLink }) => {
     <div className={classes.root}>
       <div className={classes.castWrapper}>
         {cast.map(person => (
-          <Cast cast={person} type="top" key={person.id} />
+          <div>{person}</div>
         ))}
       </div>
 

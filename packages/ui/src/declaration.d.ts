@@ -1,1 +1,3 @@
-declare module '*.jpg'
+declare module 'react-modal-video';
+declare module '*.jpg';
+

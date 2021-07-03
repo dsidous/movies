@@ -1,4 +1,6 @@
+import React from 'react';
 import { ApolloClient } from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
 import { BatchHttpLink } from 'apollo-link-batch-http';
@@ -27,7 +29,13 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
   },
 });
 
-export const client = new ApolloClient({
+const client = new ApolloClient({
   link,
   cache: new InMemoryCache({ fragmentMatcher }),
 });
+
+const ApolloWrapper = ({ children }) => (
+  <ApolloProvider client={client}>{children}</ApolloProvider>
+);
+
+export default ApolloWrapper;

@@ -1,16 +1,8 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './styles';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    fontWeight: 900,
-    margin: [[0, 0, theme.spacing(4)]],
-    textTransform: 'uppercase',
-  },
-}));
-
-const SectionHeader = ({ children }) => {
+const SectionHeader: React.FC = ({ children }) => {
   const classes = useStyles();
   return (
     <Typography variant="h6" className={classes.root}>

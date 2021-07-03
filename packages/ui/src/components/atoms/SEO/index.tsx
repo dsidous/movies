@@ -2,8 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
 
-import { propTypes } from './propTypes';
-
 interface Props {
   title: string;
 }

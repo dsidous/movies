@@ -2,7 +2,7 @@ import React from 'react';
 
 import { propTypes } from './propTypes';
 import Spinner from '../../atoms/Spinner';
-import FullCastCrew from '../../molecules/FullCastCrew';
+// import FullCastCrew from '../../molecules/FullCastCrew';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 
@@ -23,7 +23,7 @@ const CastCrew = ({ show, loading }) => {
         link={`/${media}/${id}`}
         linkCopy="Back to main"
       />
-      <FullCastCrew movie={show} />
+      {/* <FullCastCrew movie={show} /> */}
     </PageTransition>
   );
 };

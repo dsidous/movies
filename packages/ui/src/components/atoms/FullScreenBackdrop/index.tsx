@@ -1,8 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-import { propTypes } from './propTypes';
-
 import useStyles from './styles';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -43,7 +41,5 @@ const FullScreenBackdrop: React.FC<Props> = ({ backdrops }) => {
     </Slider>
   );
 };
-
-FullScreenBackdrop.propTypes = propTypes;
 
 export default FullScreenBackdrop;

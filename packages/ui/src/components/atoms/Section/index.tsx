@@ -3,15 +3,18 @@ import { Container } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import SectionHeader from './header';
-import { propTypes } from './propTypes';
 
-const StyledContainer = ({ children, noborder, ...props }) => (
+interface Props {
+  noborder: boolean;
+}
+
+const StyledContainer: React.FC<Props> = ({ children, noborder, ...props }) => (
   <Container component="section" {...props}>
     <div className="sectionInner">{children}</div>
   </Container>
 );
 
-const Section = withStyles(theme => ({
+const Section = withStyles((theme) => ({
   root: {
     '& .sectionInner': {
       borderTop: props => (props.noborder ? 0 : theme.separator),
@@ -21,7 +24,6 @@ const Section = withStyles(theme => ({
   },
 }))(StyledContainer);
 
-StyledContainer.propTypes = propTypes;
 
 Section.Header = SectionHeader;
 

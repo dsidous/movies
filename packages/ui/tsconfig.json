@@ -30,7 +30,7 @@
   ],
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx", "src/components/atoms/PlayTrailer/index.js",
+    "src/**/*.tsx",
   ],
   "types": [
     "typePatches"

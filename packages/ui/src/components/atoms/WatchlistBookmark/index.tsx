@@ -6,7 +6,6 @@ import BookmarkBorderSharpIcon from '@material-ui/icons/BookmarkBorderSharp';
 
 import useSnackBars from '../../hooks/useSnackBars';
 import useWatchList from '../../hooks/useWatchList';
-import { propTypes } from './propTypes';
 
 import useStyles from './styles';
 import { Movie } from '../../../types/movie';
