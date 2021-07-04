@@ -90,8 +90,10 @@ export interface Person_Tv_Credits {
   crew: Person_Tv_Crew_Credit[];
 }
 
-type Person_Cast_Credit = Person_Movie_Cast_Credit & Person_Tv_Cast_Credit;
-type Person_Crew_Credit = Person_Movie_Crew_Credit & Person_Tv_Crew_Credit;
+export type Person_Cast_Credit = Person_Movie_Cast_Credit &
+  Person_Tv_Cast_Credit;
+export type Person_Crew_Credit = Person_Movie_Crew_Credit &
+  Person_Tv_Crew_Credit;
 
 export interface Person_Credits {
   cast: Person_Cast_Credit[];

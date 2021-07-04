@@ -8,10 +8,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { blue, grey } from '@material-ui/core/colors';
 
-import { propTypes } from './propTypes';
 import { SignUpLink } from '../SignUpForm';
 
-const ColorButton = withStyles(theme => ({
+const ColorButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText(blue[800]),
     backgroundColor: blue[800],
@@ -25,21 +24,25 @@ const ColorButton = withStyles(theme => ({
   },
 }))(Button);
 
-const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
-});
+type Error = { message: string } | null;
 
-const INITIAL_STATE = {
+interface State {
+  email: string;
+  password: string;
+  error: Error;
+}
+
+const INITIAL_STATE: State = {
   email: '',
   password: '',
   error: null,
 };
 
 const SignInForm = () => {
-  const [state, setState] = useState({ ...INITIAL_STATE });
+  const [state, setState] = useState<State>({ ...INITIAL_STATE });
   const history = useHistory();
 
-  const onSubmit = event => {
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const { email, password } = state;
 
     auth
@@ -48,7 +51,12 @@ const SignInForm = () => {
         setState(() => ({ ...INITIAL_STATE }));
         history.push('/');
       })
-      .catch(error => setState(byPropKey('error', error)));
+      .catch((error: Error) =>
+        setState({
+          ...state,
+          error,
+        })
+      );
 
     event.preventDefault();
   };
@@ -58,49 +66,47 @@ const SignInForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Typography align="center" variant="h6" style={{ margin: '28px 0 0' }}>
+      <Typography align='center' variant='h6' style={{ margin: '28px 0 0' }}>
         Or
       </Typography>
 
       {error && error.message}
       <TextField
-        id="email"
-        type="email"
-        label="Email address"
+        id='email'
+        type='email'
+        label='Email address'
         value={email}
-        onChange={event => {
+        onChange={(event) => {
           event.persist();
-          return setState(s => ({ ...s, email: event.target.value }));
+          return setState((s) => ({ ...s, email: event.target.value }));
         }}
-        margin="normal"
-        variant="outlined"
+        margin='normal'
+        variant='outlined'
         fullWidth
         required
         autoFocus
-        autoComplete="email"
+        autoComplete='email'
       />
       <TextField
-        id="passwordOne"
-        label="Password"
-        type="password"
+        id='passwordOne'
+        label='Password'
+        type='password'
         value={password}
-        onChange={event => {
+        onChange={(event) => {
           event.persist();
-          return setState(s => ({ ...s, password: event.target.value }));
+          return setState((s) => ({ ...s, password: event.target.value }));
         }}
-        margin="normal"
-        variant="outlined"
+        margin='normal'
+        variant='outlined'
         fullWidth
         required
       />
-      <ColorButton fullWidth type="submit" disabled={isInvalid}>
+      <ColorButton fullWidth type='submit' disabled={isInvalid}>
         Log In
       </ColorButton>
       <SignUpLink />
     </form>
   );
 };
-
-SignInForm.propTypes = propTypes;
 
 export default SignInForm;

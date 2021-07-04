@@ -6,7 +6,7 @@ import Alert from '@material-ui/lab/Alert';
 import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
 import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
-import MovieCard from '../../molecules/MovieCard';
+import MovieCard from '../../molecules/MovieCard/index.tsx';
 import PageTransition from '../../atoms/PageTransition';
 
 import useStyles from './styles';

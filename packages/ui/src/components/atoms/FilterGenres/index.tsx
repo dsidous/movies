@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 
-import { Genres } from '../../../types/movie';
+import { Genres } from '@typesRoots/movie';
 
 type SelectValue = string;
 
@@ -32,11 +32,11 @@ const FilterGenres: React.FC<Props> = ({ genres, onChange }) => {
   });
 
   useEffect(() => {
-    const options = genres.map(genre => ({
+    const options = genres.map((genre) => ({
       label: genre.name,
       value: String(genre.id),
     }));
-    setSelectedGenres(s => ({ ...s, options }));
+    setSelectedGenres((s) => ({ ...s, options }));
   }, [genres]);
 
   const handleChange = (event: React.ChangeEvent<HTMLButtonElement>) => {
@@ -52,34 +52,34 @@ const FilterGenres: React.FC<Props> = ({ genres, onChange }) => {
 
   return (
     <>
-      <InputLabel htmlFor="genres">Genres</InputLabel>
+      <InputLabel htmlFor='genres'>Genres</InputLabel>
       <Select
         multiple
         value={selectedGenres.selectValue}
         onChange={handleChange}
         onClose={handleClose}
-        input={<OutlinedInput id="genres" labelWidth={50} />}
+        input={<OutlinedInput id='genres' labelWidth={50} />}
         renderValue={(selected: []) => {
           if (selected.length === 0) {
             return <span>Select genres...</span>;
           }
 
           const list = selected
-            .filter(select => select !== '')
+            .filter((select) => select !== '')
             .map(
-              select =>
+              (select) =>
                 selectedGenres.options?.find(
-                  (option: Option) => option.value === select,
-                )?.label,
+                  (option: Option) => option.value === select
+                )?.label
             );
 
           return list.join(', ');
         }}
       >
-        <MenuItem value="" disabled>
+        <MenuItem value='' disabled>
           Select genres...
         </MenuItem>
-        {selectedGenres.options?.map(option => (
+        {selectedGenres.options?.map((option) => (
           <MenuItem key={option.label} value={option.value}>
             {option.label}
           </MenuItem>

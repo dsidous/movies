@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 import { Box, Typography } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 
-import { propTypes } from './propTypes';
-import WatchlistBookmark from '../../atoms/WatchlistBookmark';
+import { WatchlistBookmark } from '@atoms/index';
+import useConfig from '@hooks/useConfig';
 import Skeleton from './skeleton';
-
 import useStyles from './styles';
-import useConfig from '../../hooks/useConfig';
+import { Show } from '@typesRoots/show';
 
-const MovieCard = ({ movie, media }) => {
+interface Props {
+  movie?: Show;
+  media?: string;
+}
+
+const MovieCard: React.FC<Props> = ({ movie, media }) => {
   if (!movie) {
     return <Skeleton />;
   }
@@ -60,19 +64,19 @@ const MovieCard = ({ movie, media }) => {
           <img className={classes.poster} src={posterURL} alt={mtitle} />
         </picture>
       </Link>
-      <Box display="flex" justifyContent="space-between" alignItems="flex-end">
-        <Typography variant="h5" className={classes.title}>
+      <Box display='flex' justifyContent='space-between' alignItems='flex-end'>
+        <Typography variant='h5' className={classes.title}>
           {mtitle}
         </Typography>
         <Typography className={classes.rating}>{vote_average}</Typography>
       </Box>
-      <Typography variant="subtitle1" className={classes.year}>
+      <Typography variant='subtitle1' className={classes.year}>
         {date.slice(0, 4)}
       </Typography>
       <Typography
-        variant="body2"
+        variant='body2'
         className={[classes.overview, overview.length > 200 ? 'long' : ''].join(
-          ' ',
+          ' '
         )}
       >
         {overview.slice(0, overview.indexOf(' ', 200))}
@@ -81,7 +85,5 @@ const MovieCard = ({ movie, media }) => {
     </li>
   );
 };
-
-MovieCard.propTypes = propTypes;
 
 export default MovieCard;

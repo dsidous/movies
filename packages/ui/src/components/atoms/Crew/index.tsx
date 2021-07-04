@@ -2,10 +2,9 @@ import React from 'react';
 
 import { Box, Typography } from '@material-ui/core';
 
-import { propTypes, defaultProps } from './propTypes';
 import useStyles from './styles';
 
-import { Crew_Credit } from '../../../types/movie';
+import { Crew_Credit } from '@typesRoots/movie';
 
 interface CrewProps {
   crew: Crew_Credit[];
@@ -16,12 +15,12 @@ const Crew: React.FC<CrewProps> = ({ crew }) => {
   return (
     <Box className={classes.root}>
       {crew
-        .filter(credit =>
-          ['Director', 'Screenplay', 'Characters'].includes(credit.job),
+        .filter((credit) =>
+          ['Director', 'Screenplay', 'Characters'].includes(credit.job)
         )
-        .map(person => (
+        .map((person) => (
           <Box className={classes.item} key={person.credit_id}>
-            <Typography variant="caption">
+            <Typography variant='caption'>
               <strong>{`${person.job}: `}</strong>
               {person.name}
             </Typography>

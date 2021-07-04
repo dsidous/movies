@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { Box, Typography } from '@material-ui/core';
 
-import MediaImage from '../MediaImage';
-import useStyles from './styles';
+import { MediaImage } from '@atoms/index';
+import { Cast_Crew_Credit } from '@typesRoots/movie';
 
-import { Cast_Crew_Credit } from '../../../types/movie';
+import useStyles from './styles';
 
 type Type = 'full' | 'top';
 
@@ -32,8 +32,8 @@ const Cast: React.FC<CastProps> = ({ cast, type }) => {
           name={cast.name}
         />
         <Box className={classes.copy} py={1}>
-          <Typography variant="subtitle2">{cast.name}</Typography>
-          <Typography variant="caption">{getJobOrCharacter()}</Typography>
+          <Typography variant='subtitle2'>{cast.name}</Typography>
+          <Typography variant='caption'>{getJobOrCharacter()}</Typography>
         </Box>
       </Link>
     </Box>

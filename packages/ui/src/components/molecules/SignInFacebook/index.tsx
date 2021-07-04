@@ -6,9 +6,7 @@ import Button from '@material-ui/core/Button';
 import { blue } from '@material-ui/core/colors';
 import { auth } from '@movies/firebase';
 
-import { propTypes } from './propTypes';
-
-const ColorButton = withStyles(theme => ({
+const ColorButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText(blue[500]),
     backgroundColor: blue[800],
@@ -25,17 +23,14 @@ const SignInFacebook = () => {
     auth
       .doSignInWithFacebook()
       .then(() => history.push('/'))
-      // eslint-disable-next-line no-console
-      .catch(err => console.log(err));
+      .catch((err: string) => console.log(err));
   };
 
   return (
-    <ColorButton fullWidth type="submit" onClick={signInWithFB}>
+    <ColorButton fullWidth type='submit' onClick={signInWithFB}>
       Log in with Facebook
     </ColorButton>
   );
 };
-
-SignInFacebook.propTypes = propTypes;
 
 export default SignInFacebook;

@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  theme => ({
+  (theme) => ({
     root: {
       listStyle: 'none',
       background: theme.cardBg,
@@ -33,9 +33,7 @@ export default makeStyles(
     },
 
     poster: {
-      borderRadius: [
-        [theme.shape.borderRadius * 2, theme.shape.borderRadius * 2, 0, 0],
-      ],
+      borderRadiusTop: theme.shape.borderRadius * 2,
       display: 'block',
       height: '100%',
       width: '100%',
@@ -124,5 +122,5 @@ export default makeStyles(
       },
     },
   }),
-  { name: 'showCard' },
+  { name: 'showCard' }
 );

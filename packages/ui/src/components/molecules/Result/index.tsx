@@ -2,12 +2,18 @@ import React, { Fragment } from 'react';
 import { compose, branch } from 'recompose';
 import { withMovies, withTvs } from '@movies/common';
 
-import { propTypes } from './propTypes';
-import MovieCard from '../MovieCard';
+import MovieCard from '../MovieCard/';
 
 import useStyles from './styles';
+import { Show } from '@typesRoots/show';
 
-const Result = ({ shows, resultMedia, loading }) => {
+interface Props {
+  shows: Show[];
+  resultMedia: string;
+  loading: boolean;
+}
+
+const Result: React.FC<Props> = ({ shows, resultMedia, loading }) => {
   const classes = useStyles();
 
   return (
@@ -25,10 +31,12 @@ const Result = ({ shows, resultMedia, loading }) => {
   );
 };
 
-Result.propTypes = propTypes;
-
 const enhancedComponent = compose(
-  branch(props => props.resultMedia === 'movie', withMovies(), withTvs()),
+  branch(
+    (props: Props) => props.resultMedia === 'movie',
+    withMovies(),
+    withTvs()
+  )
 )(Result);
 
 export default enhancedComponent;

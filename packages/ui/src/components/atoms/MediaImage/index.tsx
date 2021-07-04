@@ -7,9 +7,10 @@ interface Props {
   name: string;
   size: number;
   mediaType: string;
+  className?: string;
 }
 
-const MediaImage:React.FC<Props> = ({
+const MediaImage: React.FC<Props> = ({
   filePath,
   name,
   size,

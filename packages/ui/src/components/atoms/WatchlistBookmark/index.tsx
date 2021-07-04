@@ -8,16 +8,13 @@ import useSnackBars from '../../hooks/useSnackBars';
 import useWatchList from '../../hooks/useWatchList';
 
 import useStyles from './styles';
-import { Movie } from '../../../types/movie';
-import { Tv_detailed } from '../../../types/tv';
-
-type Show = Movie & Tv_detailed;
+import { Show } from '@typesRoots/show';
 
 interface Props {
   movie: Show;
 }
 
-const WatchlistBookmark:React.FC<Props> = ({ movie }) => {
+const WatchlistBookmark: React.FC<Props> = ({ movie }) => {
   const classes = useStyles();
   const { authUser, watchlist, toggleMovie } = useWatchList(movie);
   const { addAlert } = useSnackBars();
@@ -26,7 +23,7 @@ const WatchlistBookmark:React.FC<Props> = ({ movie }) => {
     addAlert(
       `${movie.title || movie.name} ${
         watchlist ? 'removed from' : 'added to'
-      } your watchlist`,
+      } your watchlist`
     );
     toggleMovie();
   };
@@ -36,7 +33,7 @@ const WatchlistBookmark:React.FC<Props> = ({ movie }) => {
       {authUser && (
         <IconButton
           className={classes.root}
-          aria-label="bookmark"
+          aria-label='bookmark'
           onClick={() => toggleWatchlist()}
         >
           {watchlist ? (

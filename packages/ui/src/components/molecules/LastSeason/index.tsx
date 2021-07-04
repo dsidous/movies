@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { propTypes } from './propTypes';
+import { Season as ISeason } from '@typesRoots/tv';
+
 import Season from '../Season';
 import useStyles from './styles';
 
-const LastSeason = ({ tvId, season }) => {
+interface Props {
+  tvId: number;
+  season: ISeason;
+}
+
+const LastSeason: React.FC<Props> = ({ tvId, season }) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div>
       <Season season={season} tvId={tvId} />
       <Link to={`/tv/${tvId}/seasons`} className={classes.allBtn}>
         View All Seasons
@@ -16,7 +22,5 @@ const LastSeason = ({ tvId, season }) => {
     </div>
   );
 };
-
-LastSeason.propTypes = propTypes;
 
 export default LastSeason;

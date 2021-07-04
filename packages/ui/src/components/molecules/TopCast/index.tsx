@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { propTypes, defaultProps } from './propTypes';
-// import Cast from '../../atoms/Cast';
+import { Cast } from '@atoms/index';
 
 import useStyles from './styles';
+import { Cast_Credit } from '@typesRoots/movie';
 
-const TopCast = ({ cast, fullLink }) => {
+interface Props {
+  cast: Cast_Credit[];
+  fullLink: string;
+}
+
+const TopCast: React.FC<Props> = ({ cast, fullLink }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <div className={classes.castWrapper}>
-        {cast.map(person => (
-          <div>{person}</div>
+        {cast.map((person) => (
+          <Cast cast={person} type='top' />
         ))}
       </div>
 
@@ -23,8 +28,5 @@ const TopCast = ({ cast, fullLink }) => {
     </div>
   );
 };
-
-TopCast.propTypes = propTypes;
-TopCast.defaultProps = defaultProps;
 
 export default TopCast;

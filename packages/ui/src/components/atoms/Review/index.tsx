@@ -3,13 +3,13 @@ import { Box, Typography, Paper } from '@material-ui/core';
 
 import LongCopy from '../LongCopy';
 import useStyles from './styles';
-import { Review as PropReview } from '../../../types/movie';
+import { Review as PropReview } from '@typesRoots/movie';
 
 interface Props {
   review: PropReview;
 }
 
-const Review:React.FC<Props> = ({ review: { author, content } }) => {
+const Review: React.FC<Props> = ({ review: { author, content } }) => {
   const classes = useStyles();
 
   return (

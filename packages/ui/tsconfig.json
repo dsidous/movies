@@ -15,7 +15,18 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@atoms/*": ["components/atoms/*"],
+      "@hooks/*": ["components/hooks/*"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms/*": ["components/organisms/*"],
+      "@providers/*": ["components/providers/*"],
+      "@templates/*": ["components/templates/*"],
+      "@components/*": ["components/*"],
+      "@typesRoots/*": ["types/*"]
+    }
   },
   "exclude": [
     "node_modules",
