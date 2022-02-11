@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  theme => ({
+  (theme) => ({
     root: {
       borderBottom: theme.separatorBold,
       padding: theme.spacing(4, 3),
@@ -16,6 +16,7 @@ export default makeStyles(
 
       '& img': {
         height: '100%',
+        maxWidth: '70px',
       },
     },
 
@@ -26,5 +27,5 @@ export default makeStyles(
       justifyItems: 'center',
     },
   }),
-  { name: 'miniHeader' },
+  { name: 'miniHeader' }
 );
