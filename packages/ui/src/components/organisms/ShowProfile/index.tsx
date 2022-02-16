@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 
-import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
 import PlayTrailer from '../../atoms/PlayTrailer';
 import TopCast from '../../molecules/TopCast';
@@ -15,7 +14,14 @@ import SlideList from '../../molecules/SlideList';
 import useStyles from './styles';
 import useConfig from '../../hooks/useConfig';
 
-const ShowProfile = ({
+import { Show } from '@typesRoots/show';
+
+interface Props {
+  show: Show;
+  dcolor: string;
+}
+
+const ShowProfile: React.FC<Props> = ({
   show: {
     id,
     backdrop_path,
@@ -60,19 +66,21 @@ const ShowProfile = ({
     size: 1,
   });
 
-  const backdropsURL = backdrops.map(image =>
+  const backdropsURL = backdrops.map((image) =>
     getImageURL({
       filePath: image.file_path,
       mediaType: 'backdrop',
       size: 1,
-    }),
+    })
   );
 
   const video = videos
-    ? videos.filter(element => element.type === 'Trailer')[0]
-    : [];
+    ? videos.filter((element) => element.type === 'Trailer')[0]
+    : null;
 
-  const genres_html = genres.map(genre => <li key={genre.id}>{genre.name}</li>);
+  const genres_html = genres.map((genre) => (
+    <li key={genre.id}>{genre.name}</li>
+  ));
 
   const classes = useStyles({
     dcolor,
@@ -89,11 +97,11 @@ const ShowProfile = ({
       <div className={classes.header}>
         <div className={classes.headerInner}>
           <div className={classes.poster}>
-            <img src={posterURL} alt="poster" />
+            <img src={posterURL} alt='poster' />
             <WatchlistBookmark movie={show} />
           </div>
           <div className={classes.data}>
-            <Typography variant="h4" component="h1" className={classes.title}>
+            <Typography variant='h4' component='h1' className={classes.title}>
               {showTitle}
               <span className={classes.rating}>{vote_average}</span>
             </Typography>
@@ -110,7 +118,7 @@ const ShowProfile = ({
           </div>
 
           <div className={classes.overview}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant='h6' gutterBottom>
               Overview
             </Typography>
             {overview}
@@ -154,7 +162,5 @@ const ShowProfile = ({
     </div>
   );
 };
-
-ShowProfile.propTypes = propTypes;
 
 export default ShowProfile;

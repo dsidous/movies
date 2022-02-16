@@ -3,11 +3,11 @@ import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 
 interface Props {
-  value: string;
+  value: number;
   children: React.ReactNode;
 }
 
-const StyledBadge = withStyles(theme => ({
+const StyledBadge = withStyles((theme) => ({
   badge: {
     bottom: theme.spacing(-3),
     border: `2px solid ${theme.palette.background.paper}`,
@@ -30,7 +30,7 @@ const StyledBadge = withStyles(theme => ({
   },
 }))(Badge);
 
-const RatingBadge:React.FC<Props> = ({ value, children }) => (
+const RatingBadge: React.FC<Props> = ({ value, children }) => (
   <StyledBadge badgeContent={value}>{children}</StyledBadge>
 );
 

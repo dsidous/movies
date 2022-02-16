@@ -1,7 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(
-  theme => ({
+  (theme) => ({
+    root: {},
     infoRoot: {
       display: 'grid',
       gridTemplateColumns: '1fr 2fr',
@@ -126,5 +127,5 @@ export default makeStyles(
       },
     },
   }),
-  { name: 'person' },
+  { name: 'person' }
 );

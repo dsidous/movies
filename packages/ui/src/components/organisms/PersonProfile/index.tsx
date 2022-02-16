@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 
 import Skeleton from './skeleton';
 
-import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
 import SEO from '../../atoms/SEO';
 import MediaImage from '../../atoms/MediaImage';
@@ -15,7 +14,13 @@ import PersonShows from '../../molecules/PersonShows';
 import PersonKnownFor from '../../molecules/PersonKnownFor';
 import useStyles from './styles';
 
-const PersonProfile = ({ person }) => {
+import { Person } from '@typesRoots/person';
+
+interface Props {
+  person: Person;
+}
+
+const PersonProfile: React.FC<Props> = ({ person }) => {
   const classes = useStyles();
 
   if (!person.id) {
@@ -49,11 +54,11 @@ const PersonProfile = ({ person }) => {
           <div className={classes.poster}>
             <Link to={`/person/${id}/images`}>
               <MediaImage
-                className="img-responsive center-block"
-                mediaType="profile"
+                className='img-responsive center-block'
+                mediaType='profile'
                 size={2}
                 filePath={profile_path}
-                name="poster"
+                name='poster'
               />
             </Link>
           </div>
@@ -61,16 +66,16 @@ const PersonProfile = ({ person }) => {
             <Typography className={classes.name} data-name={lastName}>
               {firstName}
             </Typography>
-            <Typography variant="body2">
+            <Typography variant='body2'>
               {`${lastName}, ${place_of_birth}`}
               {birthday && (
                 <span>
                   ,&nbsp;
                   <FormattedDate
                     value={birthday}
-                    year="numeric"
-                    month="long"
-                    day="2-digit"
+                    year='numeric'
+                    month='long'
+                    day='2-digit'
                   />
                 </span>
               )}
@@ -79,9 +84,9 @@ const PersonProfile = ({ person }) => {
                   &nbsp;-&nbsp;
                   <FormattedDate
                     value={deathday}
-                    year="numeric"
-                    month="long"
-                    day="2-digit"
+                    year='numeric'
+                    month='long'
+                    day='2-digit'
                   />
                 </span>
               )}
@@ -89,7 +94,7 @@ const PersonProfile = ({ person }) => {
           </div>
           {biography && (
             <div className={classes.bioRoot}>
-              <Typography variant="subtitle2" gutterBottom paragraph>
+              <Typography variant='subtitle2' gutterBottom paragraph>
                 Biography
               </Typography>
               <div className={classes.bio}>
@@ -114,7 +119,5 @@ const PersonProfile = ({ person }) => {
     </>
   );
 };
-
-PersonProfile.propTypes = propTypes;
 
 export default PersonProfile;

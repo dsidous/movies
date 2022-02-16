@@ -1,29 +1,42 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import SectionHeader from './header';
 
 interface Props {
-  noborder: boolean;
+  noborder?: boolean;
+  disableGutters?: boolean;
 }
 
-const StyledContainer: React.FC<Props> = ({ children, noborder, ...props }) => (
-  <Container component="section" {...props}>
-    <div className="sectionInner">{children}</div>
-  </Container>
-);
+interface Composition {
+  Header: React.FC;
+}
 
-const Section = withStyles((theme) => ({
-  root: {
-    '& .sectionInner': {
-      borderTop: props => (props.noborder ? 0 : theme.separator),
-      margin: props => (props.noborder ? 0 : [[theme.spacing(5), 0, 'auto']]),
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    sectionInner: {
+      borderTop: (props: Props) => (props.noborder ? 0 : theme.separator),
+      margin: (props: Props) =>
+        props.noborder ? 0 : `${theme.spacing(5)} 0 auto`,
       paddingTop: theme.spacing(5),
     },
-  },
-}))(StyledContainer);
+  })
+);
 
+const Section: React.FC<Props> & Composition = ({
+  children,
+  noborder,
+  ...styleProps
+}) => {
+  const classes = useStyles(styleProps);
+
+  return (
+    <Container component='section' {...styleProps}>
+      <div className={classes.sectionInner}>{children}</div>
+    </Container>
+  );
+};
 
 Section.Header = SectionHeader;
 

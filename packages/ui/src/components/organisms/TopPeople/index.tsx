@@ -2,20 +2,30 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import { propTypes } from './propTypes';
 import MyPager from '../../atoms/Pager';
 import Section from '../../atoms/Section';
 import MediaImage from '../../atoms/MediaImage';
 import PageTransition from '../../atoms/PageTransition/index';
 import SEO from '../../atoms/SEO';
 import useStyles from './styles';
+import { Top_person } from '@typesRoots/toppeople';
 
-const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => {
+interface Props {
+  toppeople: Top_person[];
+  page: number;
+  handlePageSelect: () => void;
+}
+
+const TopPeopleProfile: React.FC<Props> = ({
+  toppeople,
+  page,
+  handlePageSelect,
+}) => {
   const classes = useStyles();
 
   return (
     <PageTransition>
-      <SEO title="Popular people" />
+      <SEO title='Popular people' />
       <Section noborder disableGutters>
         <Section.Header>POPULAR PEOPLE</Section.Header>
         <div className={classes.list}>
@@ -26,7 +36,7 @@ const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => {
                   <Link key={person.id} to={`/person/${person.id}`}>
                     <figure className={classes.item}>
                       <MediaImage
-                        mediaType="profile"
+                        mediaType='profile'
                         size={1}
                         filePath={person.profile_path}
                         name={person.name}
@@ -38,12 +48,12 @@ const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => {
                   </Link>
                 ) : (
                   <div>
-                    <Skeleton variant="rect" height={300} />
+                    <Skeleton variant='rect' height={300} />
                     <Skeleton />
                   </div>
                 )}
               </Fragment>
-            ),
+            )
           )}
         </div>
         <MyPager page={page} handlePageSelect={handlePageSelect} />
@@ -51,7 +61,5 @@ const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => {
     </PageTransition>
   );
 };
-
-TopPeopleProfile.propTypes = propTypes;
 
 export default TopPeopleProfile;

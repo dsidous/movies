@@ -4,11 +4,16 @@ import { Typography } from '@material-ui/core';
 
 import Skeleton from './skeleton';
 
-import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
 import MediaImage from '../../atoms/MediaImage';
 import RatingBadge from '../../atoms/RatingBadge';
 import useStyles from './styles';
+
+import { Movie } from '@typesRoots/movie';
+
+interface Props {
+  popular: Movie[];
+}
 
 const topGenres = [
   { id: -1, name: 'All' },
@@ -20,16 +25,16 @@ const topGenres = [
   { id: 53, name: 'Thriller' },
 ];
 
-const TopRatedMovies = ({ popular }) => {
+const TopRatedMovies: React.FC<Props> = ({ popular }) => {
   const classes = useStyles();
   const [active, setActive] = useState(-1);
-  const [topMovies, setTopMovies] = useState([]);
+  const [topMovies, setTopMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     setTopMovies(popular.slice(0, 5));
   }, [popular]);
 
-  const randomList = arrayMax => {
+  const randomList = (arrayMax: number) => {
     const nbrArray = Array.from(Array(arrayMax), (_, x) => x);
     const rndList = [];
     // eslint-disable-next-line no-plusplus
@@ -41,10 +46,10 @@ const TopRatedMovies = ({ popular }) => {
     return rndList;
   };
 
-  const filterTopMovies = genre => {
+  const filterTopMovies = (genre: number) => {
     let movies =
       genre !== -1
-        ? popular.filter(movie => movie.genre_ids.includes(genre))
+        ? popular.filter((movie) => movie.genre_ids.includes(genre))
         : popular;
 
     const moviesLength = movies.length;
@@ -57,13 +62,13 @@ const TopRatedMovies = ({ popular }) => {
     setTopMovies(movies);
   };
 
-  const selectGenre = topGenreId => {
+  const selectGenre = (topGenreId: number) => {
     setActive(topGenreId);
     filterTopMovies(topGenreId);
   };
 
   const genresList = () =>
-    topGenres.map(topGenre => (
+    topGenres.map((topGenre) => (
       <li
         data-test={topGenre.id}
         key={topGenre.id}
@@ -72,8 +77,8 @@ const TopRatedMovies = ({ popular }) => {
         <span
           onClick={() => selectGenre(topGenre.id)}
           onKeyDown={() => selectGenre(topGenre.id)}
-          role="button"
-          tabIndex="-1"
+          role='button'
+          tabIndex={-1}
         >
           {topGenre.name}
         </span>
@@ -97,13 +102,13 @@ const TopRatedMovies = ({ popular }) => {
           >
             <RatingBadge value={movie.vote_average}>
               <MediaImage
-                mediaType="poster"
+                mediaType='poster'
                 size={5}
                 filePath={i === 0 ? movie?.poster_path : movie?.backdrop_path}
                 name={movie.title}
               />
             </RatingBadge>
-            <Typography variant="subtitle2" className={classes.title}>
+            <Typography variant='subtitle2' className={classes.title}>
               {movie.title}
             </Typography>
           </Link>
@@ -114,5 +119,3 @@ const TopRatedMovies = ({ popular }) => {
 };
 
 export default TopRatedMovies;
-
-TopRatedMovies.propTypes = propTypes;

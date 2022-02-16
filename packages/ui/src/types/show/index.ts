@@ -1,7 +1,7 @@
-import { Movie } from '../movie';
+import { Movie_detailed, Movie } from '../movie';
 import { Tv, Tv_detailed } from '../tv';
 
-export type Show = Movie & Tv_detailed;
+export type Show = Movie_detailed & Tv_detailed;
 
 export type Similar_Show =
   | {
