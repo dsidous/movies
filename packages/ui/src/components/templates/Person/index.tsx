@@ -1,11 +1,15 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 
-import { propTypes } from './propTypes';
 import PageTransition from '../../atoms/PageTransition/index';
 import PersonProfile from '../../organisms/PersonProfile';
+import { Person } from '@typesRoots/person';
 
-const Person = ({ person }) => {
+interface Props {
+  person: Person;
+}
+
+const Person: React.FC<Props> = ({ person }) => {
   return (
     <PageTransition>
       <IntlProvider locale={navigator.language}>
@@ -14,7 +18,5 @@ const Person = ({ person }) => {
     </PageTransition>
   );
 };
-
-Person.propTypes = propTypes;
 
 export default Person;

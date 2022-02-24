@@ -22,7 +22,7 @@ export { default as Episode } from './molecules/Episode';
 export { default as FullCastCrew } from './molecules/FullCastCrew';
 export { default as LastSeason } from './molecules/LastSeason';
 export { default as MiniHeader } from './molecules/MiniHeader';
-export { default as MovieCard } from './molecules/MovieCard/index.tsx';
+export { default as MovieCard } from './molecules/MovieCard';
 export { default as PersonKnownFor } from './molecules/PersonKnownFor';
 export { default as PersonShows } from './molecules/PersonShows';
 export { default as Result } from './molecules/Result';

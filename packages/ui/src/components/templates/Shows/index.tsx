@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 
-import { propTypes } from './propTypes';
 import Filter from '../../organisms/Filter';
 import Result from '../../molecules/Result';
 import PageTransition from '../../atoms/PageTransition';
+import { Genres } from '@typesRoots/movie';
 
-const Shows = ({ media, resultMedia, genres }) => {
+interface Props {
+  media: string;
+  resultMedia: string;
+  genres: Genres[];
+}
+
+const Shows: React.FC<Props> = ({ media, resultMedia, genres }) => {
   const [query, queryUpdate] = useState('');
 
   return (
     <PageTransition>
-      <Filter genres={genres} queryUpdate={queryUpdate} media={media}>
+      <Filter
+        genres={genres}
+        queryUpdate={queryUpdate}
+        media={media}
+        query={query}
+      >
         <Result query={query} resultMedia={resultMedia} />
       </Filter>
     </PageTransition>
   );
 };
-
-Shows.propTypes = propTypes;
 
 export default Shows;

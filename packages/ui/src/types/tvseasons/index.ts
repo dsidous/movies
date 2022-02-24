@@ -1,3 +1,4 @@
+import { Episode } from '@typesRoots/tv';
 export interface Crew {
   id: number;
   credit_id: string;
@@ -34,7 +35,7 @@ export interface Tv_Season {
   _id: string;
   name: string;
   air_date: string;
-  episodes: Tv_Episode[];
+  episodes: Episode[];
   overview: string;
   id: number;
   poster_path: string;

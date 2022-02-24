@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 import SignInFacebook from '../../molecules/SignInFacebook';
 import SignInForm from '../../molecules/SignInForm';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(3),
     padding: theme.spacing(5, 4),
@@ -18,13 +18,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SignInPage = () => {
+const SignInPage: React.FC = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth='sm'>
       <Paper className={classes.paper}>
-        <Typography variant="h4">Log in</Typography>
-        <Typography paragraph variant="body2">
+        <Typography variant='h4'>Log in</Typography>
+        <Typography paragraph variant='body2'>
           To your watchlist.
         </Typography>
         <SignInFacebook />

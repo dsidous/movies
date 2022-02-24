@@ -13,7 +13,12 @@ interface Props {
   loading: boolean;
 }
 
-const Result: React.FC<Props> = ({ shows, resultMedia, loading }) => {
+interface InProps {
+  resultMedia: string;
+  query: string;
+}
+
+const Result: React.FC<Props & InProps> = ({ shows, resultMedia, loading }) => {
   const classes = useStyles();
 
   return (
@@ -31,9 +36,9 @@ const Result: React.FC<Props> = ({ shows, resultMedia, loading }) => {
   );
 };
 
-const enhancedComponent = compose(
-  branch(
-    (props: Props) => props.resultMedia === 'movie',
+const enhancedComponent = compose<Props, InProps>(
+  branch<Props>(
+    ({ resultMedia }) => resultMedia === 'movie',
     withMovies(),
     withTvs()
   )

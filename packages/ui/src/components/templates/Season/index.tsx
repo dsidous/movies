@@ -1,24 +1,28 @@
 import React from 'react';
 
-import { propTypes } from './propTypes';
 import Episode from '../../molecules/Episode';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 import useStyles from './styles';
 import Skeleton from './skeleton';
+import { Tv_Season } from '@typesRoots/tvseasons';
 
-const Season = props => {
+interface Props {
+  loading: boolean;
+  tvSeason: Tv_Season;
+  tvId: string;
+}
+
+const Season: React.FC<Props> = ({
+  loading,
+  tvSeason: { name, air_date, episodes, poster_path },
+  tvId,
+}) => {
   const classes = useStyles();
-  const { loading } = props;
 
   if (loading) {
     return <Skeleton />;
   }
-
-  const {
-    tvSeason: { name, air_date, episodes, poster_path },
-    tvId,
-  } = props;
 
   return (
     <PageTransition>
@@ -27,11 +31,11 @@ const Season = props => {
         release_date={air_date}
         poster_path={poster_path}
         link={`/tv/${tvId}/seasons`}
-        linkCopy="Back to seasons"
+        linkCopy='Back to seasons'
       />
 
       <ul className={classes.season__wrapper}>
-        {episodes.map(episode => (
+        {episodes.map((episode) => (
           <li className={classes.season__element} key={episode.episode_number}>
             <Episode episode={episode} />
           </li>
@@ -40,7 +44,5 @@ const Season = props => {
     </PageTransition>
   );
 };
-
-Season.propTypes = propTypes;
 
 export default Season;

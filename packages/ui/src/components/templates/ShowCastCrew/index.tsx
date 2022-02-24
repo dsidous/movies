@@ -1,12 +1,17 @@
 import React from 'react';
 
-import { propTypes } from './propTypes';
 import Spinner from '../../atoms/Spinner';
-// import FullCastCrew from '../../molecules/FullCastCrew';
+import FullCastCrew from '../../molecules/FullCastCrew';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
+import { Show } from '@typesRoots/show';
 
-const CastCrew = ({ show, loading }) => {
+interface Props {
+  loading: boolean;
+  show: Show;
+}
+
+const CastCrew: React.FC<Props> = ({ show, loading }) => {
   if (loading) {
     return <Spinner />;
   }
@@ -21,13 +26,11 @@ const CastCrew = ({ show, loading }) => {
         release_date={release_date || first_air_date}
         poster_path={poster_path}
         link={`/${media}/${id}`}
-        linkCopy="Back to main"
+        linkCopy='Back to main'
       />
-      {/* <FullCastCrew movie={show} /> */}
+      <FullCastCrew movie={show} />
     </PageTransition>
   );
 };
-
-CastCrew.propTypes = propTypes;
 
 export default CastCrew;

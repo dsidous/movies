@@ -3,15 +3,14 @@ import _ from 'lodash';
 import React from 'react';
 import Alert from '@material-ui/lab/Alert';
 
-import { propTypes } from './propTypes';
 import Section from '../../atoms/Section';
 import FirebaseAuthContext from '../../contexts/FirebaseAuthContext';
-import MovieCard from '../../molecules/MovieCard/index.tsx';
+import MovieCard from '../../molecules/MovieCard';
 import PageTransition from '../../atoms/PageTransition';
 
 import useStyles from './styles';
 
-const WatchList = () => {
+const WatchList: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -22,12 +21,8 @@ const WatchList = () => {
             <Section.Header>My Watchlist</Section.Header>
             {_.size(authUser && user?.watchlist) > 0 ? (
               <ul className={classes.list}>
-                {_.map(user.watchlist, movie => {
-                  const media =
-                    movie.__typename === 'Tv_detailed' ||
-                    movie.__typename === 'Tv'
-                      ? 'tv'
-                      : 'movie';
+                {_.map(user?.watchlist, (movie) => {
+                  const media = movie.name !== '' ? 'tv' : 'movie';
                   return (
                     <MovieCard key={movie.id} movie={movie} media={media} />
                   );
@@ -35,13 +30,13 @@ const WatchList = () => {
               </ul>
             ) : (
               authUser && (
-                <Alert severity="info">
+                <Alert severity='info'>
                   No movie or tv show added to your watchlist yet.
                 </Alert>
               )
             )}
             {!authUser && (
-              <Alert severity="error">
+              <Alert severity='error'>
                 Please log in or register for manage your watchlist
               </Alert>
             )}
@@ -51,7 +46,5 @@ const WatchList = () => {
     </PageTransition>
   );
 };
-
-WatchList.propTypes = propTypes;
 
 export default WatchList;

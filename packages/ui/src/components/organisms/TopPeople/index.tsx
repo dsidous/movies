@@ -13,7 +13,7 @@ import { Top_person } from '@typesRoots/toppeople';
 interface Props {
   toppeople: Top_person[];
   page: number;
-  handlePageSelect: () => void;
+  handlePageSelect: (e: number) => void;
 }
 
 const TopPeopleProfile: React.FC<Props> = ({

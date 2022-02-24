@@ -18,7 +18,7 @@ import { Show } from '@typesRoots/show';
 
 interface Props {
   show: Show;
-  dcolor: string;
+  dcolor: number[];
 }
 
 const ShowProfile: React.FC<Props> = ({

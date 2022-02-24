@@ -5,9 +5,17 @@ import PageTransition from '../../atoms/PageTransition';
 import Section from '../../atoms/Section';
 import TopRatedMovies from '../../organisms/TopRatedMovies';
 import SlideList from '../../molecules/SlideList';
-import { propTypes, defaultProps } from './propTypes';
+import { Movie } from '@typesRoots/movie';
 
-const Home = ({
+interface Props {
+  nowPlayingLoading: boolean;
+  upcomingLoading: boolean;
+  nowplaying: Movie[];
+  upcoming: Movie[];
+  popular: Movie[];
+}
+
+const Home: React.FC<Props> = ({
   nowPlayingLoading,
   upcomingLoading,
   nowplaying,
@@ -35,7 +43,3 @@ const Home = ({
 };
 
 export default Home;
-
-Home.defaultProps = defaultProps;
-
-Home.propTypes = propTypes;

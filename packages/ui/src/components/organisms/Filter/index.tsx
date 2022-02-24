@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SetStateAction, Dispatch } from 'react';
 
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -14,7 +14,7 @@ import { Genres } from '@typesRoots/movie';
 interface Props {
   query: string;
   media: string;
-  queryUpdate: (prop: string) => string;
+  queryUpdate: Dispatch<SetStateAction<string>>;
   genres: Genres[];
   children: React.ReactNode;
 }

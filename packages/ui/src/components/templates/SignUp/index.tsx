@@ -9,13 +9,13 @@ import SignUpForm from '../../molecules/SignUpForm';
 
 import useStyles from './styles';
 
-const SignUpPage = () => {
+const SignUpPage: React.FC = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth='sm'>
       <Paper className={classes.paper}>
-        <Typography variant="h4">Sign up</Typography>
-        <Typography paragraph variant="body2">
+        <Typography variant='h4'>Sign up</Typography>
+        <Typography paragraph variant='body2'>
           To save your watchlist - all free.
         </Typography>
         <SignInFacebook />
